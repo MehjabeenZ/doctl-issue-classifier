@@ -1,0 +1,1507 @@
+[
+  {
+    "number": 78,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 119,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 137,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 226,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 238,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 258,
+    "label": "enhancement",
+    "source": "validated_unanimous"
+  },
+  {
+    "number": 263,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 298,
+    "label": "question",
+    "source": "validated_majority"
+  },
+  {
+    "number": 308,
+    "label": "question",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 309,
+    "label": "question",
+    "source": "validated_unanimous"
+  },
+  {
+    "number": 311,
+    "label": "enhancement",
+    "source": "validated_unanimous"
+  },
+  {
+    "number": 314,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 317,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 335,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 336,
+    "label": "question",
+    "source": "validated_unanimous"
+  },
+  {
+    "number": 345,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 346,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 367,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 389,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 394,
+    "label": "enhancement",
+    "source": "validated_unanimous"
+  },
+  {
+    "number": 400,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 407,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 409,
+    "label": "question",
+    "source": "validated_unanimous"
+  },
+  {
+    "number": 417,
+    "label": "question",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 420,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 425,
+    "label": "bug",
+    "source": "validated_majority"
+  },
+  {
+    "number": 449,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 457,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 459,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 461,
+    "label": "bug",
+    "source": "validated_unanimous"
+  },
+  {
+    "number": 464,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 493,
+    "label": "bug",
+    "source": "validated_majority"
+  },
+  {
+    "number": 496,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 535,
+    "label": "bug",
+    "source": "validated_majority"
+  },
+  {
+    "number": 543,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 547,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 567,
+    "label": "bug",
+    "source": "validated_majority"
+  },
+  {
+    "number": 573,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 630,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 640,
+    "label": "question",
+    "source": "validated_unanimous"
+  },
+  {
+    "number": 655,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 663,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 668,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 699,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 708,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 710,
+    "label": "question",
+    "source": "validated_unanimous"
+  },
+  {
+    "number": 711,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 725,
+    "label": "enhancement",
+    "source": "validated_unanimous"
+  },
+  {
+    "number": 726,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 729,
+    "label": "security",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 730,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 733,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 735,
+    "label": "security",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 752,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 771,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 784,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 790,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 791,
+    "label": "enhancement",
+    "source": "validated_unanimous"
+  },
+  {
+    "number": 793,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 794,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 795,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 799,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 802,
+    "label": "enhancement",
+    "source": "validated_unanimous"
+  },
+  {
+    "number": 803,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 804,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 809,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 811,
+    "label": "security",
+    "source": "validated_unanimous"
+  },
+  {
+    "number": 812,
+    "label": "security",
+    "source": "validated_unanimous"
+  },
+  {
+    "number": 814,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 817,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 818,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 821,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 824,
+    "label": "bug",
+    "source": "validated_majority"
+  },
+  {
+    "number": 825,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 830,
+    "label": "security",
+    "source": "validated_unanimous"
+  },
+  {
+    "number": 833,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 834,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 840,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 843,
+    "label": "security",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 845,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 846,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 847,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 849,
+    "label": "security",
+    "source": "validated_unanimous"
+  },
+  {
+    "number": 856,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 857,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 859,
+    "label": "security",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 877,
+    "label": "bug",
+    "source": "validated_unanimous"
+  },
+  {
+    "number": 878,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 880,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 881,
+    "label": "bug",
+    "source": "validated_unanimous"
+  },
+  {
+    "number": 883,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 889,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 891,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 894,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 895,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 908,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 915,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 916,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 919,
+    "label": "bug",
+    "source": "validated_majority"
+  },
+  {
+    "number": 923,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 927,
+    "label": "security",
+    "source": "validated_unanimous"
+  },
+  {
+    "number": 928,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 930,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 932,
+    "label": "security",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 933,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 934,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 936,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 937,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 947,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 951,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 953,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 954,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 958,
+    "label": "security",
+    "source": "validated_unanimous"
+  },
+  {
+    "number": 964,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 965,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 968,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 970,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 972,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 973,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 974,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 975,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 978,
+    "label": "enhancement",
+    "source": "validated_unanimous"
+  },
+  {
+    "number": 979,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 980,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 985,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 989,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 992,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 993,
+    "label": "security",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 995,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 996,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 997,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 999,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1001,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1003,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1007,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1017,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1018,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1020,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1022,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1023,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1024,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1028,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1029,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1032,
+    "label": "bug",
+    "source": "validated_majority"
+  },
+  {
+    "number": 1037,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1042,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1059,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1061,
+    "label": "security",
+    "source": "validated_unanimous"
+  },
+  {
+    "number": 1063,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1064,
+    "label": "bug",
+    "source": "validated_majority"
+  },
+  {
+    "number": 1066,
+    "label": "security",
+    "source": "validated_unanimous"
+  },
+  {
+    "number": 1071,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1074,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1083,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1085,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1086,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1087,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1088,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1090,
+    "label": "security",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1091,
+    "label": "security",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1092,
+    "label": "security",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1094,
+    "label": "security",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1095,
+    "label": "security",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1096,
+    "label": "security",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1105,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1106,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1110,
+    "label": "bug",
+    "source": "validated_unanimous"
+  },
+  {
+    "number": 1129,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1130,
+    "label": "security",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1131,
+    "label": "security",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1139,
+    "label": "security",
+    "source": "validated_unanimous"
+  },
+  {
+    "number": 1144,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1147,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1164,
+    "label": "security",
+    "source": "validated_unanimous"
+  },
+  {
+    "number": 1165,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1167,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1171,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1175,
+    "label": "security",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1176,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1180,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1192,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1196,
+    "label": "security",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1217,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1221,
+    "label": "enhancement",
+    "source": "validated_unanimous"
+  },
+  {
+    "number": 1243,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1262,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1263,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1264,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1267,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1268,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1271,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1280,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1281,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1284,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1291,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1300,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1306,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1312,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1322,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1326,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1329,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1330,
+    "label": "question",
+    "source": "validated_majority"
+  },
+  {
+    "number": 1331,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1335,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1340,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1341,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1344,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1345,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1349,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1354,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1358,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1359,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1361,
+    "label": "enhancement",
+    "source": "validated_unanimous"
+  },
+  {
+    "number": 1364,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1365,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1366,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1367,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1375,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1380,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1382,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1390,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1394,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1396,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1407,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1415,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1417,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1418,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1419,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1426,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1436,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1444,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1447,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1449,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1460,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1461,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1464,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1465,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1474,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1507,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1512,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1513,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1516,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1525,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1527,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1530,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1533,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1534,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1536,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1537,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1543,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1545,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1553,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1559,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1561,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1574,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1594,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1597,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1602,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1605,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1614,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1615,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1618,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1619,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1624,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1632,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1635,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1637,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1644,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1647,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1656,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1665,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1666,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1681,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1683,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1689,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1710,
+    "label": "bug",
+    "source": "validated_unanimous"
+  },
+  {
+    "number": 1719,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1733,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1737,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1749,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1750,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1753,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1758,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1759,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1760,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1763,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1775,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1776,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1782,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1785,
+    "label": "bug",
+    "source": "validated_unanimous"
+  },
+  {
+    "number": 1790,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1795,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1797,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1799,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1801,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1813,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1854,
+    "label": "enhancement",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1855,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1868,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1869,
+    "label": "bug",
+    "source": "rule_mapped"
+  },
+  {
+    "number": 1875,
+    "label": "bug",
+    "source": "rule_mapped"
+  }
+]

@@ -1,0 +1,1377 @@
+[
+  {
+    "number": 881,
+    "label": "bug",
+    "rationale": "auth init prompts for token despite flag"
+  },
+  {
+    "number": 461,
+    "label": "bug",
+    "rationale": "cluster get fails for long cluster name"
+  },
+  {
+    "number": 1110,
+    "label": "bug",
+    "rationale": "ssh-key create fails, fingerprint error"
+  },
+  {
+    "number": 1064,
+    "label": "bug",
+    "rationale": "app spec field unsupported, causes parse error"
+  },
+  {
+    "number": 1032,
+    "label": "other",
+    "rationale": "user's own DNS/network connectivity issue"
+  },
+  {
+    "number": 919,
+    "label": "question",
+    "rationale": "how to update DNS records, trailing dot error"
+  },
+  {
+    "number": 877,
+    "label": "bug",
+    "rationale": "fails when XDG_CONFIG_HOME and HOME unset"
+  },
+  {
+    "number": 1710,
+    "label": "bug",
+    "rationale": "terminal size error connecting to app platform on Windows"
+  },
+  {
+    "number": 824,
+    "label": "enhancement",
+    "rationale": "request consistent alphabetic tag ordering"
+  },
+  {
+    "number": 1785,
+    "label": "bug",
+    "rationale": "serverless subcommand not recognized"
+  },
+  {
+    "number": 978,
+    "label": "enhancement",
+    "rationale": "spec validate errors lack line info"
+  },
+  {
+    "number": 311,
+    "label": "enhancement",
+    "rationale": "request Flatpak packaging"
+  },
+  {
+    "number": 258,
+    "label": "enhancement",
+    "rationale": "request Spaces API support"
+  },
+  {
+    "number": 394,
+    "label": "enhancement",
+    "rationale": "want configurable kube-context on save"
+  },
+  {
+    "number": 791,
+    "label": "enhancement",
+    "rationale": "request configurable kubeconfig expiry"
+  },
+  {
+    "number": 802,
+    "label": "enhancement",
+    "rationale": "request --vpc-uuid flag on droplet create"
+  },
+  {
+    "number": 1221,
+    "label": "enhancement",
+    "rationale": "feature request: deploy zip to functions"
+  },
+  {
+    "number": 1361,
+    "label": "enhancement",
+    "rationale": "want more detail in JSON parse error"
+  },
+  {
+    "number": 1330,
+    "label": "question",
+    "rationale": "asking how to get app platform metrics"
+  },
+  {
+    "number": 725,
+    "label": "enhancement",
+    "rationale": "feature request: add ssh key to existing droplet"
+  },
+  {
+    "number": 710,
+    "label": "question",
+    "rationale": "asking for doctl equivalent of web UI action"
+  },
+  {
+    "number": 640,
+    "label": "question",
+    "rationale": "asking how to reuse token across CI calls"
+  },
+  {
+    "number": 535,
+    "label": "bug",
+    "rationale": "LB create doesn't create HTTPS passthrough rule"
+  },
+  {
+    "number": 425,
+    "label": "bug",
+    "rationale": "--ssh-private-ip flag freezes command"
+  },
+  {
+    "number": 336,
+    "label": "question",
+    "rationale": "asking how to migrate config.yaml to new machine"
+  },
+  {
+    "number": 493,
+    "label": "bug",
+    "rationale": "floating IP delete fails, pending event error"
+  },
+  {
+    "number": 409,
+    "label": "question",
+    "rationale": "asking best way to manage multiple accounts"
+  },
+  {
+    "number": 309,
+    "label": "question",
+    "rationale": "asking how to script snapshot retention"
+  },
+  {
+    "number": 298,
+    "label": "question",
+    "rationale": "user confused about unknown flag error"
+  },
+  {
+    "number": 567,
+    "label": "bug",
+    "rationale": "wrong disk/vcpu size on droplet creation"
+  },
+  {
+    "number": 1139,
+    "label": "security",
+    "rationale": "CVE dependency scan report"
+  },
+  {
+    "number": 1066,
+    "label": "security",
+    "rationale": "CVE dependency scan report"
+  },
+  {
+    "number": 958,
+    "label": "security",
+    "rationale": "CVE dependency scan report"
+  },
+  {
+    "number": 927,
+    "label": "security",
+    "rationale": "CVE dependency scan report"
+  },
+  {
+    "number": 830,
+    "label": "security",
+    "rationale": "CVE dependency scan report"
+  },
+  {
+    "number": 849,
+    "label": "security",
+    "rationale": "CVE dependency scan report"
+  },
+  {
+    "number": 1164,
+    "label": "security",
+    "rationale": "CVE dependency scan report"
+  },
+  {
+    "number": 812,
+    "label": "security",
+    "rationale": "CVE dependency scan report"
+  },
+  {
+    "number": 811,
+    "label": "security",
+    "rationale": "CVE dependency scan report"
+  },
+  {
+    "number": 1061,
+    "label": "security",
+    "rationale": "CVE dependency scan report"
+  },
+  {
+    "number": 2,
+    "label": "enhancement",
+    "rationale": "request support for a config file"
+  },
+  {
+    "number": 18,
+    "label": "bug",
+    "rationale": "delete picks wrong droplet among duplicate names"
+  },
+  {
+    "number": 19,
+    "label": "bug",
+    "rationale": "auth login ignores flags on windows"
+  },
+  {
+    "number": 20,
+    "label": "enhancement",
+    "rationale": "images list missing slug column"
+  },
+  {
+    "number": 21,
+    "label": "bug",
+    "rationale": "login fails on KDE, browser lib issue"
+  },
+  {
+    "number": 22,
+    "label": "bug",
+    "rationale": "version shows -dev suffix incorrectly"
+  },
+  {
+    "number": 24,
+    "label": "documentation",
+    "rationale": "README lacks detail on building from source"
+  },
+  {
+    "number": 25,
+    "label": "documentation",
+    "rationale": "docs mismatch: .doctlconfig vs .doctlcfg"
+  },
+  {
+    "number": 26,
+    "label": "bug",
+    "rationale": "auth login flags not behaving as documented"
+  },
+  {
+    "number": 28,
+    "label": "documentation",
+    "rationale": "config file format undocumented"
+  },
+  {
+    "number": 29,
+    "label": "enhancement",
+    "rationale": "request release to package managers"
+  },
+  {
+    "number": 30,
+    "label": "bug",
+    "rationale": "--ssh-port option ignored"
+  },
+  {
+    "number": 32,
+    "label": "bug",
+    "rationale": "homebrew package version outdated"
+  },
+  {
+    "number": 33,
+    "label": "enhancement",
+    "rationale": "missing --format option for change-kernel action"
+  },
+  {
+    "number": 37,
+    "label": "enhancement",
+    "rationale": "request script to regenerate mocks"
+  },
+  {
+    "number": 42,
+    "label": "bug",
+    "rationale": "go get fails due to submodule mapping error"
+  },
+  {
+    "number": 43,
+    "label": "bug",
+    "rationale": "homebrew formula stuck on old version"
+  },
+  {
+    "number": 45,
+    "label": "other",
+    "rationale": "vague/empty configuration suggestion"
+  },
+  {
+    "number": 46,
+    "label": "bug",
+    "rationale": "binary fails to execute, exec format error"
+  },
+  {
+    "number": 47,
+    "label": "enhancement",
+    "rationale": "request FreeBSD release"
+  },
+  {
+    "number": 48,
+    "label": "bug",
+    "rationale": "rebuild droplet doesn't use specified image"
+  },
+  {
+    "number": 50,
+    "label": "enhancement",
+    "rationale": "request one-step floating IP create+assign"
+  },
+  {
+    "number": 55,
+    "label": "bug",
+    "rationale": "json output polluted with extra stdout prints"
+  },
+  {
+    "number": 59,
+    "label": "enhancement",
+    "rationale": "suggest XDG conformance for config file"
+  },
+  {
+    "number": 65,
+    "label": "enhancement",
+    "rationale": "request SSH agent support on Windows"
+  },
+  {
+    "number": 66,
+    "label": "enhancement",
+    "rationale": "request interactive shell/repl mode"
+  },
+  {
+    "number": 67,
+    "label": "enhancement",
+    "rationale": "request git-style command aliases"
+  },
+  {
+    "number": 71,
+    "label": "bug",
+    "rationale": "exec format error after tarball install"
+  },
+  {
+    "number": 73,
+    "label": "bug",
+    "rationale": "cannot execute binary per README instructions"
+  },
+  {
+    "number": 75,
+    "label": "bug",
+    "rationale": "auth login doesn't persist access token"
+  },
+  {
+    "number": 76,
+    "label": "bug",
+    "rationale": "auth login doesn't open browser tab"
+  },
+  {
+    "number": 77,
+    "label": "enhancement",
+    "rationale": "request SSH agent forwarding"
+  },
+  {
+    "number": 81,
+    "label": "bug",
+    "rationale": "ssh user/key-path arguments ignored"
+  },
+  {
+    "number": 82,
+    "label": "bug",
+    "rationale": "images list-user returns distributions, wrong handler"
+  },
+  {
+    "number": 83,
+    "label": "bug",
+    "rationale": "auth login doesn't create config file"
+  },
+  {
+    "number": 84,
+    "label": "bug",
+    "rationale": "droplet list capped at 400, missing entries"
+  },
+  {
+    "number": 86,
+    "label": "enhancement",
+    "rationale": "request addressing droplets by name"
+  },
+  {
+    "number": 89,
+    "label": "enhancement",
+    "rationale": "request private IP in droplet list output"
+  },
+  {
+    "number": 90,
+    "label": "enhancement",
+    "rationale": "request bash completion"
+  },
+  {
+    "number": 94,
+    "label": "enhancement",
+    "rationale": "propose replacing auth login with auth init"
+  },
+  {
+    "number": 95,
+    "label": "enhancement",
+    "rationale": "request Go template output support"
+  },
+  {
+    "number": 96,
+    "label": "enhancement",
+    "rationale": "request jsonpath output support"
+  },
+  {
+    "number": 101,
+    "label": "bug",
+    "rationale": "auth login fails, no browser popup on Mac"
+  },
+  {
+    "number": 102,
+    "label": "enhancement",
+    "rationale": "request droplet find by partial match command"
+  },
+  {
+    "number": 106,
+    "label": "bug",
+    "rationale": "--user-data-file argument not applied"
+  },
+  {
+    "number": 107,
+    "label": "bug",
+    "rationale": "tag droplet returns 404 error"
+  },
+  {
+    "number": 108,
+    "label": "enhancement",
+    "rationale": "suggest notify/callback when --wait omitted"
+  },
+  {
+    "number": 109,
+    "label": "enhancement",
+    "rationale": "request confirmation prompt before delete"
+  },
+  {
+    "number": 112,
+    "label": "bug",
+    "rationale": "ssh client broken on Windows"
+  },
+  {
+    "number": 114,
+    "label": "bug",
+    "rationale": "color output broken on Windows"
+  },
+  {
+    "number": 115,
+    "label": "bug",
+    "rationale": "user agent version string not updated"
+  },
+  {
+    "number": 116,
+    "label": "enhancement",
+    "rationale": "request hypervisor id specification on create"
+  },
+  {
+    "number": 120,
+    "label": "enhancement",
+    "rationale": "request tab autocomplete support"
+  },
+  {
+    "number": 124,
+    "label": "bug",
+    "rationale": "invalid JSON output for multi droplet create"
+  },
+  {
+    "number": 127,
+    "label": "bug",
+    "rationale": "invalid tag errors but droplet still created"
+  },
+  {
+    "number": 128,
+    "label": "bug",
+    "rationale": "homebrew build fails on macOS 10.12"
+  },
+  {
+    "number": 129,
+    "label": "bug",
+    "rationale": "snapshot action errors out"
+  },
+  {
+    "number": 130,
+    "label": "bug",
+    "rationale": "homebrew package stuck on old release"
+  },
+  {
+    "number": 131,
+    "label": "documentation",
+    "rationale": "README links point to outdated command docs"
+  },
+  {
+    "number": 133,
+    "label": "enhancement",
+    "rationale": "request bulk snapshot deletion"
+  },
+  {
+    "number": 136,
+    "label": "enhancement",
+    "rationale": "request snap package integration"
+  },
+  {
+    "number": 141,
+    "label": "enhancement",
+    "rationale": "request scp command support"
+  },
+  {
+    "number": 142,
+    "label": "bug",
+    "rationale": "debug notice printed to stdout breaks piping"
+  },
+  {
+    "number": 145,
+    "label": "bug",
+    "rationale": "tag droplet returns 404 error"
+  },
+  {
+    "number": 147,
+    "label": "bug",
+    "rationale": "go get fails, submodule mapping error"
+  },
+  {
+    "number": 149,
+    "label": "bug",
+    "rationale": "fatal runtime signal error on macOS"
+  },
+  {
+    "number": 150,
+    "label": "bug",
+    "rationale": "git submodule mapping error on fetch"
+  },
+  {
+    "number": 156,
+    "label": "enhancement",
+    "rationale": "request improved template access to droplet struct"
+  },
+  {
+    "number": 162,
+    "label": "bug",
+    "rationale": "notice message pollutes output on create"
+  },
+  {
+    "number": 163,
+    "label": "other",
+    "rationale": "empty test issue, no content"
+  },
+  {
+    "number": 166,
+    "label": "question",
+    "rationale": "asking why tag-name vs tag-names differ"
+  },
+  {
+    "number": 167,
+    "label": "enhancement",
+    "rationale": "request ssh-user/ssh-port config file support"
+  },
+  {
+    "number": 168,
+    "label": "enhancement",
+    "rationale": "request passthrough of ssh command args"
+  },
+  {
+    "number": 172,
+    "label": "enhancement",
+    "rationale": "request listing resources before delete confirmation"
+  },
+  {
+    "number": 176,
+    "label": "bug",
+    "rationale": "help text uses unreadable white color"
+  },
+  {
+    "number": 181,
+    "label": "bug",
+    "rationale": "ssh-key add fails with no key found error"
+  },
+  {
+    "number": 182,
+    "label": "enhancement",
+    "rationale": "request monitoring option on droplet create"
+  },
+  {
+    "number": 183,
+    "label": "question",
+    "rationale": "asking how to add multiple tags on create"
+  },
+  {
+    "number": 184,
+    "label": "documentation",
+    "rationale": "docs unclear on snapshot creation syntax"
+  },
+  {
+    "number": 189,
+    "label": "bug",
+    "rationale": "help output missing required droplet-id arg"
+  },
+  {
+    "number": 192,
+    "label": "bug",
+    "rationale": "image-action transfer returns 404 error"
+  },
+  {
+    "number": 198,
+    "label": "bug",
+    "rationale": "public images listed without --public flag"
+  },
+  {
+    "number": 200,
+    "label": "enhancement",
+    "rationale": "checklist of missing API calls/commands"
+  },
+  {
+    "number": 205,
+    "label": "bug",
+    "rationale": "--volumes requires UUID unlike other options"
+  },
+  {
+    "number": 207,
+    "label": "bug",
+    "rationale": "cannot detach volume from droplet"
+  },
+  {
+    "number": 211,
+    "label": "question",
+    "rationale": "asking how to install on Windows 10"
+  },
+  {
+    "number": 212,
+    "label": "enhancement",
+    "rationale": "request error when enabling monitoring on unsupported image"
+  },
+  {
+    "number": 213,
+    "label": "enhancement",
+    "rationale": "request showing enabled features in droplet list"
+  },
+  {
+    "number": 216,
+    "label": "enhancement",
+    "rationale": "request specifying ssh key by name not fingerprint"
+  },
+  {
+    "number": 218,
+    "label": "bug",
+    "rationale": "regenerating mocks breaks load balancer tests"
+  },
+  {
+    "number": 219,
+    "label": "enhancement",
+    "rationale": "request TTL flag for domain record create"
+  },
+  {
+    "number": 227,
+    "label": "enhancement",
+    "rationale": "domain commands missing ID in output"
+  },
+  {
+    "number": 230,
+    "label": "enhancement",
+    "rationale": "request suggested CLI command in web console"
+  },
+  {
+    "number": 240,
+    "label": "bug",
+    "rationale": "config path hardcoded, wrong on Windows XP"
+  },
+  {
+    "number": 242,
+    "label": "enhancement",
+    "rationale": "asking for firewall/network CRUD support"
+  },
+  {
+    "number": 244,
+    "label": "enhancement",
+    "rationale": "no way to enable monitoring on existing droplet"
+  },
+  {
+    "number": 246,
+    "label": "bug",
+    "rationale": "config path inconsistent based on XDG_CONFIG_HOME value"
+  },
+  {
+    "number": 247,
+    "label": "bug",
+    "rationale": "cannot create firewall rule allowing all ports"
+  },
+  {
+    "number": 248,
+    "label": "bug",
+    "rationale": "load-balancer/firewall create randomly fails"
+  },
+  {
+    "number": 250,
+    "label": "enhancement",
+    "rationale": "request zsh completion"
+  },
+  {
+    "number": 251,
+    "label": "bug",
+    "rationale": "image list returns empty result"
+  },
+  {
+    "number": 252,
+    "label": "bug",
+    "rationale": "401 error despite successful auth init"
+  },
+  {
+    "number": 253,
+    "label": "other",
+    "rationale": "request to transfer snap package ownership"
+  },
+  {
+    "number": 255,
+    "label": "enhancement",
+    "rationale": "request region list show available features"
+  },
+  {
+    "number": 257,
+    "label": "bug",
+    "rationale": "misleading error for invalid ssh key on create"
+  },
+  {
+    "number": 261,
+    "label": "bug",
+    "rationale": "image list-distribution returns blank"
+  },
+  {
+    "number": 265,
+    "label": "enhancement",
+    "rationale": "request droplet-action by hostname"
+  },
+  {
+    "number": 266,
+    "label": "enhancement",
+    "rationale": "request multiple account support"
+  },
+  {
+    "number": 269,
+    "label": "question",
+    "rationale": "asking why snap install can't find doctl"
+  },
+  {
+    "number": 271,
+    "label": "documentation",
+    "rationale": "request docs on re-imaging a droplet"
+  },
+  {
+    "number": 272,
+    "label": "enhancement",
+    "rationale": "request matching multiple tags in droplet list"
+  },
+  {
+    "number": 274,
+    "label": "enhancement",
+    "rationale": "snapshots lack slug field like images"
+  },
+  {
+    "number": 275,
+    "label": "enhancement",
+    "rationale": "request publishing doctl to Docker Hub"
+  },
+  {
+    "number": 276,
+    "label": "bug",
+    "rationale": "sha256 checksum mismatch for release binary"
+  },
+  {
+    "number": 279,
+    "label": "bug",
+    "rationale": "public distro images missing from list, possible regression"
+  },
+  {
+    "number": 281,
+    "label": "bug",
+    "rationale": "auth init prompts despite --access-token flag"
+  },
+  {
+    "number": 283,
+    "label": "enhancement",
+    "rationale": "request version update-check like gcloud"
+  },
+  {
+    "number": 285,
+    "label": "bug",
+    "rationale": "volume created with wrong size"
+  },
+  {
+    "number": 288,
+    "label": "question",
+    "rationale": "asking how to export droplet list to file"
+  },
+  {
+    "number": 289,
+    "label": "bug",
+    "rationale": "--domain-name filter flag has no effect"
+  },
+  {
+    "number": 290,
+    "label": "question",
+    "rationale": "asking how to attach multiple volumes on create"
+  },
+  {
+    "number": 291,
+    "label": "enhancement",
+    "rationale": "droplet list missing size slug column"
+  },
+  {
+    "number": 293,
+    "label": "enhancement",
+    "rationale": "asking for load balancer log access support"
+  },
+  {
+    "number": 294,
+    "label": "bug",
+    "rationale": "auth init prompts for token despite flag"
+  },
+  {
+    "number": 297,
+    "label": "enhancement",
+    "rationale": "request removing completion from tab-complete list"
+  },
+  {
+    "number": 300,
+    "label": "enhancement",
+    "rationale": "request wildcard support for --record-id"
+  },
+  {
+    "number": 306,
+    "label": "bug",
+    "rationale": "snap store stuck on stale version"
+  },
+  {
+    "number": 310,
+    "label": "enhancement",
+    "rationale": "request ssh support baked into Dockerfile"
+  },
+  {
+    "number": 312,
+    "label": "enhancement",
+    "rationale": "snapshot action ID not useful, want resource id"
+  },
+  {
+    "number": 318,
+    "label": "question",
+    "rationale": "asking what doctl name stands for"
+  },
+  {
+    "number": 320,
+    "label": "bug",
+    "rationale": "--format flag errors on documented column name"
+  },
+  {
+    "number": 321,
+    "label": "bug",
+    "rationale": "cannot attach existing volume during droplet create"
+  },
+  {
+    "number": 325,
+    "label": "bug",
+    "rationale": "volume create fails parsing size string"
+  },
+  {
+    "number": 328,
+    "label": "bug",
+    "rationale": "--snapshot-name flag ignored on snapshot action"
+  },
+  {
+    "number": 329,
+    "label": "bug",
+    "rationale": "build-from-source reports incorrect version"
+  },
+  {
+    "number": 332,
+    "label": "bug",
+    "rationale": "ssh terminal emulation broken on Windows"
+  },
+  {
+    "number": 333,
+    "label": "bug",
+    "rationale": "tag name case handling inconsistent/cached"
+  },
+  {
+    "number": 334,
+    "label": "bug",
+    "rationale": "spurious config placement warning"
+  },
+  {
+    "number": 337,
+    "label": "bug",
+    "rationale": "snap package stuck on outdated version"
+  },
+  {
+    "number": 340,
+    "label": "enhancement",
+    "rationale": "request --format support for load-balancer commands"
+  },
+  {
+    "number": 341,
+    "label": "bug",
+    "rationale": "ssh-key import fails on Alpine build"
+  },
+  {
+    "number": 344,
+    "label": "bug",
+    "rationale": "release missing binaries for v1.9.0"
+  },
+  {
+    "number": 347,
+    "label": "bug",
+    "rationale": "--user-data-file gives permission denied error"
+  },
+  {
+    "number": 358,
+    "label": "bug",
+    "rationale": "volume delete fails with error"
+  },
+  {
+    "number": 359,
+    "label": "enhancement",
+    "rationale": "request attach/detach commands for volumes"
+  },
+  {
+    "number": 360,
+    "label": "enhancement",
+    "rationale": "asking about/requesting kubernetes support"
+  },
+  {
+    "number": 366,
+    "label": "bug",
+    "rationale": "--ip-address required when should be optional"
+  },
+  {
+    "number": 368,
+    "label": "enhancement",
+    "rationale": "request MacPorts packaging"
+  },
+  {
+    "number": 378,
+    "label": "enhancement",
+    "rationale": "request excluding token from config when env var set"
+  },
+  {
+    "number": 381,
+    "label": "bug",
+    "rationale": "droplet size list mismatches web UI"
+  },
+  {
+    "number": 385,
+    "label": "bug",
+    "rationale": "ssh fails due to unrelated ssh config options"
+  },
+  {
+    "number": 386,
+    "label": "bug",
+    "rationale": "zsh completion throws math expression error"
+  },
+  {
+    "number": 390,
+    "label": "bug",
+    "rationale": "snap version stuck outdated"
+  },
+  {
+    "number": 395,
+    "label": "bug",
+    "rationale": "renew warning message missing 'cluster' keyword"
+  },
+  {
+    "number": 399,
+    "label": "bug",
+    "rationale": "kubeconfig fetch intermittently fails with 500"
+  },
+  {
+    "number": 405,
+    "label": "bug",
+    "rationale": "doctl-generated kubeconfig incompatible with kompose"
+  },
+  {
+    "number": 406,
+    "label": "enhancement",
+    "rationale": "request add-ssh-key droplet action"
+  },
+  {
+    "number": 411,
+    "label": "bug",
+    "rationale": "auth contexts get lowercased unexpectedly"
+  },
+  {
+    "number": 419,
+    "label": "bug",
+    "rationale": "doctl crashes with fatal runtime error on macOS"
+  },
+  {
+    "number": 424,
+    "label": "enhancement",
+    "rationale": "asking for k8s cluster version upgrade support"
+  },
+  {
+    "number": 432,
+    "label": "enhancement",
+    "rationale": "request --wait for IP assignment on droplet create"
+  },
+  {
+    "number": 437,
+    "label": "bug",
+    "rationale": "cluster deletion leaves dangling load balancers"
+  },
+  {
+    "number": 441,
+    "label": "enhancement",
+    "rationale": "request ARM binary release"
+  },
+  {
+    "number": 445,
+    "label": "enhancement",
+    "rationale": "propose refactor of kubernetes code with shared struct"
+  },
+  {
+    "number": 446,
+    "label": "enhancement",
+    "rationale": "suggest listing completion command in help"
+  },
+  {
+    "number": 448,
+    "label": "bug",
+    "rationale": "kubeconfig save leads to auth plugin error"
+  },
+  {
+    "number": 451,
+    "label": "enhancement",
+    "rationale": "config default path hardcoded, request runtime detection"
+  },
+  {
+    "number": 452,
+    "label": "documentation",
+    "rationale": "request valid option values shown in help text"
+  },
+  {
+    "number": 458,
+    "label": "bug",
+    "rationale": "kubectl auth error despite doctl token validated"
+  },
+  {
+    "number": 462,
+    "label": "bug",
+    "rationale": "ssh prompts password despite passwordless key on Windows"
+  },
+  {
+    "number": 475,
+    "label": "enhancement",
+    "rationale": "request clearer instructions for snap ssh permission error"
+  },
+  {
+    "number": 476,
+    "label": "bug",
+    "rationale": "snap install fails connecting plugs"
+  },
+  {
+    "number": 479,
+    "label": "bug",
+    "rationale": "volume list -o json returns null instead of empty array"
+  },
+  {
+    "number": 480,
+    "label": "bug",
+    "rationale": "process substitution arg not resolved, 404 error"
+  },
+  {
+    "number": 481,
+    "label": "enhancement",
+    "rationale": "request clearer instructions for snap kubeconfig permission error"
+  },
+  {
+    "number": 485,
+    "label": "bug",
+    "rationale": "Windows binary invalid for v1.21.0"
+  },
+  {
+    "number": 495,
+    "label": "bug",
+    "rationale": "snapshot deletion silently not working"
+  },
+  {
+    "number": 500,
+    "label": "bug",
+    "rationale": "changelog generation script misses some PRs"
+  },
+  {
+    "number": 504,
+    "label": "bug",
+    "rationale": "backup snapshots fail to delete despite no error"
+  },
+  {
+    "number": 507,
+    "label": "bug",
+    "rationale": "release binaries wrongly include .exe in linux filename"
+  },
+  {
+    "number": 509,
+    "label": "bug",
+    "rationale": "Windows binaries missing .exe extension"
+  },
+  {
+    "number": 546,
+    "label": "question",
+    "rationale": "asking if droplet list can be ordered"
+  },
+  {
+    "number": 556,
+    "label": "question",
+    "rationale": "asking how to list all auth contexts"
+  },
+  {
+    "number": 561,
+    "label": "enhancement",
+    "rationale": "suggest migrating to maintained uuid library"
+  },
+  {
+    "number": 568,
+    "label": "bug",
+    "rationale": "release notes show duplicated docker pull instructions"
+  },
+  {
+    "number": 569,
+    "label": "bug",
+    "rationale": "--format flag ignored when output is json"
+  },
+  {
+    "number": 578,
+    "label": "bug",
+    "rationale": "auth init fails reading token on Windows"
+  },
+  {
+    "number": 591,
+    "label": "bug",
+    "rationale": "mkdir permission denied on first snap usage"
+  },
+  {
+    "number": 595,
+    "label": "bug",
+    "rationale": "kubectl can't load credentials produced by doctl"
+  },
+  {
+    "number": 604,
+    "label": "bug",
+    "rationale": "auth init fails, config directory missing"
+  },
+  {
+    "number": 654,
+    "label": "other",
+    "rationale": "unrelated issue about different binary, not doctl"
+  },
+  {
+    "number": 656,
+    "label": "bug",
+    "rationale": "context switch setting not persisted"
+  },
+  {
+    "number": 659,
+    "label": "bug",
+    "rationale": "DIGITALOCEAN_CONTEXT env var context switching broken"
+  },
+  {
+    "number": 667,
+    "label": "enhancement",
+    "rationale": "request support for multiple API tokens"
+  },
+  {
+    "number": 670,
+    "label": "question",
+    "rationale": "asking if switching between teams is supported"
+  },
+  {
+    "number": 671,
+    "label": "bug",
+    "rationale": "custom image created but not listed afterward"
+  },
+  {
+    "number": 672,
+    "label": "documentation",
+    "rationale": "request clearer help menu for image create errors"
+  },
+  {
+    "number": 692,
+    "label": "bug",
+    "rationale": "docker build fails with tar invalid magic error"
+  },
+  {
+    "number": 703,
+    "label": "enhancement",
+    "rationale": "request non-interactive auth context setup"
+  },
+  {
+    "number": 709,
+    "label": "bug",
+    "rationale": "snap permissions block docker registry login"
+  },
+  {
+    "number": 716,
+    "label": "documentation",
+    "rationale": "docs missing complete uninstall guide"
+  },
+  {
+    "number": 719,
+    "label": "documentation",
+    "rationale": "README context-switching explanation confusing"
+  },
+  {
+    "number": 720,
+    "label": "bug",
+    "rationale": "known_hosts not updated when ssh via snap install"
+  },
+  {
+    "number": 722,
+    "label": "question",
+    "rationale": "user reports self-described gotchas with cluster create"
+  },
+  {
+    "number": 734,
+    "label": "bug",
+    "rationale": "crashes needing cgo/HOME under snap"
+  },
+  {
+    "number": 751,
+    "label": "enhancement",
+    "rationale": "request Debian/apt package repository"
+  },
+  {
+    "number": 763,
+    "label": "enhancement",
+    "rationale": "request upload files/tar to Spaces feature"
+  },
+  {
+    "number": 773,
+    "label": "enhancement",
+    "rationale": "request wait-for-cloud-init option"
+  },
+  {
+    "number": 853,
+    "label": "bug",
+    "rationale": "--auto-upgrade flag silently no-ops without '='"
+  },
+  {
+    "number": 866,
+    "label": "enhancement",
+    "rationale": "chore: fix gofmt failures in codebase"
+  },
+  {
+    "number": 867,
+    "label": "bug",
+    "rationale": "test suite ignores returned error (ineffassign)"
+  },
+  {
+    "number": 869,
+    "label": "enhancement",
+    "rationale": "chore: fix golint failures in codebase"
+  },
+  {
+    "number": 870,
+    "label": "enhancement",
+    "rationale": "chore: fix misspellings in codebase"
+  },
+  {
+    "number": 876,
+    "label": "bug",
+    "rationale": "registry login fails, missing docker credential helper"
+  },
+  {
+    "number": 1142,
+    "label": "bug",
+    "rationale": "apps update --wait can hang forever on no-op deploy"
+  },
+  {
+    "number": 1156,
+    "label": "documentation",
+    "rationale": "request doc examples for cdn flush --files"
+  },
+  {
+    "number": 1190,
+    "label": "documentation",
+    "rationale": "request published AppSpec JSON Schema"
+  },
+  {
+    "number": 1274,
+    "label": "enhancement",
+    "rationale": "request Dependabot integration"
+  },
+  {
+    "number": 1334,
+    "label": "bug",
+    "rationale": "--wait doesn't actually wait for cloud-init completion"
+  },
+  {
+    "number": 1363,
+    "label": "other",
+    "rationale": "spam link post"
+  },
+  {
+    "number": 1420,
+    "label": "enhancement",
+    "rationale": "update deprecated CI set-output command"
+  },
+  {
+    "number": 1505,
+    "label": "other",
+    "rationale": "off-topic platform suggestion, not about doctl CLI"
+  },
+  {
+    "number": 1572,
+    "label": "enhancement",
+    "rationale": "request configurable docker socket path"
+  },
+  {
+    "number": 1584,
+    "label": "enhancement",
+    "rationale": "request --wait flag for database migrate command"
+  },
+  {
+    "number": 1585,
+    "label": "enhancement",
+    "rationale": "request --wait flag for database resize command"
+  },
+  {
+    "number": 1610,
+    "label": "documentation",
+    "rationale": "request improving CONTRIBUTING.md and README.md"
+  },
+  {
+    "number": 1722,
+    "label": "enhancement",
+    "rationale": "propose integrating golangci-lint tooling"
+  },
+  {
+    "number": 1723,
+    "label": "bug",
+    "rationale": "registry commands break with multiple registries"
+  },
+  {
+    "number": 1816,
+    "label": "bug",
+    "rationale": "auth switch writes bogus default:true context entry"
+  },
+  {
+    "number": 1822,
+    "label": "bug",
+    "rationale": "list-job-invocations returns empty despite data existing"
+  },
+  {
+    "number": 1842,
+    "label": "bug",
+    "rationale": "config file becomes unparsable after being written"
+  },
+  {
+    "number": 1843,
+    "label": "bug",
+    "rationale": "unwanted 'using cached credential' log message noise"
+  },
+  {
+    "number": 1882,
+    "label": "bug",
+    "rationale": "auth switch silently writes to stale config path"
+  },
+  {
+    "number": 1888,
+    "label": "bug",
+    "rationale": "gradient agent list panics on empty account"
+  },
+  {
+    "number": 1901,
+    "label": "enhancement",
+    "rationale": "request --since/--until flags like docker logs"
+  }
+]

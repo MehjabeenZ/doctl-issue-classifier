@@ -1,0 +1,182 @@
+[
+  {
+    "number": 18,
+    "title": "droplet delete name disambiguation",
+    "body": "If you have multiple droplets with the same name, e.g. \"ubuntu-2gb-nyc3-01\", and issue a droplet delete command, doctl deletes the oldest one.\n\n```\ndoctl compute droplet delete ubuntu-2gb-nyc3-01\n```\n\nThis should be documented, or there should be a disambiguation or confirmation prompt.\n",
+    "html_url": "https://github.com/digitalocean/doctl/issues/18",
+    "candidates": {
+      "labeler_a": "enhancement",
+      "labeler_b": "bug"
+    }
+  },
+  {
+    "number": 20,
+    "title": "`doctl compute images list` does not include slug.",
+    "body": "```\n[~]# doctl compute image list\nID      Name                            Type        Distribution    Slug        Public  Min Disk\n79909       Rails-3.2.12-Nginx-MySQL                snapshot    Ubuntu              false   20\n13271590    FreeBSD 10.2 Raw                    snapshot    FreeBSD             false   20\n15836396    packer-1455685225                   snapshot    Ubuntu              false   40\n15836558    packer-1455685874                   snapshot    Ubuntu              false   40\n15836632    packer-1455686129                   snapshot    Ubuntu              false   40\n308121      WordPress on Ubuntu 12.10               snapshot    Ubuntu              false   20\n385625      WordPress on Ubuntu 12.10               snapshot    Ubuntu              false   20\n415651      WordPress on Ubuntu 12.10               snapshot    Ubuntu              false   20\n\n\n```\n",
+    "html_url": "https://github.com/digitalocean/doctl/issues/20",
+    "candidates": {
+      "labeler_a": "bug",
+      "labeler_b": "enhancement"
+    }
+  },
+  {
+    "number": 33,
+    "title": "Multiple Missing Things for 'change-kernel' Action",
+    "body": "The `--format` option is missing for the `change-kernel` action using the following command:\n\n```\ndoctl compute droplet-action change-kernel <droplet-id>\n```\n\nThis option exists for other similar `droplet-action` such as `power-off`.\n\nI was updating my mass kernel updater script to use `doctl` instead of `curl` and came across this issue.\n\nEDIT:\nIt also appears the `--no-header` option is missing too.\n\nEDIT 2:\nIt appears that it does not list all kernels too. My assumption would be the paging in the DigitalOcean API.\n",
+    "html_url": "https://github.com/digitalocean/doctl/issues/33",
+    "candidates": {
+      "labeler_a": "bug",
+      "labeler_b": "enhancement"
+    }
+  },
+  {
+    "number": 45,
+    "title": "Making doctl configuration versatile",
+    "body": "_Edit: Win11 added Linux subsystem support_",
+    "html_url": "https://github.com/digitalocean/doctl/issues/45",
+    "candidates": {
+      "labeler_a": "enhancement",
+      "labeler_b": "other"
+    }
+  },
+  {
+    "number": 189,
+    "title": "Help dialog for \"droplet get\" is missing required droplet-id arg",
+    "body": "The 1.5.0 Linux amd64 doctl binary seems to be missing the required argument `<droplet-id>`.\r\n\r\n```\r\n[jyundt@laptop tmp]$ wget https://github.com/digitalocean/doctl/releases/download/v1.5.0/doctl-1.5.0-linux-amd64.tar.gz\r\n--2017-02-05 18:58:54--  https://github.com/digitalocean/doctl/releases/download/v1.5.0/doctl-1.5.0-linux-amd64.tar.gz\r\nResolving github.com (github.com)... 192.30.253.112, 192.30.253.113\r\nConnecting to github.com (github.com)|192.30.253.112|:443... connected.\r\nHTTP request sent, awaiting response... 302 Found\r\nLocation: https://github-cloud.s3.amazonaws.com/releases/36529854/5eb29c1e-8ed6-11e6-87d0-ce4a156d1517.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAISTNZFOVBIJMK3TQ%2F20170205%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20170205T235854Z&X-Amz-Expires=300&X-Amz-Signature=37d2b22ea59d4c61a8fddaf8e35805195157825871eaaaed190e11e67b2ac6e4&X-Amz-SignedHeaders=host&actor_id=0&response-content-disposition=attachment%3B%20filename%3Ddoctl-1.5.0-linux-amd64.tar.gz&response-content-type=application%2Foctet-stream [following]\r\n--2017-02-05 18:58:54--  https://github-cloud.s3.amazonaws.com/releases/36529854/5eb29c1e-8ed6-11e6-87d0-ce4a156d1517.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAISTNZFOVBIJMK3TQ%2F20170205%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20170205T235854Z&X-Amz-Expires=300&X-Amz-Signature=37d2b22ea59d4c61a8fddaf8e35805195157825871eaaaed190e11e67b2ac6e4&X-Amz-SignedHeaders=host&actor_id=0&response-content-disposition=attach",
+    "html_url": "https://github.com/digitalocean/doctl/issues/189",
+    "candidates": {
+      "labeler_a": "documentation",
+      "labeler_b": "bug"
+    }
+  },
+  {
+    "number": 227,
+    "title": "Missed domain ID in compute domain command output",
+    "body": "It looks like all `compute domain` commands family misses domain ID in their output:\r\n\r\nEnv:\r\nOS: macOS 10.12.4 \r\ndoctl: 1.6.0-release (via homebrew)\r\n\r\n\r\n```\r\n$ doctl compute domain list\r\nDomain         TTL\r\nfoo.com    1800\r\nbar.net    1800\r\n\r\n$doctl compute domain get foo.bar\r\nDomain         TTL\r\nfoo.bar    1800\r\n```\r\n\r\nAlso, `compute domain create` returns invalid TTL:\r\n\r\n```\r\ndoctl compute domain create baz.org --ip-address=127.0.0.1\r\nDomain         TTL\r\nbaz.org    0\r\n```\r\n\r\nHaving domain ID listed is vital, my use case is to import domain into existent [terraform](https://www.terraform.io/docs/import/usage.html) infrastructure.\r\n",
+    "html_url": "https://github.com/digitalocean/doctl/issues/227",
+    "candidates": {
+      "labeler_a": "bug",
+      "labeler_b": "enhancement"
+    }
+  },
+  {
+    "number": 242,
+    "title": "Managing Firewalls and Network Resources",
+    "body": "Hi,\r\n\r\nIs there anyway to manage firewalls (CRUD) and other Network Resources using Doctl?\r\n\r\nThanks!",
+    "html_url": "https://github.com/digitalocean/doctl/issues/242",
+    "candidates": {
+      "labeler_a": "question",
+      "labeler_b": "enhancement"
+    }
+  },
+  {
+    "number": 244,
+    "title": "how to enable monitoring on an existing droplet using doctl command",
+    "body": "Yes it is possible to --enable-monitoring during machine creation using doctl command.\r\n\r\nHowever, I have a use case where the machine is created in some other manner. And do need a way to enable monitoring using the doctl command on the droplet. \r\n\r\nCan't see this in the documentation. Thanks.",
+    "html_url": "https://github.com/digitalocean/doctl/issues/244",
+    "candidates": {
+      "labeler_a": "question",
+      "labeler_b": "enhancement"
+    }
+  },
+  {
+    "number": 269,
+    "title": "error: snap \"doctl\" not found",
+    "body": "Ubuntu 16.04 32 bit\r\n\r\nWhy I am getting this error>\r\nerror: snap \"doctl\" not found\r\n",
+    "html_url": "https://github.com/digitalocean/doctl/issues/269",
+    "candidates": {
+      "labeler_a": "bug",
+      "labeler_b": "question"
+    }
+  },
+  {
+    "number": 279,
+    "title": "How to list image slugs for DO-provided distros?",
+    "body": "I'm trying to launch a vanilla ubuntu server via terraform. I've tried multiple permutations of `doctl compute image list-*`, to get the id (or the slug) but only my own images show up.\r\n\r\nIIRC, the standard DO-provided distros used to show up. Is this a bug or should I look somwhere else? Is there another flag I need to provide?\r\n\r\n![foo](https://user-images.githubusercontent.com/396004/33640840-c4fda506-d9e7-11e7-9aa8-b968f2c54b59.png)\r\n\r\ndoctl version: 1.7.1-release",
+    "html_url": "https://github.com/digitalocean/doctl/issues/279",
+    "candidates": {
+      "labeler_a": "question",
+      "labeler_b": "bug"
+    }
+  },
+  {
+    "number": 293,
+    "title": "Using doctl, is there a way to see logs from the Load Balancers that we setup?",
+    "body": "Hi there:\r\n\r\nI seem to be getting errors from my DO Load Balancer when I enable Cloud Firewall rules on my Droplets. That said, I do not seem to have a way to see what is erroring out?\r\n\r\nAny chance we could see the error logs from the load balancer if it is having issues connecting to the backend? Any chance we can use doctl to see it?\r\n\r\nSincerely,\r\n\r\nAnand",
+    "html_url": "https://github.com/digitalocean/doctl/issues/293",
+    "candidates": {
+      "labeler_a": "question",
+      "labeler_b": "enhancement"
+    }
+  },
+  {
+    "number": 310,
+    "title": "Dockerfile does not support SSH",
+    "body": "The Dockerfile of this Repository does not allow the usage of the SSH command!\r\n\r\nOpenssh is missing.\r\n\r\nhere is a working example:\r\n\r\n```\r\nFROM alpine:3.5\r\n\r\nENV DOCTL_VERSION=1.8.0\r\n\r\nRUN apk add --no-cache curl openssh\r\n\r\nRUN mkdir /root/.ssh/\r\n\r\nARG HOST_IP\r\nRUN ssh-keyscan -H $HOST_IP >> /root/.ssh/known_hosts\r\n\r\nARG SSH_KEY\r\nRUN echo \"$SSH_KEY\" > /root/.ssh/id_rsa\r\nRUN chmod 600 /root/.ssh/id_rsa\r\n\r\nARG SSH_KEY_PUB\r\nRUN echo \"$SSH_KEY_PUB\" > /root/.ssh/id_rsa.pub\r\nRUN chmod 600 /root/.ssh/id_rsa.pub\r\n\r\nRUN mkdir /lib64 && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2\r\n\r\nWORKDIR /app\r\n\r\nRUN curl -L https://github.com/digitalocean/doctl/releases/download/v${DOCTL_VERSION}/doctl-${DOCTL_VERSION}-linux-amd64.tar.gz  | tar xz\r\n\r\nENTRYPOINT [\"./doctl\"]\r\n```\r\nSrc: https://github.com/demokratie-live/democracy-development/blob/master/doctl\r\n\r\nAnd here is how you buidl and call it (./doctl referes to the dockerfile):\r\n\r\n```\r\ndocker build -t doctl --build-arg SSH_KEY=\"$(cat ./ssh_key)\" --build-arg SSH_KEY_PUB=\"$(cat ./ssh_key.pub)\" --build-arg HOST_IP=\"${DIGITAL_OCEAN_ALPHA_HOST}\" - < ./doctl\r\n```\r\n\r\n```\r\ndocker run --rm -e DIGITALOCEAN_ACCESS_TOKEN=\"${DIGITALOCEAN_ACCESS_TOKEN}\" doctl compute ssh ${DIGITALOCEAN_ALPHA_SERVER_DROPLET_NAME} --ssh-user ${DIGITALOCEAN_ALPHA_SERVER_USER} --ssh-command \"cd ~/democracy-development && ./deploy-production.sh $TRAVIS_TAG\"\r\n```\r\n\r\nsrc: https://github.com/demokratie-live/democracy-development/blob/master/.travis.yml#L78\r\n\r\n**Pl",
+    "html_url": "https://github.com/digitalocean/doctl/issues/310",
+    "candidates": {
+      "labeler_a": "bug",
+      "labeler_b": "enhancement"
+    }
+  },
+  {
+    "number": 312,
+    "title": "Snapshot ID",
+    "body": "When generating a snapshot, an ID is returned but it's not useful for future reference:\r\n```\r\ndoctl compute droplet-action snapshot ######## --snapshot-name \"Doctl-Test1\"\r\nID           Status       Type        Started At                       Completed At                     Resource ID    Resource Type    Region\r\n426######    completed    snapshot    2018-05-01 20:35:47 +0000 UTC    2018-05-01 20:36:29 +0000 UTC    ########       droplet          nyc3\r\n```\r\n\r\n```\r\ndoctl compute image delete 426###### -f\r\nError: DELETE https://api.digitalocean.com/v2/images/426######: 404 The resource you were accessing could not be found.\r\n```\r\nOf course, I can list the snapshots and delete the actual snapshot that was just created which has a number 339#####\r\n\r\nIs there a way to get the ID of the snapshot upon creation (it's not available with --wait which doesn't make much sense)? Seems like I'm missing something.",
+    "html_url": "https://github.com/digitalocean/doctl/issues/312",
+    "candidates": {
+      "labeler_a": "bug",
+      "labeler_b": "enhancement"
+    }
+  },
+  {
+    "number": 366,
+    "title": "--ip-address should be optional in doctl compute domain create",
+    "body": "The flag `--ip-address` is required in `doctl compute domain create`:\r\n\r\n```\r\ncreate domain\r\n\r\nUsage:\r\n  doctl compute domain create <domain> [flags]\r\n\r\nAliases:\r\n  create, c\r\n\r\n\r\nFlags:\r\n      --format string       Columns for output in a comma separated list. Possible values: Domain,TTL\r\n      --ip-address string   IP address (required)\r\n      --no-header           hide headers\r\n```\r\n\r\nBut `ip_address` is optional in the API:\r\n\r\nhttps://developers.digitalocean.com/documentation/v2/#create-a-new-domain\r\n\r\nWhat about making the flag optional in `doctl` too?",
+    "html_url": "https://github.com/digitalocean/doctl/issues/366",
+    "candidates": {
+      "labeler_a": "enhancement",
+      "labeler_b": "bug"
+    }
+  },
+  {
+    "number": 869,
+    "title": "Top-level doctl package fails golint check",
+    "body": "### Overview\r\n\r\nThe top-level `doctl` package fails the `golint` check.\r\n\r\n### How to fix it\r\n\r\n1. Clone this repo.\r\n2. If you haven't already, install Go through their [official installer](https://golang.org/dl/).\r\n3. If you haven't already, install the official `golint` tool by following the instructions outlined in their [repo](https://github.com/golang/lint).\r\n4. Run `golint` on the top-level `doctl` package in this repo. To do that, you can run, `golint ./`, and it will report style errors within that package.\r\n5. Fix the issue shown by `golint`. Some are easy enough, but others might require some context. Here are some tips for some of the current issues,\r\n    1. The issue around the `ArgRedirectHttpToHttps` arg will require that you also update where that variable is used after you fix it. This is used only in `doctl/commands/load_balancers.go`.\r\n    2. The issue around the `Major` variable is actually suggesting that the exported variables `Build, Major, Minor, Patch, Label string` all need their own definitions with their own doc strings, instead of being declared on one line. To fix this, you'll need to know an accurate doc string for each value. Here they are,\r\n```go\r\n// Build is set at build time. It defines the git SHA for the current\r\n// build.\r\nBuild string\r\n\r\n// Major is set at build time. It defines the major semantic version of\r\n// doctl.\r\nMajor string\r\n\r\n// Minor is set at build time. It defines the minor semantic version of\r\n// doctl.\r\nMinor string\r\n\r\n// P",
+    "html_url": "https://github.com/digitalocean/doctl/issues/869",
+    "candidates": {
+      "labeler_a": "bug",
+      "labeler_b": "enhancement"
+    }
+  },
+  {
+    "number": 870,
+    "title": "Several misspellings in doctl",
+    "body": "### Overview\r\n\r\nThere are several misspellings in our codebase. These can be found with the Go tool [misspell](https://github.com/client9/misspell).\r\n\r\n### How to fix it\r\n\r\n1. Clone this repo.\r\n2. If you're using the `misspell` tool, you'll notice that there are quite a few issues reported. Most of these are in vendored code, so to make it easier, these are the only ones affecting this actual codebase:\r\n    1. `commands/account.go:27:65`: \"retreive\" is a misspelling of \"retrieve\"\r\n    2. `commands/certificates.go:85:36`: \"comfirmation\" is a misspelling of \"confirmation\"\r\n    3. `commands/image_actions.go:48:123`: \"inlcuding\" is a misspelling of \"including\"\r\n    4. `commands/completion.go:165:35`: \"commmand\" is a misspelling of \"command\"\r\n    5. `integration/cdn_create_test.go:84:11`: \"orgin\" is a misspelling of \"origin\"\r\n    6. `integration/cdn_create_test.go:100:46`: \"orgin\" is a misspelling of \"origin\"\r\n3. Once those misspellings have been fixed, open a pull request to this repo with your changes. If you want, mention this issue in your pull request by writing something like, \"Closes #870\" which will close this issue upon being merged.",
+    "html_url": "https://github.com/digitalocean/doctl/issues/870",
+    "candidates": {
+      "labeler_a": "bug",
+      "labeler_b": "enhancement"
+    }
+  },
+  {
+    "number": 1505,
+    "title": "Why do we have to SSH into a droplet, and then install the Droplet Agent?  Why can't you just pre-install it?",
+    "body": "Hello.  I love being able to just click \"Console\" and have a direct access to my droplet.  It is a pain to have to download Putty, figure out how to connect, enter my password, then install the Droplet Agent.  Can you please just include the droplet agent already installed when the droplet spins up, so I don't have to go through that whole process of installing it?\r\nThank you.",
+    "html_url": "https://github.com/digitalocean/doctl/issues/1505",
+    "candidates": {
+      "labeler_a": "enhancement",
+      "labeler_b": "other"
+    }
+  },
+  {
+    "number": 1843,
+    "title": "1.159.0-release Using cached credential",
+    "body": "Every time I use kubectl to manage DO kubernetes clusters, doctl is bugging with the following messages:\n```\ndoctl: 2026/05/19 11:25:44 Using cached credential\n```\n\nHow do i get rid of them? I tried removing ~/.config/doctl/cache but it doesn't help.",
+    "html_url": "https://github.com/digitalocean/doctl/issues/1843",
+    "candidates": {
+      "labeler_a": "question",
+      "labeler_b": "bug"
+    }
+  }
+]

@@ -1,0 +1,282 @@
+[
+  {
+    "number": 881,
+    "title": "doctl auth init prompts for token even if flag is present",
+    "body": "Installed doctl on a fresh droplet. Ran `doctl auth init -t personaltokenhere`, but still got prompted with \"Enter your access token:\". This also happens with `--access-token`.\r\n\r\nWorks fine with `doctl auth init --context default -t personaltokenhere`, though. But then subsequent `doctl registry login` fails with \"Please authenticate doctl [...]\".\r\n\r\n**Environment:**\r\n - doctl version: **1.48.1-release** (git commit hash: a5b1cd2)\r\n - OS: **Ubuntu 20.04** (Docker 20.04 from DO marketplace)\r\n - Installation method: **GitHub** (https://github.com/digitalocean/doctl#downloading-a-release-from-github)\r\n\r\n**Additional Details:**\r\n\r\nSame issue as https://github.com/digitalocean/doctl/issues/294. Perhaps some regression occurred?",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/881"
+  },
+  {
+    "number": 461,
+    "title": "doctl k8s cluster get <clustername> not working for cluster with long name",
+    "body": "when I am creating a cluster with a long name \"doctl k8s cluster get $CLUSTER\" not working, but in list command it is showing the cluster\r\n\r\ndoctl k8s cluster get $CLUSTER\r\n\r\nError: GET https://api.digitalocean.com/v2/kubernetes/clusters/f8291060b73f4fa7b60586fe51a1d862: 404 cluster not found\r\n\r\n\r\ndoctl k8s cluster list\r\n\r\nID                                      Name                                Region    Version        Status     Node Pools\r\nc4fbbc63-9ebf-4b0e-8ec2-4df84549e3d4    f8291060b73f4fa7b60586fe51a1d862    blr1      1.14.1-do.3    running    f8291060b73f4fa7b60586fe51a1d862-default-pool\r\n\r\n",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/461"
+  },
+  {
+    "number": 1110,
+    "title": "`Fingerprint could not be generated, please make sure your key is valid` while creating ssh-key with doctl",
+    "body": "Basically I want to use ssh fingerprint for clusterAPI\r\n`export DO_SSH_KEY_FINGERPRINT=<your-ssh-key-fingerprint>`\r\n\r\nWhen I do `doctl compute ssh-key list`, it shows nothing hence there is no key\r\n```\r\n$ doctl compute ssh-key list\r\nID    Name    FingerPrint\r\n```\r\n\r\nSo I tried to create ssh-key and it gave me this error\r\n```\r\n$ doctl compute ssh-key  create test --public-key id_rsa\r\nError: POST https://api.digitalocean.com/v2/account/keys: 422 (request \"54f71bbf-25ec-4abd-89b8-6071adc05eb1\") Fingerprint could not be generated, please make sure your key is valid\r\n```",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/1110"
+  },
+  {
+    "number": 1064,
+    "title": "preserve_path_prefix is missing",
+    "body": "According to the app spec documentation, there is a `preserve_path_prefix` option under `services.routes`. This is missing in doctl and therefore leads to an error.\r\n\r\nExample YAML:\r\n```yaml\r\nservices:\r\n- name: example\r\n  routes:\r\n    - path: /example\r\n      preserve_path_prefix: true\r\n```\r\n\r\nError:\r\n> Error: parsing app spec: json: unknown field \"preserve_path_prefix\"\r\n\r\nDoc:\r\nhttps://docs.digitalocean.com/products/app-platform/references/app-specification-reference/#ref-services-routes-preserve_path_prefix\r\n\r\nStruct:\r\nhttps://github.com/digitalocean/doctl/blob/3d6466a9bce767addfed411ef56fba206e38126a/vendor/github.com/digitalocean/godo/apps.gen.go#L229\r\n\r\ndoctl version:\r\n\r\n```\r\ndoctl version 1.67.0-release\r\nGit commit hash: 535f1031\r\n```",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/1064"
+  },
+  {
+    "number": 1032,
+    "title": "connection refused from doctl",
+    "body": "**Describe the Issue:**\r\n\r\n```\r\nroot@master:/home/ubuntu/tm_scrape_wipo# doctl compute droplet list \r\nError: Get \"https://api.digitalocean.com/v2/droplets?page=1&per_page=200\": dial tcp: lookup api.digitalocean.com on [::1]:53: read udp [::1]:44757->[::1]:53: read: connection refused\r\n\r\n```\r\nIt looks like I forgot to add that ping to 8.8.8.8 is ok while ping to such places as  repos.insights.digitalocean.com  or archive.ubuntu.com timeout. \r\n\r\n**Environment:**\r\n```\r\ndoctl version 1.64.0-release\r\nGit commit hash: 84fb2307\r\n```\r\n```\r\nroot@master:/home/ubuntu/tm_scrape_wipo# uname -a\r\nLinux master 5.4.0-81-generic #91-Ubuntu SMP Thu Jul 15 19:09:17 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux\r\n\r\n```\r\n",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/1032"
+  },
+  {
+    "number": 919,
+    "title": "How to update DNS records? Receiving \"Data needs to end with a dot (.)\"",
+    "body": "**Describe the Issue:**\r\n\r\nSee: https://www.digitalocean.com/community/questions/how-to-update-dns-records-receiving-data-needs-to-end-with-a-dot\r\n\r\nThe issue is in the API but is surfaced through `doctl` too:\r\n\r\n```bash\r\ndoctl compute domain records update ${DOMAIN} \\\r\n--record-id ${ID} \\\r\n--record-ttl 43200\r\n\r\nError: PUT https://api.digitalocean.com/v2/domains/.../records/...: 422 Data needs to end with a dot (.)\r\n```\r\n\r\nThe workaround works when applied to `doctl` too (adding `--record-data`):\r\n\r\n```bash\r\ndoctl compute domain records update ${DOMAIN} \\\r\n--record-id ${ID} \\\r\n--record-ttl 43200 \\\r\n--record-data \"${DATA}.\"\r\n```\r\n",
+    "state": "open",
+    "html_url": "https://github.com/digitalocean/doctl/issues/919"
+  },
+  {
+    "number": 877,
+    "title": "Error: neither $XDG_CONFIG_HOME nor $HOME are defined",
+    "body": "**Describe the Issue:**\r\n\r\nAttempt to run doctl and all it will do is return:\r\n`Error: neither $XDG_CONFIG_HOME nor $HOME are defined`\r\n\r\n**Environment:**\r\n\r\ndoctl version\r\nError: neither $XDG_CONFIG_HOME nor $HOME are defined\r\n(v1.48.0 installed as latest/stable according to 'snap info doctl')\r\n\r\n - OS: openSUSE 15.2\r\n - Installation method: Snap package\r\n\r\n**Additional Details:**\r\n\r\n$XDG_CONFIG_HOME returns null\r\n$HOME returns my home directory\r\nMy default shell is zsh.\r\nRunning doctl in bash yields the same result.\r\nI use other snap apps regularly, with Spotify seeing daily use.",
+    "state": "open",
+    "html_url": "https://github.com/digitalocean/doctl/issues/877"
+  },
+  {
+    "number": 1710,
+    "title": "Error getting terminal size: The handle is invalid",
+    "body": "**Describe the Issue:**\n\nWhen attempting to connect to an app platform terminal using doctl the following is received:\n`Error: error getting terminal size: The handle is invalid.`\n\n**Environment:**\n<!-- Please provide the following information: -->\n - doctl version: 1.130.0-release\n - OS: Windows 11 24H2\n - Installation method: Github Release\n\n**Additional Details:**\n\nSteps to replicate:\n 1. `doctl auth init`\n 2. `doctl apps console <app id> <component name>`\n\nI've attempted both via powershell and cmd, the issue persists with both.\n",
+    "state": "open",
+    "html_url": "https://github.com/digitalocean/doctl/issues/1710"
+  },
+  {
+    "number": 824,
+    "title": "Droplet tags order is inconsistent / not defined",
+    "body": "**Describe the Issue:**\r\n\r\nUsing 'doctl compute droplet list' gives inconsistent output in the Tags column. The order of tags is inconsistent, so they keep changing. Thus comparing the output of this command over time shows many changes to the Tags on a droplet, when the tags are not really changing. Having a consistent alphabetic sort on this, as there seems to be on the Features column, would enable very useful tracking of changes to the output over time.\r\n\r\n**Environment:**\r\n<!-- Please provide the following information: -->\r\n - doctl version: doctl version 1.45.1-release Git commit hash: 1041a0e5\r\n - OS: Ubuntu 16.04.6 LTS\r\n - Installation method: Snap package\r\n\r\n**Additional Details:**\r\n\r\nTags may be output in the order returned from the API, so a fix may be more correct there.\r\n",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/824"
+  },
+  {
+    "number": 1785,
+    "title": "Serverless cannot be installed: unknown command \"serverless\" for \"doctl\"",
+    "body": "**Describe the Issue:**\n\n`serverless` extension cannot be installed.\n\n**Environment:**\n - doctl version: 1.146.0\n - OS: Debian Trixie, running in Docker container\n - Installation method: GitHub release download\n\n**Additional Details:**\n\nUsing this simple `Dockerfile`:\n\n```\nFROM python:3.11\nARG DOCTL_VERSION=1.46.0\nRUN \\\n  wget https://github.com/digitalocean/doctl/releases/download/v${DOCTL_VERSION}/doctl-${DOCTL_VERSION}-linux-amd64.tar.gz -O doctl.tar.gz \\\n  && tar xf doctl.tar.gz -C /usr/local/bin/ \\\n  && rm doctl.tar.gz\n```\n\nwon't allow installing `docker serverless`:\n\n```\ndocker build -t tmp .\ndocker run -it tmp /bin/bash\n> doctl serverless install\nError: unknown command \"serverless\" for \"doctl\"\nRun 'doctl --help' for usage.\nunknown command \"serverless\" for \"doctl\"\n```\n",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/1785"
+  },
+  {
+    "number": 978,
+    "title": "apps spec validate doen't give meaningful information",
+    "body": "```doctl apps spec validate .do/appspec.yml                                                                                                                                                                                                                      \r\nError: parsing app spec: json: cannot unmarshal number into Go struct field AppVariableDefinition.envs.value of type string\r\n```\r\nThe app spec validation mechanism does not point to the particular line with the error which makes particularly painful to debug any large spec file. It would be nice if the unmarshaller would be able to pin the particular spot in the file that produces the error.\r\n\r\n\r\n**Environment:**\r\n - doctl version: `doctl version 1.59.0-release Git commit hash: 833831a9`\r\n - OS: `Linux dreamer 5.11.0-7612-generic #13~1617215757~20.10~97a8d1a-Ubuntu SMP Thu Apr 1 21:09:17 UTC 2 x86_64 x86_64 x86_64 GNU/Linux`\r\n - Installation method: snap\r\n\r\n",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/978"
+  },
+  {
+    "number": 311,
+    "title": "Make doctl available as a Flatpak",
+    "body": "Since Flatpak is more or less the native app container solution on Fedora, it would be nice if doctl was available as a flatpak so that Fedora users don't have to have both flatpak and snap installed on their system in order to install/update doctl via a package manager.",
+    "state": "open",
+    "html_url": "https://github.com/digitalocean/doctl/issues/311"
+  },
+  {
+    "number": 258,
+    "title": "Ability to interact with Spaces",
+    "body": "I know the decision in https://github.com/digitalocean/godo/issues/150 was that the Spaces API would not be included due to the sheer number of tools/libraries that interact with the S3/S3 compatible API's already. With that being said, will Spaces operations be include in doctl? An S3 compatible API could be vendored for interacting with the API. I believe this would be beneficial and provide a complete user experience when using the tool and not force a user to use separate tools in order to interact with the service. Anyone else have thoughts on this?",
+    "state": "open",
+    "html_url": "https://github.com/digitalocean/doctl/issues/258"
+  },
+  {
+    "number": 394,
+    "title": "Setting Kubernetes context on first config save",
+    "body": "When the config saved with the `doctl kubernetes cluster kubeconfig save <cluster-id|cluster-name>` command, the saved configuration has the `current-context` as empty, while the `show` command uses the cluster context in the output message. Apart from inconsistency between these two commands, I believe this is a decision taken to prevent setting cluster context automatically to the retrieved cluster context, though it may be good if it was possible to override.\r\n\r\nIn my usecase, I am using doctl on CI, in which the retrieved config file is the only one and the environment doesn't have `kubectl` available, which means I need to set `--kube-context` for every `helm` call for example, making the deploy scripts more verbose than they can be. Since the functionality is already there, I believe it would be good if `current-context` on the saved configuration is also configurable via a flag, to whether to set it to the retrieved config or not.",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/394"
+  },
+  {
+    "number": 791,
+    "title": "Allow for setting expiry time for `kubernetes cluster kubeconfig` commands",
+    "body": "When I'm using `doctl` as part of a CI/CD process, I want to be able to set a custom expiration time when calling `kubernetes cluster kubeconfig {save,show}` so that I can feel secure and not have long lived API tokens that need to be manually cleaned up.\r\n\r\nThis is supported in the API and in godo:\r\n\r\nhttps://developers.digitalocean.com/documentation/v2/#retrieve-the-kubeconfig-for-a-kubernetes-cluster\r\nhttps://godoc.org/github.com/digitalocean/godo#KubernetesClusterCredentialsGetRequest\r\n\r\nRelated issue:  https://github.com/digitalocean/action-doctl/issues/30",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/791"
+  },
+  {
+    "number": 802,
+    "title": "Droplets: Add support for specifying a VPC",
+    "body": "**What is the problem this feature would solve? Please describe.**\r\n\r\nWhen I create a new Droplet using `doctl`, I want to be able to specify which VPC it should belong to.\r\n\r\n**Describe the solution you'd like**\r\n\r\nThe `doctl compute droplet create` command should accept a `--vpc-uuid` flag that specifies which VPC it should belong to.\r\n\r\n**Additional context**\r\n\r\nhttps://developers.digitalocean.com/documentation/v2/#create-a-new-droplet\r\nhttps://godoc.org/github.com/digitalocean/godo#Droplet\r\n",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/802"
+  },
+  {
+    "number": 1221,
+    "title": "[Feature Request] Deploy zip to Functions",
+    "body": "**What is the problem this feature would solve? Please describe.**\r\n<!-- A clear and concise description of what the problem is. Ex. I'm always frustrated when [...] -->\r\n\r\nUsing this folder structure:\r\n\r\n- project.yml\r\n- packages\r\n  - sample\r\n    - example\r\n      - index.js\r\n      - package.json\r\n      - node_modules\r\n\r\nTo deploy to DigitalOcean Functions, I need to run `doctl serverless deploy .`.\r\nThen it will run `npm install --production` and then it will zip the content and deploy to Functions.\r\n\r\n**Describe the solution you'd like**\r\n<!-- A clear and concise description of what you want to happen. -->\r\n\r\nI have a library to zip the contents of `node_modules` and minify the files called [node_modules_packer](https://github.com/H4ad/node-modules-packer) and I want to use this library to create a zip file and then upload it to Functions.\r\n\r\nServerless Framework has a solution called [artifact](https://www.serverless.com/framework/docs/providers/aws/guide/packaging#artifact), which looks like:\r\n\r\n```yml\r\npackage:\r\n  artifact: path/to/my-artifact.zip\r\n```\r\n\r\nSo the solution I wanted was something like:\r\n\r\n```yml\r\npackages:\r\n  - name: sample\r\n    functions:\r\n      - name: hello\r\n        file: 'path/to/my-artifact.zip'\r\n        zipped: true\r\n        main: ''\r\n        runtime: 'nodejs:18'\r\n        web: true\r\n```\r\n\r\n**Additional context**\r\n<!-- Add any other context about the feature request here. -->\r\n\r\nI spent a couple hours reading the source code of this CLI my discovers wa",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/1221"
+  },
+  {
+    "number": 1361,
+    "title": "Need more details when emitting Error: unexpected end of JSON input",
+    "body": "**What is the problem this feature would solve? Please describe.**\r\nAdd details to `Error: unexpected end of JSON input`\r\n\r\n**Describe the solution you'd like**\r\nWe need more information when this happens (quite often) and it's nearly impossible to debug.\r\n\r\n```\r\ndoctl serverless deploy . --remote-build\r\n\r\nError: unexpected end of JSON input\r\n```\r\n\r\nShould include a stack trace, or some extra metadata about the the issue.\r\n",
+    "state": "open",
+    "html_url": "https://github.com/digitalocean/doctl/issues/1361"
+  },
+  {
+    "number": 1330,
+    "title": "App platform metrics?",
+    "body": "**What is the problem this feature would solve? Please describe.**\r\n<!-- A clear and concise description of what the problem is. Ex. I'm always frustrated when [...] -->\r\nHow do I get the App platform's metrics? Like CPU, MEM etc.. Is it possible?\r\n\r\n**Describe the solution you'd like**\r\n<!-- A clear and concise description of what you want to happen. -->\r\n\r\n**Additional context**\r\n<!-- Add any other context about the feature request here. -->\r\n",
+    "state": "open",
+    "html_url": "https://github.com/digitalocean/doctl/issues/1330"
+  },
+  {
+    "number": 725,
+    "title": "Feature Request: add SSH key to existing droplet",
+    "body": "There may be `doctl`, but no `ssh` access for droplet.\r\nTherefore it would be convenient to add SSH keys for existing droplet.\r\nRerated to: #406",
+    "state": "open",
+    "html_url": "https://github.com/digitalocean/doctl/issues/725"
+  },
+  {
+    "number": 710,
+    "title": "Is there a way to get the doctl-equivalent of a droplet creation from the web UI ?",
+    "body": "I'd like to know if there's a way to know the doctl command equivalent to a digital ocean resource I've created (let's say a droplet) from the web UI ?\r\nDoes my request make any sense ?",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/710"
+  },
+  {
+    "number": 640,
+    "title": "[Question] How to re-use token between calls",
+    "body": "Hello,\r\n\r\nI want to deploy into a kubernetes cluster from a CD/CI.\r\n\r\nFor doing that, I'm installing `doctl` and setup an API token with `Read/Write` permissions as `DIGITALOCEAN_ACCESS_TOKEN`.\r\n\r\n![Screenshot 2019-10-10 at 17 41 33](https://user-images.githubusercontent.com/2096101/66584337-3c846c80-eb85-11e9-94ba-028e6700dc78.png)\r\n\r\nMy code looks like\r\n\r\n```yml\r\n# installing `doctl`\r\n- DIGITALOCEAN_ACCESS_TOKEN=my-read-write-token\r\n- DOCTL_VERSION=$(curl -fsL https://api.github.com/repos/digitalocean/doctl/releases/latest | jq -r \".tag_name\" | sed 's/v//')\r\n- curl -fsL https://github.com/digitalocean/doctl/releases/download/v${DOCTL_VERSION}/doctl-${DOCTL_VERSION}-linux-amd64.tar.gz | tar xz\r\n- mv doctl /usr/local/bin\r\n# initialize `doctl`\r\n- doctl kubernetes cluster kubeconfig save my-cluster\r\n```\r\n\r\nAfter that, I execute the command for fetching my cluster configuration, and all is working fine, however, I noted that every time I do that, a new read-only token is generated:\r\n\r\n![Screenshot 2019-10-10 at 17 41 36](https://user-images.githubusercontent.com/2096101/66584351-4312e400-eb85-11e9-8d67-212a252d239d.png)\r\n\r\nMy question is, essentially, why a read-only token is generated?\r\n\r\nHow I can avoid that? Why not the process is using the read/write token provided as env variable?",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/640"
+  },
+  {
+    "number": 535,
+    "title": "Howto create af load balancer for HTTP and HTTPS?",
+    "body": "I am trying to create a load balancer with `doctl` version `1.26.0`, it creates the load balancer, but does not create the HTTPS passthrough rule. Command used:\r\n```bash\r\ndoctl compute load-balancer create --name example.org-development-swarm-lb --region ams3 --tag-name example_org_development:swarm-node --algorithm round_robin --forwarding-rules entry_protocol:http,entry_port:80,target_protocol:http,target_port:80 entry_protocol:https,entry_port:443,target_protocol:https,target_port:443 --health-check protocol:tcp,port:443,path:,check_interval_seconds:10,response_timeout_seconds:5,healthy_threshold:5,unhealthy_threshold:3\r\n```\r\nAny ideas what is going wrong here?",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/535"
+  },
+  {
+    "number": 425,
+    "title": "--ssh-private-ip does not work",
+    "body": "When i use:\r\n`doctl compute ssh <droplet-id> --ssh-private-ip <droplet-private-ip>`\r\non droplet with private ip enabled, command line just freezes and nothing happens \r\nWhat am i doing wrong?",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/425"
+  },
+  {
+    "number": 336,
+    "title": "How to properly move config.yaml to another computer?",
+    "body": "The `config.yaml` on my computer has multiple DigitalOcean accounts set up in it and I want to move the config file to another computer so that I won't have to configure `doctl` from scratch again. After I copied `config.yaml` from my computer to another computer and executed this command I got this error:\r\n```\r\nme@anotherPC:~/FFS# doctl account get --context myDOaccount@yahoo.com\r\nget account\r\n\r\nUsage:\r\n  doctl account get [flags]\r\n\r\nAliases:\r\n  get, g\r\n\r\n\r\nFlags:\r\n      --format string   Columns for output in a comma separated list. Possible values: Email,DropletLimit,EmailVerified,UUID,Status\r\n      --no-header       hide headers\r\n\r\nGlobal Flags:\r\n  -t, --access-token string   API V2 Access Token\r\n  -u, --api-url string        Override default API V2 endpoint\r\n  -c, --config string         config file (default is $HOME/.config/doctl/config.yaml)\r\n      --context string        authentication context name\r\n  -o, --output string         output format [text|json] (default \"text\")\r\n      --trace                 trace api access\r\n  -v, --verbose               verbose output\r\n\r\nError: unable to initialize DigitalOcean api client: access token is required. (hint: run 'doctl auth init')\r\n```\r\nThe token is working well on my old computer but somehow it keeps producing the same error on my new computer. How do I properly move `config.yaml` from a computer to another computer so that I won't have to configure doctl from scratch ?",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/336"
+  },
+  {
+    "number": 493,
+    "title": "The floating IP already has a pending event.",
+    "body": "Hi there~\r\n\r\nWhen I'm deleting a floating ip right after it's unassigned from a droplet, the following error occurred:\r\n`Error: DELETE https://api.digitalocean.com/v2/floating_ips/xxx.xxx.xxx.xx: 422 The floating IP already has a pending event.`\r\nThe corresponding command is :\r\n```bsah\r\ndoctl compute floating-ip-action unassign $OLD_FLIP\r\ndoctl compute floating-ip create --droplet-id $DROPLET_ID\r\ndoctl compute floating-ip delete -f $OLD_FLIP\r\n```\r\nInserting a `sleep 10` between the lines is a workaround, yet it *cannot guarantee* that the floating ip is changed successfully.\r\n\r\nIs there any safer way to solve this?\r\n\r\nThank you. \r\n",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/493"
+  },
+  {
+    "number": 409,
+    "title": "Handling multiple doctl config",
+    "body": "I access multiple digitalocean account, what is right way to handle it up ?\r\n\r\nCurrently I copy the original config, change access token and use softlink for point to correct config.\r\nIs there something like profile to access multiple account ?",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/409"
+  },
+  {
+    "number": 309,
+    "title": "How to keep only 12 snapshots?",
+    "body": "This script works so far:\r\n\r\n```\r\n#!/bin/bash\r\n# script to create digitalocean droplet snapshot using their CLI, doctl.\r\n\r\n# Function to set variable for snapshot name as date/time of creation.\r\ntimestamp() {\r\nNAME=$(date)\r\n}\r\n\r\ntimestamp\r\n\r\ndoctl compute droplet-action snapshot --snapshot-name \"$NAME\" 80750079\r\n```\r\nThe script works with the result being a droplet snapshot with the date/time of creation as the name. However, I need to keep only 12 snapshots.\r\n\r\nSomehow I need to count the number of existing snapshots and when I have 12, delete the oldest and add a new one.\r\n\r\nHow can I achieve that?\r\n\r\nI run the script every two hours.\r\n\r\nThanks!\r\n",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/309"
+  },
+  {
+    "number": 298,
+    "title": "unknown flag: --tag-names",
+    "body": "I get the feeling that this isn't a bug but something I do not completely understand about Tags.\r\n\r\nI have created a bash script which creates my droplets. One of the variables in my script are \"TAGS\", my script checks if the variable is blank or not and if so not blank it adds \"--tag-names\" and then the \"TAGS\" the to the doctl command. When the bash script runs the doctl command I get the following error:\r\n\r\nunknown flag: --tag-names stuff,things,bob\r\n\r\nWeirdly, if I echo the constructed command to terminal then copy/paste it into the terminal and run it manually, it works perfectly.\r\n\r\nIt is going to be something small, can someone tell me what I am missing please?",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/298"
+  },
+  {
+    "number": 567,
+    "title": "Wrong Disk size and number of VCPU's upon droplet creation",
+    "body": "I don't know if anyone has noticed this, or is having the same issue, but upon the creation of a droplet using doctl on all of my Linux boxes, lately, I always seem to get the wrong Disk size and/or number of VCPU established with the droplet which causes the $5 (1GB droplet) to be $10/mo and the $10 (2GB droplet) to be $20/mo and so on and so forth.\r\n\r\nFor example every time I create a 1GB droplet I end up with 30GB of disk space as opposed to the 25GB of disk space associated with the online dashboard:\r\n```\r\n$ doctl compute d c test --size 1gb --region nyc1 --image freebsd-12-x64 --ssh-keys xxxxxxxx --ssh-keys xxxxxxxx --wait\r\n\r\nID           Name    Public IPv4        Private IPv4    Public IPv6    Memory    VCPUs    Disk    Region    Image                   Status    Tags    Features    Volumes\r\n157513853    test    157.230.220.251                                   1024      1        30      nyc1      FreeBSD 12.0 x64 ufs    active\r\n```\r\n\r\nAnother example is the $10/mo, 2GB droplet creation that is supposed to have 1VCPU and 50GB of disk space always ends up being setup with 2VCPU's and only 40GB of disk space and ends up costing $20/mo:\r\n```\r\n$ doctl compute d c test2 --size 2gb --region nyc1 --image freebsd-12-x64 --ssh-keys xxxxxxxx --ssh-keys xxxxxxxx --wait\r\n\r\nID           Name     Public IPv4        Private IPv4    Public IPv6    Memory    VCPUs    Disk    Region    Image                   Status    Tags    Features    Volumes\r\n157514149    test2    134.209.219.106  ",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/567"
+  },
+  {
+    "number": 1139,
+    "title": "CVE-2022-21698 (High) detected in github.com/docker/cli-v20.10.14",
+    "body": "## CVE-2022-21698 - High Severity Vulnerability\n<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>github.com/docker/cli-v20.10.14</b></p></summary>\n\n<p>The Docker CLI</p>\n<p>\n\nDependency Hierarchy:\n  - :x: **github.com/docker/cli-v20.10.14** (Vulnerable Library)\n<p>Found in HEAD commit: <a href=\"https://github.com/digitalocean/doctl/commit/d72fd2ed483381c209571e3bbffcdfe89da3adc3\">d72fd2ed483381c209571e3bbffcdfe89da3adc3</a></p>\n<p>Found in base branch: <b>main</b></p>\n</p>\n</details>\n<p></p>\n<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> Vulnerability Details</summary>\n<p>  \n  \nclient_golang is the instrumentation library for Go applications in Prometheus, and the promhttp package in client_golang provides tooling around HTTP servers and clients. In client_golang prior to version 1.11.1, HTTP server is susceptible to a Denial of Service through unbounded cardinality, and potential memory exhaustion, when handling requests with non-standard HTTP methods. In order to be affected, an instrumented software must use any of `promhttp.InstrumentHandler*` middleware except `RequestsInFlight`; not filter any specific methods (e.g GET) before middleware; pass metric with `method` label name to our middleware; and not have any firewall/LB/proxy that filters away requests with unknown `method`. client_golang version 1",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/1139"
+  },
+  {
+    "number": 1066,
+    "title": "CVE-2021-41190 (Medium) detected in github.com/opencontainers/image-spec-v1.0.1",
+    "body": "## CVE-2021-41190 - Medium Severity Vulnerability\n<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>github.com/opencontainers/image-spec-v1.0.1</b></p></summary>\n\n<p>OCI Image Format</p>\n<p>\n\nDependency Hierarchy:\n  - github.com/docker/cli-v20.10.6 (Root Library)\n    - github.com/docker/docker-v17.03.2-ce\n      - :x: **github.com/opencontainers/image-spec-v1.0.1** (Vulnerable Library)\n<p>Found in HEAD commit: <a href=\"https://github.com/digitalocean/doctl/commit/1aa36a8304905676b86be6b9038b872193d94378\">1aa36a8304905676b86be6b9038b872193d94378</a></p>\n<p>Found in base branch: <b>main</b></p>\n</p>\n</details>\n<p></p>\n<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/medium_vul.png' width=19 height=20> Vulnerability Details</summary>\n<p>  \n  \nThe OCI Distribution Spec project defines an API protocol to facilitate and standardize the distribution of content. In the OCI Distribution Specification version 1.0.0 and prior, the Content-Type header alone was used to determine the type of document during push and pull operations. Documents that contain both \u201cmanifests\u201d and \u201clayers\u201d fields could be interpreted as either a manifest or an index in the absence of an accompanying Content-Type header. If a Content-Type header changed between two pulls of the same digest, a client may interpret the resulting content differently. The OCI Distribution Specificat",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/1066"
+  },
+  {
+    "number": 958,
+    "title": "CVE-2020-27813 (High) detected in github.com/gorilla/websocket-v1.4.0",
+    "body": "## CVE-2020-27813 - High Severity Vulnerability\n<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>github.com/gorilla/websocket-v1.4.0</b></p></summary>\n\n<p>A fast, well-tested and widely used WebSocket implementation for Go.</p>\n<p>\n\nDependency Hierarchy:\n  - :x: **github.com/gorilla/websocket-v1.4.0** (Vulnerable Library)\n<p>Found in HEAD commit: <a href=\"https://github.com/digitalocean/doctl/commit/a29c15f367b609166fe5af50e204b21a1e9232e4\">a29c15f367b609166fe5af50e204b21a1e9232e4</a></p>\n</p>\n</details>\n<p></p>\n<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> Vulnerability Details</summary>\n<p>  \n  \nAn integer overflow vulnerability exists with the length of websocket frames received via a websocket connection. An attacker would use this flaw to cause a denial of service attack on an HTTP Server allowing websocket connections.\n\n<p>Publish Date: 2020-12-02\n<p>URL: <a href=https://vuln.whitesourcesoftware.com/vulnerability/CVE-2020-27813>CVE-2020-27813</a></p>\n</p>\n</details>\n<p></p>\n<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/cvss3.png' width=19 height=20> CVSS 3 Score Details (<b>7.5</b>)</summary>\n<p>\n\nBase Score Metrics:\n- Exploitability Metrics:\n  - Attack Vector: Network\n  - Attack Complexity: Low\n  - Privileges Required: None\n  - User Interaction: None\n  - Scope: U",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/958"
+  },
+  {
+    "number": 927,
+    "title": "CVE-2020-8565 (Medium) detected in github.com/digitalocean/doctl-v1.54.0",
+    "body": "## CVE-2020-8565 - Medium Severity Vulnerability\n<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>github.com/digitalocean/doctl-v1.54.0</b></p></summary>\n\n<p>The official command line interface for the DigitalOcean API.</p>\n<p>\n\nDependency Hierarchy:\n  - github.com/digitalocean/doctl/pluginhost-v1.54.0 (Root Library)\n    - :x: **github.com/digitalocean/doctl-v1.54.0** (Vulnerable Library)\n</p>\n</details>\n<p></p>\n<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/medium_vul.png' width=19 height=20> Vulnerability Details</summary>\n<p>  \n  \nIn Kubernetes, if the logging level is set to at least 9, authorization and bearer tokens will be written to log files. This can occur both in API server logs and client tool output like kubectl. This affects <= v1.19.3, <= v1.18.10, <= v1.17.13, < v1.20.0-alpha2.\n\n<p>Publish Date: 2020-12-07\n<p>URL: <a href=https://vuln.whitesourcesoftware.com/vulnerability/CVE-2020-8565>CVE-2020-8565</a></p>\n</p>\n</details>\n<p></p>\n<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/cvss3.png' width=19 height=20> CVSS 3 Score Details (<b>5.5</b>)</summary>\n<p>\n\nBase Score Metrics:\n- Exploitability Metrics:\n  - Attack Vector: Local\n  - Attack Complexity: Low\n  - Privileges Required: Low\n  - User Interaction: None\n  - Scope: Unchanged\n- Impact Metrics:\n  - Confidentiality Impact: High\n  - Integrit",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/927"
+  },
+  {
+    "number": 830,
+    "title": "CVE-2020-14040 (Medium) detected in github.com/microsoft/hcsshim/osversion-v0.8.7",
+    "body": "## CVE-2020-14040 - Medium Severity Vulnerability\n<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>github.com/microsoft/hcsshim/osversion-v0.8.7</b></p></summary>\n\n<p>Windows - Host Compute Service Shim</p>\n<p>\n\nDependency Hierarchy:\n  - github.com/docker/docker/pkg/homedir-v19.03.11 (Root Library)\n    - github.com/docker/docker/pkg/idtools-v19.03.11\n      - github.com/docker/docker/pkg/system-v19.03.11\n        - :x: **github.com/microsoft/hcsshim/osversion-v0.8.7** (Vulnerable Library)\n<p>Found in HEAD commit: <a href=\"https://github.com/digitalocean/doctl/commit/29a5807eae92f8c600034840757b67abf16cbe75\">29a5807eae92f8c600034840757b67abf16cbe75</a></p>\n</p>\n</details>\n<p></p>\n<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/medium_vul.png' width=19 height=20> Vulnerability Details</summary>\n<p>  \n  \nGo version v0.3.3 of the x/text package fixes a vulnerability in encoding/unicode that could lead to the UTF-16 decoder entering an infinite loop, causing the program to crash or run out of memory. An attacker could provide a single byte to a UTF16 decoder instantiated with UseBOM or ExpectBOM to trigger an infinite loop if the String function on the Decoder is called, or the Decoder is passed to golang.org/x/text/transform.String.\n\n<p>Publish Date: 2020-06-17\n<p>URL: <a href=https://vuln.whitesourcesoftware.com/vulnerability/CVE-2020-14040>CVE-",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/830"
+  },
+  {
+    "number": 849,
+    "title": "CVE-2020-8559 (Medium) detected in k8s.io/apimachinery/pkg/util/net-v0.17.11",
+    "body": "## CVE-2020-8559 - Medium Severity Vulnerability\n<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>k8s.io/apimachinery/pkg/util/net-v0.17.11</b></p></summary>\n\n<p></p>\n<p>\n\nDependency Hierarchy:\n  - k8s.io/client-go/pkg/apis/clientauthentication-v12.0.0 (Root Library)\n    - k8s.io/apimachinery/pkg/apis/meta/v1-v0.17.11\n      - k8s.io/apimachinery/pkg/watch-v0.17.11\n        - :x: **k8s.io/apimachinery/pkg/util/net-051d027c14e16c7a01fab9b432cfad59618000cf** (Vulnerable Library)\n<p>Found in HEAD commit: <a href=\"https://github.com/digitalocean/doctl/commit/d94352c6173ad1991196dcb11a8e2067dd0b4acf\">d94352c6173ad1991196dcb11a8e2067dd0b4acf</a></p>\n</p>\n</details>\n<p></p>\n<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/medium_vul.png' width=19 height=20> Vulnerability Details</summary>\n<p>  \n  \nThe Kubernetes kube-apiserver in versions v1.6-v1.15, and versions prior to v1.16.13, v1.17.9 and v1.18.6 are vulnerable to an unvalidated redirect on proxied upgrade requests that could allow an attacker to escalate privileges from a node compromise to a full cluster compromise.\n\n<p>Publish Date: 2020-07-22\n<p>URL: <a href=https://vuln.whitesourcesoftware.com/vulnerability/CVE-2020-8559>CVE-2020-8559</a></p>\n</p>\n</details>\n<p></p>\n<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/cvss3.png' width=19 height=20> CVSS 3 Score ",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/849"
+  },
+  {
+    "number": 1164,
+    "title": "CVE-2022-29162 (High) detected in github.com/opencontainers/runc-v1.1.0",
+    "body": "## CVE-2022-29162 - High Severity Vulnerability\n<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>github.com/opencontainers/runc-v1.1.0</b></p></summary>\n\n<p>CLI tool for spawning and running containers according to the OCI specification</p>\n<p>\n\nDependency Hierarchy:\n  - github.com/docker/cli-v20.10.14 (Root Library)\n    - github.com/moby/moby-v20.10.17\n      - :x: **github.com/opencontainers/runc-v1.1.0** (Vulnerable Library)\n<p>Found in HEAD commit: <a href=\"https://github.com/digitalocean/doctl/commit/8852084db541e3089b8ff41e1519d64049173978\">8852084db541e3089b8ff41e1519d64049173978</a></p>\n<p>Found in base branch: <b>main</b></p>\n</p>\n</details>\n<p></p>\n<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> Vulnerability Details</summary>\n<p>  \n  \nrunc is a CLI tool for spawning and running containers on Linux according to the OCI specification. A bug was found in runc prior to version 1.1.2 where `runc exec --cap` created processes with non-empty inheritable Linux process capabilities, creating an atypical Linux environment and enabling programs with inheritable file capabilities to elevate those capabilities to the permitted set during execve(2). This bug did not affect the container security sandbox as the inheritable set never contained more capabilities than were included in the container's bounding set. ",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/1164"
+  },
+  {
+    "number": 812,
+    "title": "CVE-2019-11244 (Medium) detected in k8s.io/client-go/util/keyutil-78d2af792babf2dd937ba2e2a8d99c753a5eda89",
+    "body": "## CVE-2019-11244 - Medium Severity Vulnerability\n<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>k8s.io/client-go/util/keyutil-78d2af792babf2dd937ba2e2a8d99c753a5eda89</b></p></summary>\n\n<p>Go client for Kubernetes.</p>\n<p>\n\nDependency Hierarchy:\n  - k8s.io/client-go/rest-v12.0.0 (Root Library)\n    - k8s.io/client-go/util/cert-v12.0.0\n      - :x: **k8s.io/client-go/util/keyutil-78d2af792babf2dd937ba2e2a8d99c753a5eda89** (Vulnerable Library)\n<p>Found in HEAD commit: <a href=\"https://github.com/digitalocean/doctl/commit/ab87c4e9c37d2ea9d63b8634a45be7300ef322bd\">ab87c4e9c37d2ea9d63b8634a45be7300ef322bd</a></p>\n</p>\n</details>\n<p></p>\n<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/medium_vul.png' width=19 height=20> Vulnerability Details</summary>\n<p>  \n  \nIn Kubernetes v1.8.x-v1.14.x, schema info is cached by kubectl in the location specified by --cache-dir (defaulting to $HOME/.kube/http-cache), written with world-writeable permissions (rw-rw-rw-). If --cache-dir is specified and pointed at a different location accessible to other users/groups, the written files may be modified by other users/groups and disrupt the kubectl invocation.\n\n<p>Publish Date: 2019-04-22\n<p>URL: <a href=https://vuln.whitesourcesoftware.com/vulnerability/CVE-2019-11244>CVE-2019-11244</a></p>\n</p>\n</details>\n<p></p>\n<details><summary><img src='https://whitesource-re",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/812"
+  },
+  {
+    "number": 811,
+    "title": "CVE-2019-11254 (Medium) detected in github.com/digitalocean/doctl/do/mocks-1b6d0b826a3d5af724a200f510be82d1ee01e2d0, github.com/digitalocean/doctl-1b6d0b826a3d5af724a200f510be82d1ee01e2d0",
+    "body": "## CVE-2019-11254 - Medium Severity Vulnerability\n<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Libraries - <b>github.com/digitalocean/doctl/do/mocks-1b6d0b826a3d5af724a200f510be82d1ee01e2d0</b>, <b>github.com/digitalocean/doctl-1b6d0b826a3d5af724a200f510be82d1ee01e2d0</b></p></summary>\n<p>\n\n<details><summary><b>github.com/digitalocean/doctl/do/mocks-1b6d0b826a3d5af724a200f510be82d1ee01e2d0</b></p></summary>\n\n<p>The official command line interface for the DigitalOcean API.</p>\n<p>\n\nDependency Hierarchy:\n  - :x: **github.com/digitalocean/doctl/do/mocks-1b6d0b826a3d5af724a200f510be82d1ee01e2d0** (Vulnerable Library)\n</details>\n<details><summary><b>github.com/digitalocean/doctl-1b6d0b826a3d5af724a200f510be82d1ee01e2d0</b></p></summary>\n\n<p>The official command line interface for the DigitalOcean API.</p>\n<p>\n\nDependency Hierarchy:\n  - github.com/digitalocean/doctl/pluginhost-v1.43.0 (Root Library)\n    - :x: **github.com/digitalocean/doctl-1b6d0b826a3d5af724a200f510be82d1ee01e2d0** (Vulnerable Library)\n</details>\n\n<p>Found in HEAD commit: <a href=\"https://github.com/digitalocean/doctl/commit/ab87c4e9c37d2ea9d63b8634a45be7300ef322bd\">ab87c4e9c37d2ea9d63b8634a45be7300ef322bd</a></p>\n</p>\n</details>\n<p></p>\n<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/medium_vul.png' width=19 height=20> Vulnerability Details</summary>\n<p>  \n  \nThe Kubernetes API Server c",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/811"
+  },
+  {
+    "number": 1061,
+    "title": "CVE-2021-25741 (High) detected in github.com/kubernetes/utils-67b214c5f920060488eda08cd2b5c30597f2f1d7",
+    "body": "## CVE-2021-25741 - High Severity Vulnerability\n<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>github.com/kubernetes/utils-67b214c5f920060488eda08cd2b5c30597f2f1d7</b></p></summary>\n\n<p>Non-Kubernetes-specific utility libraries which are consumed by multiple projects.</p>\n<p>\n\nDependency Hierarchy:\n  - github.com/kubernetes/client-go-v0.20.0 (Root Library)\n    - :x: **github.com/kubernetes/utils-67b214c5f920060488eda08cd2b5c30597f2f1d7** (Vulnerable Library)\n<p>Found in HEAD commit: <a href=\"https://github.com/digitalocean/doctl/commit/d9782b83eac5000545c1e0c915060ab6f5591d62\">d9782b83eac5000545c1e0c915060ab6f5591d62</a></p>\n<p>Found in base branch: <b>main</b></p>\n</p>\n</details>\n<p></p>\n<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> Vulnerability Details</summary>\n<p>  \n  \nA security issue was discovered in Kubernetes where a user may be able to create a container with subpath volume mounts to access files & directories outside of the volume, including on the host filesystem.\n\n<p>Publish Date: 2021-09-20\n<p>URL: <a href=https://vuln.whitesourcesoftware.com/vulnerability/CVE-2021-25741>CVE-2021-25741</a></p>\n</p>\n</details>\n<p></p>\n<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/cvss3.png' width=19 height=20> CVSS 3 Score Details (<b>8.1</b>)</summary>\n<p>\n\nBase Score M",
+    "state": "closed",
+    "html_url": "https://github.com/digitalocean/doctl/issues/1061"
+  }
+]

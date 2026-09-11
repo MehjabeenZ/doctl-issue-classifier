@@ -1,0 +1,38 @@
+# Render Blueprint spec for this app — see DEPLOYMENT.md for how to use this.
+# Deploys the single root Dockerfile as-is (multi-stage: builds the React
+# frontend, then serves both the API and the built static assets from one
+# FastAPI process — see Dockerfile at repo root). No database: the corpus,
+# ground truth, and eval results are flat JSON files baked into the image
+# under data/ (Dockerfile's `COPY data/ data/`).
+#
+# Port: the Dockerfile EXPOSEs 8080 and uvicorn binds to 0.0.0.0:8080 directly
+# (not reading a PORT env var). Render's own docs say it's "usually able to
+# detect" a non-default bound port for Docker services — this should just
+# work, but isn't a hard guarantee. If the deploy builds but traffic doesn't
+# route, check the service's Settings > "Port" in the Render dashboard and
+# set it to 8080 explicitly there.
+#
+# PLACEHOLDER: the real SI_API_KEY value is intentionally NOT in this file —
+# `sync: false` means Render will prompt you to paste it into the dashboard's
+# environment tab after the Blueprint is created. Never commit the real key.
+
+services:
+  - type: web
+    name: doctl-issue-classifier
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    region: oregon
+
+    envVars:
+      - key: SI_API_KEY
+        sync: false   # prompted for in the dashboard, never stored in this file
+      - key: SI_BASE_URL
+        value: https://inference.do-ai.run/v1
+      - key: DRY_RUN
+        value: "false"
+      - key: DEFAULT_CONCURRENCY
+        value: "8"
+      - key: MAX_OUTPUT_TOKENS
+        value: "1024"

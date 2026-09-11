@@ -1,0 +1,2504 @@
+[
+  {
+    "number": 78,
+    "title": "droplet list for larger number of droplets contains duplicates",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 119,
+    "title": "\"doctl compute droplet untag\" - droplet not found bug",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 137,
+    "title": "Add filtering to volume lists",
+    "rule_label": "enhancement",
+    "labels": [
+      "enhancement"
+    ]
+  },
+  {
+    "number": 226,
+    "title": "proposal: make doctl part of chocolatey package manager",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion",
+      "packaging",
+      "windows"
+    ]
+  },
+  {
+    "number": 238,
+    "title": "man pages and fish completions",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 258,
+    "title": "Ability to interact with Spaces",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 263,
+    "title": "ubuntu/xenial64: doctl compute ssh: Error: fork/exec /usr/bin/ssh: permission denied",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "wip",
+      "packaging"
+    ]
+  },
+  {
+    "number": 298,
+    "title": "unknown flag: --tag-names",
+    "rule_label": "question",
+    "labels": [
+      "question"
+    ]
+  },
+  {
+    "number": 308,
+    "title": "Fail authenticate",
+    "rule_label": "question",
+    "labels": [
+      "question"
+    ]
+  },
+  {
+    "number": 309,
+    "title": "How to keep only 12 snapshots?",
+    "rule_label": "question",
+    "labels": [
+      "question"
+    ]
+  },
+  {
+    "number": 311,
+    "title": "Make doctl available as a Flatpak",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion",
+      "packaging"
+    ]
+  },
+  {
+    "number": 314,
+    "title": "Suggestion: Show public images by default",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion",
+      "version 2.x"
+    ]
+  },
+  {
+    "number": 317,
+    "title": "Acting on tagged droplets",
+    "rule_label": "enhancement",
+    "labels": [
+      "enhancement",
+      "api-parity"
+    ]
+  },
+  {
+    "number": 335,
+    "title": "Feature Request: doctl compute domain create <domain> --droplet-name <droplet-name>",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 336,
+    "title": "How to properly move config.yaml to another computer?",
+    "rule_label": "question",
+    "labels": [
+      "question",
+      "waiting-response"
+    ]
+  },
+  {
+    "number": 345,
+    "title": "Allow configuring defaults per context",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 346,
+    "title": "Showing the complete CLI usage help screen when a non-usage error occurred is confusing",
+    "rule_label": "enhancement",
+    "labels": [
+      "enhancement"
+    ]
+  },
+  {
+    "number": 367,
+    "title": "Custom image support",
+    "rule_label": "enhancement",
+    "labels": [
+      "api-parity"
+    ]
+  },
+  {
+    "number": 389,
+    "title": "kubernetes flags error",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 394,
+    "title": "Setting Kubernetes context on first config save",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 400,
+    "title": "Automatic self-upgrades ",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 407,
+    "title": "Database support ?",
+    "rule_label": "enhancement",
+    "labels": [
+      "api-parity"
+    ]
+  },
+  {
+    "number": 409,
+    "title": "Handling multiple doctl config",
+    "rule_label": "question",
+    "labels": [
+      "question"
+    ]
+  },
+  {
+    "number": 417,
+    "title": "Is it possible to resize Kubernetes cluster",
+    "rule_label": "question",
+    "labels": [
+      "question"
+    ]
+  },
+  {
+    "number": 420,
+    "title": "Create a Volume from a Snapshot",
+    "rule_label": "enhancement",
+    "labels": [
+      "enhancement",
+      "good first issue",
+      "api-parity"
+    ]
+  },
+  {
+    "number": 425,
+    "title": "--ssh-private-ip does not work",
+    "rule_label": "question",
+    "labels": [
+      "question"
+    ]
+  },
+  {
+    "number": 449,
+    "title": "Feature Request: Add custom known_hosts file to doctl compute ssh",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 457,
+    "title": "Snap saves kubeconfig file in \"/home/user/snap/doctl/39/.kube/config\" when you run \"doctl kubernetes cluster kubeconfig save cluster-name\"",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "wip",
+      "snap"
+    ]
+  },
+  {
+    "number": 459,
+    "title": "kubeconfig save, exec-credential not aware of context",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 461,
+    "title": "doctl k8s cluster get <clustername> not working for cluster with long name",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 464,
+    "title": "Add message listing orphaned resources on successful Droplet destroy",
+    "rule_label": "enhancement",
+    "labels": [
+      "enhancement"
+    ]
+  },
+  {
+    "number": 493,
+    "title": "The floating IP already has a pending event.",
+    "rule_label": "question",
+    "labels": [
+      "question"
+    ]
+  },
+  {
+    "number": 496,
+    "title": "doctl incorrectly reports that a newer version is available",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 535,
+    "title": "Howto create af load balancer for HTTP and HTTPS?",
+    "rule_label": "question",
+    "labels": [
+      "question"
+    ]
+  },
+  {
+    "number": 543,
+    "title": "Add `--wait` for `doctl compute volume-action detach`",
+    "rule_label": "enhancement",
+    "labels": [
+      "enhancement"
+    ]
+  },
+  {
+    "number": 547,
+    "title": "Implement `--wait` on all delete actions?",
+    "rule_label": "enhancement",
+    "labels": [
+      "enhancement"
+    ]
+  },
+  {
+    "number": 567,
+    "title": "Wrong Disk size and number of VCPU's upon droplet creation",
+    "rule_label": "question",
+    "labels": [
+      "question"
+    ]
+  },
+  {
+    "number": 573,
+    "title": "doctl auth init: Error: unable to read DigitalOcean access token: The handle is invalid.",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "windows"
+    ]
+  },
+  {
+    "number": 630,
+    "title": "create droplet in a specific project",
+    "rule_label": "enhancement",
+    "labels": [
+      "enhancement",
+      "do-api"
+    ]
+  },
+  {
+    "number": 640,
+    "title": "[Question] How to re-use token between calls",
+    "rule_label": "question",
+    "labels": [
+      "question"
+    ]
+  },
+  {
+    "number": 655,
+    "title": "Create sftp command",
+    "rule_label": "enhancement",
+    "labels": [
+      "enhancement",
+      "suggestion"
+    ]
+  },
+  {
+    "number": 663,
+    "title": "Support resource names instead of IDs in more places",
+    "rule_label": "enhancement",
+    "labels": [
+      "enhancement",
+      "suggestion"
+    ]
+  },
+  {
+    "number": 668,
+    "title": "Kubernetes cluster creation flag bug",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 699,
+    "title": "Add tab completion for resource names",
+    "rule_label": "enhancement",
+    "labels": [
+      "enhancement"
+    ]
+  },
+  {
+    "number": 708,
+    "title": "Allow rebuild action to take user-data and user-data-file",
+    "rule_label": "enhancement",
+    "labels": [
+      "enhancement",
+      "do-api"
+    ]
+  },
+  {
+    "number": 710,
+    "title": "Is there a way to get the doctl-equivalent of a droplet creation from the web UI ?",
+    "rule_label": "question",
+    "labels": [
+      "question"
+    ]
+  },
+  {
+    "number": 711,
+    "title": "Support Trusted Sources in Managed Database?",
+    "rule_label": "enhancement",
+    "labels": [
+      "api-parity"
+    ]
+  },
+  {
+    "number": 725,
+    "title": "Feature Request: add SSH key to existing droplet",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion",
+      "do-api"
+    ]
+  },
+  {
+    "number": 726,
+    "title": "No protocol in firewall creation",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 729,
+    "title": "CVE-2019-11250 (Medium) detected in k8s.io/client-go/transport-v12.0.0",
+    "rule_label": "security",
+    "labels": [
+      "security vulnerability"
+    ]
+  },
+  {
+    "number": 730,
+    "title": "WINDOWS VERSION? We dont all run mac you know",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 733,
+    "title": "Errors when using Git for Windows",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "Needs Investigation"
+    ]
+  },
+  {
+    "number": 735,
+    "title": "CVE-2020-7219 (Medium) detected in github.com/stretchr/objx-v0.1.1",
+    "rule_label": "security",
+    "labels": [
+      "security vulnerability"
+    ]
+  },
+  {
+    "number": 752,
+    "title": "Access denied on ~/.kube/.lock",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "packaging"
+    ]
+  },
+  {
+    "number": 771,
+    "title": "[QUESTION] how to restore volume created with doctl?",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 784,
+    "title": "[Fix] Unable to find droplet image identifier",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 790,
+    "title": "Database Connection Flags",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion",
+      "do-api"
+    ]
+  },
+  {
+    "number": 791,
+    "title": "Allow for setting expiry time for `kubernetes cluster kubeconfig` commands",
+    "rule_label": "enhancement",
+    "labels": [
+      "enhancement",
+      "api-parity"
+    ]
+  },
+  {
+    "number": 793,
+    "title": "kubernetes node-pool errors",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 794,
+    "title": "doctl bh design",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 795,
+    "title": "node not deleted with kubectl delete",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 799,
+    "title": "Do not use this digitalocean!",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 802,
+    "title": "Droplets: Add support for specifying a VPC",
+    "rule_label": "enhancement",
+    "labels": [
+      "api-parity"
+    ]
+  },
+  {
+    "number": 803,
+    "title": "load balancers: Add support for specifying a VPC",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion",
+      "api-parity"
+    ]
+  },
+  {
+    "number": 804,
+    "title": "databases: Add support for specifying a VPC ",
+    "rule_label": "enhancement",
+    "labels": [
+      "api-parity"
+    ]
+  },
+  {
+    "number": 809,
+    "title": "doctl compute ssh fails on ubuntu 20.04 with snap",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "snap"
+    ]
+  },
+  {
+    "number": 811,
+    "title": "CVE-2019-11254 (Medium) detected in github.com/digitalocean/doctl/do/mocks-1b6d0b826a3d5af724a200f510be82d1ee01e2d0, github.com/digitalocean/doctl-1b6d0b826a3d5af724a200f510be82d1ee01e2d0",
+    "rule_label": "security",
+    "labels": [
+      "security vulnerability"
+    ]
+  },
+  {
+    "number": 812,
+    "title": "CVE-2019-11244 (Medium) detected in k8s.io/client-go/util/keyutil-78d2af792babf2dd937ba2e2a8d99c753a5eda89",
+    "rule_label": "security",
+    "labels": [
+      "security vulnerability"
+    ]
+  },
+  {
+    "number": 814,
+    "title": "Create list of different droplet sizes and image names for reference on docs",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 817,
+    "title": "I am unable to automatically remove Access Tokens generated by doctl registry auth",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 818,
+    "title": "Have doctl registry logout delete access token generated by doctl registry login",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 821,
+    "title": "I cannot set the expiry time for doctl auth init generated tokens",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 824,
+    "title": "Droplet tags order is inconsistent / not defined",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 825,
+    "title": "doctl auth init error",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 830,
+    "title": "CVE-2020-14040 (Medium) detected in github.com/microsoft/hcsshim/osversion-v0.8.7",
+    "rule_label": "security",
+    "labels": [
+      "security vulnerability"
+    ]
+  },
+  {
+    "number": 833,
+    "title": "doctl tries to create ~/.config even if -c provided",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 834,
+    "title": "Add command Get and List to volume-actions",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion",
+      "api-parity"
+    ]
+  },
+  {
+    "number": 840,
+    "title": "Please add a password function.",
+    "rule_label": "enhancement",
+    "labels": [
+      "enhancement",
+      "do-api"
+    ]
+  },
+  {
+    "number": 843,
+    "title": "CVE-2019-11253 (High) detected in multiple libraries",
+    "rule_label": "security",
+    "labels": [
+      "security vulnerability"
+    ]
+  },
+  {
+    "number": 845,
+    "title": "Error when on VPN",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 846,
+    "title": "Offer installing 1-clicks in an existing k8s cluster",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion",
+      "api-parity"
+    ]
+  },
+  {
+    "number": 847,
+    "title": "DO container registry k8s deployment pulling error",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 849,
+    "title": "CVE-2020-8559 (Medium) detected in k8s.io/apimachinery/pkg/util/net-v0.17.11",
+    "rule_label": "security",
+    "labels": [
+      "security vulnerability"
+    ]
+  },
+  {
+    "number": 856,
+    "title": "Allow picking the context\u2019s name in `doctl kubernetes cluster kubeconfig save`",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 857,
+    "title": "how to create a droplet from an image??",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 859,
+    "title": "CVE-2020-9283 (High) detected in golang.org/x/crypto/ssh-bfa7d42eb568d3c454e1853744768cc80718040d",
+    "rule_label": "security",
+    "labels": [
+      "security vulnerability"
+    ]
+  },
+  {
+    "number": 877,
+    "title": "Error: neither $XDG_CONFIG_HOME nor $HOME are defined",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "snap",
+      "Needs Investigation"
+    ]
+  },
+  {
+    "number": 878,
+    "title": "`doctl apps logs ${ID}` panics (until logs become available)",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 880,
+    "title": "Way to delete image tags from DO container registry",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 881,
+    "title": "doctl auth init prompts for token even if flag is present",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 883,
+    "title": "Doctl Returns 500 Error When deploying app.yaml to DO App Platform",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 889,
+    "title": "No size unit for `doctl compute volume-action resize`",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 891,
+    "title": "auth init is freezing after OK",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "windows"
+    ]
+  },
+  {
+    "number": 894,
+    "title": "SSH key public_key not accessible via doctl",
+    "rule_label": "enhancement",
+    "labels": [
+      "help wanted",
+      "suggestion",
+      "good first issue",
+      "hacktoberfest"
+    ]
+  },
+  {
+    "number": 895,
+    "title": "`doctl compute droplet get <droplet-id|droplet-name>`",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 908,
+    "title": "`doctl auth init` not working on Windows 10 powershell",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "waiting-response"
+    ]
+  },
+  {
+    "number": 915,
+    "title": "\"auth init\" failed with \"Error: mkdir $HOME/.config: file exists\"",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "Needs Investigation"
+    ]
+  },
+  {
+    "number": 916,
+    "title": "zsh autocompletion uses non portable sed extensions",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 919,
+    "title": "How to update DNS records? Receiving \"Data needs to end with a dot (.)\"",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "Needs Investigation"
+    ]
+  },
+  {
+    "number": 923,
+    "title": "Doctl Returns 500 Error When deploying app.yaml to DO App Platform (image source)",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 927,
+    "title": "CVE-2020-8565 (Medium) detected in github.com/digitalocean/doctl-v1.54.0",
+    "rule_label": "security",
+    "labels": [
+      "security vulnerability"
+    ]
+  },
+  {
+    "number": 928,
+    "title": "Improve error message when providing non-numeric droplet id",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 930,
+    "title": "Unable to Remove (default?) VPCS",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 932,
+    "title": "CVE-2020-29652 (High) detected in github.com/digitalocean/doctl-v1.54.0",
+    "rule_label": "security",
+    "labels": [
+      "security vulnerability"
+    ]
+  },
+  {
+    "number": 933,
+    "title": "Support for getting do_token from Vault",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 934,
+    "title": "Appspec global envs removed on app update",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 936,
+    "title": "Create new API keys from doctl",
+    "rule_label": "enhancement",
+    "labels": [
+      "enhancement",
+      "suggestion",
+      "do-api"
+    ]
+  },
+  {
+    "number": 937,
+    "title": "Add ability to protect (or ignore) certain droplets so they can't be demolished inadvertently",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion",
+      "do-api"
+    ]
+  },
+  {
+    "number": 947,
+    "title": "connect api prompts error cannot assign requested address",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "Needs Investigation"
+    ]
+  },
+  {
+    "number": 951,
+    "title": "Tag existing images in container registry",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion",
+      "do-api"
+    ]
+  },
+  {
+    "number": 953,
+    "title": "Ability to define a tag name when deploying a prebuilt image from the Container Registry to Apps Platform",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 954,
+    "title": "doctl apps logs follow mode unexpectedly exits",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 958,
+    "title": "CVE-2020-27813 (High) detected in github.com/gorilla/websocket-v1.4.0",
+    "rule_label": "security",
+    "labels": [
+      "security vulnerability"
+    ]
+  },
+  {
+    "number": 964,
+    "title": "Add watch option to Apps Platform create-deployment",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion",
+      "good first issue"
+    ]
+  },
+  {
+    "number": 965,
+    "title": "Remove auth from list",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion",
+      "good first issue"
+    ]
+  },
+  {
+    "number": 968,
+    "title": "`doctl registry login` with doctl+Docker snaps uses incorrect (!?) `config.json`",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "snap"
+    ]
+  },
+  {
+    "number": 970,
+    "title": "Add wait option to app create and update commands",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion",
+      "good first issue"
+    ]
+  },
+  {
+    "number": 972,
+    "title": "Stable repositories for ready to use app specification",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 973,
+    "title": "Proposal for creating Visual Studio Code extension.",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 974,
+    "title": "Enable dynamic completion of nouns",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 975,
+    "title": "Can't (un)set result limit count",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 978,
+    "title": "apps spec validate doen't give meaningful information",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 979,
+    "title": "Fix the configuration removing command",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 980,
+    "title": "compute image create syntax is incomplete",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 985,
+    "title": "Add ability to switch context using environment variable",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 989,
+    "title": "doctl apps create support for update existing apps",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 992,
+    "title": "doctl databases fork existing cluster",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion",
+      "api-parity"
+    ]
+  },
+  {
+    "number": 993,
+    "title": "CVE-2021-31525 (Medium) detected in golang.org/x/net/http/httpguts-69a78807bb2bb6d1599c68698c6b009505012083",
+    "rule_label": "security",
+    "labels": [
+      "security vulnerability"
+    ]
+  },
+  {
+    "number": 995,
+    "title": "installation issues on macos ",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 996,
+    "title": "\"doctl auth switch\" mangles all auth-contexts keys that are email addresses",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 997,
+    "title": "Upload image from local fileystem",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion",
+      "do-api"
+    ]
+  },
+  {
+    "number": 999,
+    "title": "Removing default auth context",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1001,
+    "title": "1.61.0 release tarball changed?",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1003,
+    "title": "`doctl compute droplet create --wait` is not waiting long enough ",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "do-api",
+      "Needs Investigation"
+    ]
+  },
+  {
+    "number": 1007,
+    "title": "Help for 'kubeconfig save' is incomplete ",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1017,
+    "title": "Requesting a `databases firewalls remove --rule` flag",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 1018,
+    "title": "Option --droplet-agent false creates a duplicate droplet",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1020,
+    "title": "domain record update unexpectedly changes record TTL",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1022,
+    "title": "Access to recovery console settings",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion",
+      "do-api",
+      "Needs Investigation"
+    ]
+  },
+  {
+    "number": 1023,
+    "title": "snapshot help doesn't list required parameters",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1024,
+    "title": "Typo in --wait command",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1028,
+    "title": "doctl binary for Android ARM64",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 1029,
+    "title": "Docker compose push return unexpected end of JSON input: \"\"",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1032,
+    "title": "connection refused from doctl",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1037,
+    "title": "Cannot delete volume using doctl",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1042,
+    "title": "doctl uses the wrong executable name in kubeconfig",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1059,
+    "title": "Unknown field \"log_destinations\" when updating spec",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1061,
+    "title": "CVE-2021-25741 (High) detected in github.com/kubernetes/utils-67b214c5f920060488eda08cd2b5c30597f2f1d7",
+    "rule_label": "security",
+    "labels": [
+      "security vulnerability"
+    ]
+  },
+  {
+    "number": 1063,
+    "title": "`doctl k8s clusters create --wait --1-clicks` is not waiting long enough",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "do-api",
+      "Needs Investigation"
+    ]
+  },
+  {
+    "number": 1064,
+    "title": "preserve_path_prefix is missing",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1066,
+    "title": "CVE-2021-41190 (Medium) detected in github.com/opencontainers/image-spec-v1.0.1",
+    "rule_label": "security",
+    "labels": [
+      "security vulnerability"
+    ]
+  },
+  {
+    "number": 1071,
+    "title": "apps create and apps create-deployment do not return error codes",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1074,
+    "title": "Config initialization failed: open /home/<user>/.config/doctl/config.yaml: permission denied",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "snap"
+    ]
+  },
+  {
+    "number": 1083,
+    "title": "Revoke doks token command",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 1085,
+    "title": "compute ssk-key import gets permission denied error",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1086,
+    "title": "databases firewalls append error: command contains unsupported arguments",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1087,
+    "title": "Get droplet by name does not work in the case your name is a number",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1088,
+    "title": "Saving the kubernetes config is not unique enough",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "Needs Investigation"
+    ]
+  },
+  {
+    "number": 1090,
+    "title": "CVE-2021-43784 (Medium) detected in github.com/opencontainers/runc-v1.0.0-rc95",
+    "rule_label": "security",
+    "labels": [
+      "security vulnerability"
+    ]
+  },
+  {
+    "number": 1091,
+    "title": "CVE-2021-38561 (High) detected in github.com/golang/text-v0.3.6",
+    "rule_label": "security",
+    "labels": [
+      "security vulnerability"
+    ]
+  },
+  {
+    "number": 1092,
+    "title": "CVE-2021-43565 (High) detected in github.com/docker/cli-v19.03.13-beta1",
+    "rule_label": "security",
+    "labels": [
+      "security vulnerability"
+    ]
+  },
+  {
+    "number": 1094,
+    "title": "CVE-2021-3121 (High) detected in github.com/docker/cli-v19.03.13-beta1",
+    "rule_label": "security",
+    "labels": [
+      "security vulnerability"
+    ]
+  },
+  {
+    "number": 1095,
+    "title": "CVE-2021-32760 (Medium) detected in github.com/docker/cli-v19.03.13-beta1",
+    "rule_label": "security",
+    "labels": [
+      "security vulnerability"
+    ]
+  },
+  {
+    "number": 1096,
+    "title": "CVE-2021-41092 (High) detected in github.com/docker/cli-v19.03.13-beta1",
+    "rule_label": "security",
+    "labels": [
+      "security vulnerability"
+    ]
+  },
+  {
+    "number": 1105,
+    "title": "Upgrading node pools",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion",
+      "do-api"
+    ]
+  },
+  {
+    "number": 1106,
+    "title": "Doctl/API return 404 when Droplet name is just number",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "duplicate"
+    ]
+  },
+  {
+    "number": 1110,
+    "title": "`Fingerprint could not be generated, please make sure your key is valid` while creating ssh-key with doctl",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1129,
+    "title": "image on docker hub seems to be dysfunctional",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1130,
+    "title": "CVE-2022-27191 (High) detected in github.com/docker/cli-v19.03.13-beta1",
+    "rule_label": "security",
+    "labels": [
+      "security vulnerability"
+    ]
+  },
+  {
+    "number": 1131,
+    "title": "CVE-2021-44716 (High) detected in github.com/docker/cli-v19.03.13-beta1",
+    "rule_label": "security",
+    "labels": [
+      "security vulnerability"
+    ]
+  },
+  {
+    "number": 1139,
+    "title": "CVE-2022-21698 (High) detected in github.com/docker/cli-v20.10.14",
+    "rule_label": "security",
+    "labels": [
+      "security vulnerability"
+    ]
+  },
+  {
+    "number": 1144,
+    "title": "Initial node pool contains more nodes than expected",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1147,
+    "title": "Documentation not rendering correctly for some pages",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1164,
+    "title": "CVE-2022-29162 (High) detected in github.com/opencontainers/runc-v1.1.0",
+    "rule_label": "security",
+    "labels": [
+      "security vulnerability"
+    ]
+  },
+  {
+    "number": 1165,
+    "title": "Can't port forward service on DO k8s",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1167,
+    "title": "Get \"/v2/account\": unsupported protocol scheme \"\"",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1171,
+    "title": "doctl sls connect fails on snap",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1175,
+    "title": "CVE-2022-28948 (Medium) detected in github.com/go-yaml/yaml-v2.4.0 - autoclosed",
+    "rule_label": "security",
+    "labels": [
+      "security vulnerability"
+    ]
+  },
+  {
+    "number": 1176,
+    "title": "doctl auth init flag --access-token do not have effect",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "Needs Investigation"
+    ]
+  },
+  {
+    "number": 1180,
+    "title": "Droplet sizes in doctl do not match those displayed in the Web",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "waiting-response"
+    ]
+  },
+  {
+    "number": 1192,
+    "title": "Getting Duplicate Suggestions for invalid commands  ",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1196,
+    "title": "CVE-2022-29526 (Medium) detected in multiple libraries",
+    "rule_label": "security",
+    "labels": [
+      "security vulnerability"
+    ]
+  },
+  {
+    "number": 1217,
+    "title": "`doctl apps spec validate app.yml` returns error when `health_check.port` is used",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "waiting-response"
+    ]
+  },
+  {
+    "number": 1221,
+    "title": "[Feature Request] Deploy zip to Functions",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 1243,
+    "title": "Add shell completion to doctl running in docker",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 1262,
+    "title": "Use consistent aliases for `list` and `delete` sub-commands",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion",
+      "good first issue",
+      "hacktoberfest"
+    ]
+  },
+  {
+    "number": 1263,
+    "title": "Add --wait flag to database create command",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion",
+      "hacktoberfest"
+    ]
+  },
+  {
+    "number": 1264,
+    "title": "Add --wait flag to load-balancer create command",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion",
+      "hacktoberfest"
+    ]
+  },
+  {
+    "number": 1267,
+    "title": "--interactive false still gives a confirmation prompt",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1268,
+    "title": "Implement `--wait` on `compute volume create`",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion",
+      "Needs Investigation"
+    ]
+  },
+  {
+    "number": 1271,
+    "title": "doctl fails to get env vars",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1280,
+    "title": "config.yml not found when executing doctl commands - default path corrupted",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1281,
+    "title": "Error: open : The system cannot find the file specified.",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1284,
+    "title": "serverless connect + status (and others) fails with Snap",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1291,
+    "title": "Broken link to AUR package",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1300,
+    "title": "Deploying functions tries to npm install in wrong directory",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1306,
+    "title": "Unable to get a cluster list with custom columns containing tags",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1312,
+    "title": "Unable to remove the label from the Kubernetes cluster node pool.",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1322,
+    "title": "Microservices deployment -> doctl - create with upsert and update fails to update app component",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "waiting-response",
+      "Needs Investigation"
+    ]
+  },
+  {
+    "number": 1326,
+    "title": "doctl as NPM package and .deb",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 1329,
+    "title": "oh-my-zsh plugin not working",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1330,
+    "title": "App platform metrics?",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion",
+      "do-api"
+    ]
+  },
+  {
+    "number": 1331,
+    "title": "doctl sls fn invoke not handling function timeout correctly",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "Needs Investigation"
+    ]
+  },
+  {
+    "number": 1335,
+    "title": "How do I check droplets in a load-balancer are registered and in healthy state using the CLI?",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion",
+      "do-api"
+    ]
+  },
+  {
+    "number": 1340,
+    "title": "private networking is enabled even though flag is set to off, need private network off",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1341,
+    "title": "serverless project init uses `websecure` string instead of `webSecure` when generating project template",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1344,
+    "title": "Serverless deploy command automatically creating \"__deployer__.zip\" and ignoring main file configuration in project.yml",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1345,
+    "title": "\"Unexpected end Of JSON input\" error doing `doctl serverless deploy`.",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "Needs Investigation"
+    ]
+  },
+  {
+    "number": 1349,
+    "title": "Allow `--build-command` to be passed for docker builds",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 1354,
+    "title": "Allow retrieving and updating database cluster configuration",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion",
+      "api-parity",
+      "hacktoberfest"
+    ]
+  },
+  {
+    "number": 1358,
+    "title": "Bring back SizeSlug option to doctl compute droplet list",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 1359,
+    "title": "Database Replica Functions Missing Integration Tests",
+    "rule_label": "enhancement",
+    "labels": [
+      "enhancement",
+      "help wanted",
+      "good first issue",
+      "hacktoberfest"
+    ]
+  },
+  {
+    "number": 1361,
+    "title": "Need more details when emitting Error: unexpected end of JSON input",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 1364,
+    "title": "Provide Proper Snap Package on ARM",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "packaging",
+      "snap"
+    ]
+  },
+  {
+    "number": 1365,
+    "title": "Add CSV export alongisde text/json",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 1366,
+    "title": "Can't use shell autocompletion on macOS + zsh",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1367,
+    "title": "Add command \"Add ssh key to droplet\" (Renewed, was not considered all around)",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion",
+      "do-api"
+    ]
+  },
+  {
+    "number": 1375,
+    "title": "Cannot get read-only creds with `doctl registry login`",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1380,
+    "title": "`doctl registry gc start` does nothing",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1382,
+    "title": "`doctl version` now outputs json without `-o json` switch",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1390,
+    "title": "panic: runtime error: invalid memory address or nil pointer dereference",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1394,
+    "title": "--access-token flag ignored when also providing --context flag",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1396,
+    "title": "--access-token flag ignored when removing registry",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1407,
+    "title": "doctl auth init -t TOKEN should not print token to stdout",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1415,
+    "title": "Provide the tool as an AppImage",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion",
+      "packaging"
+    ]
+  },
+  {
+    "number": 1417,
+    "title": "Unable to delete tags from bash variable",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1418,
+    "title": "Autocompletion for Fish Shell is unclear",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1419,
+    "title": "Add Support for Alerts for Uptime Checks",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion",
+      "good first issue",
+      "api-parity",
+      "hacktoberfest"
+    ]
+  },
+  {
+    "number": 1426,
+    "title": "compute image create --image-file",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion",
+      "do-api"
+    ]
+  },
+  {
+    "number": 1436,
+    "title": "Not Possible to See CName Domain Record Tags from the CLI with Doctl?",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 1444,
+    "title": "403 response on cluster kubeconfig save from the pipeline in Gitlab",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1447,
+    "title": "`doctl auth init` connection refused",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1449,
+    "title": "Ability to validate App Spec Schema in Offline Mode",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 1460,
+    "title": "Get deployment status via doctl",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion",
+      "api-parity"
+    ]
+  },
+  {
+    "number": 1461,
+    "title": "Ability to deploy separate parts of an App",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 1464,
+    "title": "doctl registry garbage-collection start --force moves the registry to RO mode but don't run garbage collector",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1465,
+    "title": "webgui xterm code ",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 1474,
+    "title": "Serverless triggers are not being deployed",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "do-api"
+    ]
+  },
+  {
+    "number": 1507,
+    "title": "Adding taints has wrong syntax in DO docs",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1512,
+    "title": "Access the link to download CA certificate for managed databases",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 1513,
+    "title": "Incremental builds don't work with --remote-build",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1516,
+    "title": "doctl kubernetes cluster node-pool create mycluster123 --auto-scale --min-nodes 0 --name test --size s-1vcpu-2gb --max-nodes 1 --count 0 says the node pool needs at least min 1",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "do-api"
+    ]
+  },
+  {
+    "number": 1525,
+    "title": "Error: websocket: bad handshake for doctl apps logs <app id> -f --tail 200",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1527,
+    "title": "doctl --user-data help syntax wrong ",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1530,
+    "title": "doctl registry login fails with \"error storing credentials\"",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1533,
+    "title": "feature: functions: create function triggers with doctl ",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 1534,
+    "title": "functions: attributes generated by quick start are undocumented ",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1536,
+    "title": "doctl apps logs doesn't output JSON",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion",
+      "do-api"
+    ]
+  },
+  {
+    "number": 1537,
+    "title": "Functions node flag --env not working?",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1543,
+    "title": "`doctl auth list --output json` produces text output",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1545,
+    "title": "Serverless: Can not install Serverless in Linux x64",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1553,
+    "title": "Add ability to change connection pool size for connection pools",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 1559,
+    "title": "`doctl serverless install` should not require authentication",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1561,
+    "title": "Doctl registry repository list-tags failing with 404 ",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1574,
+    "title": "Dependency inconsistency caused by `replace`",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 1594,
+    "title": "Option descriptions not printed correctly.",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1597,
+    "title": "Some inconsistencies in enum argument descriptions",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "hacktoberfest"
+    ]
+  },
+  {
+    "number": 1602,
+    "title": "Error: unexpected end of JSON input",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1605,
+    "title": "[Windows ARM64] 404 error on `doctl serverless install`",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1614,
+    "title": "doctl apps logs id -f quietly quits",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1615,
+    "title": "Reference an app by name instead of ID",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 1618,
+    "title": "doctl manual",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 1619,
+    "title": "bug: fail to create a kube cluster",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1624,
+    "title": "doctl .deb package",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 1632,
+    "title": "Deployment failure: `sh: 1: tsc: Permission denied`",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1635,
+    "title": "Document permissions for \"doctl compute droplet create\" optional flags",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1637,
+    "title": "functions: runtime of go:1.20 ignored ",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1644,
+    "title": "deploying serverless from ubuntu with python dependencies hangs, fails, is generally unclear",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1647,
+    "title": "Add ability of connecting recovery iso to droplet.",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion",
+      "do-api"
+    ]
+  },
+  {
+    "number": 1656,
+    "title": "doctl fail to install serverless when using docker",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1665,
+    "title": "1.122 installed via Homebrew on MacOS is flagged by antivirus",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1666,
+    "title": "Allow Interacting with spaces",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 1681,
+    "title": "doctl compute droplet create - starting two extra droplets, both named true",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1683,
+    "title": "doctl compute action list is SLOW",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1689,
+    "title": "unknown field \"authority\" reported when validating example spec from DO documentation",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1710,
+    "title": "Error getting terminal size: The handle is invalid",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1719,
+    "title": "feature request: store the token in the keyring",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 1733,
+    "title": "Latest release doesn't include binaries?",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1737,
+    "title": "droplet-autoscale create/update --user-data-file",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 1749,
+    "title": "doctl list-tags flags no longer working",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "hacktoberfest"
+    ]
+  },
+  {
+    "number": 1750,
+    "title": "--force flag doesn't work on delete-manifest",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1753,
+    "title": "doctl registry garbage-collection start --force still asks for confirmation",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1758,
+    "title": "doctl databases pool create (fails when --user arg not provided)",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "hacktoberfest"
+    ]
+  },
+  {
+    "number": 1759,
+    "title": "v1.144.0 missing builds",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1760,
+    "title": "1.444.0 Release missing files",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1763,
+    "title": "Non working example for doctl compute image create",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "hacktoberfest"
+    ]
+  },
+  {
+    "number": 1775,
+    "title": "Incorrect Release Files - Breaking action-doctl@v2",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1776,
+    "title": "DigitalOcean Container Registry GET/DELETE API Calls Failing",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1782,
+    "title": "doctl apps spec get not returning authority correctly",
+    "rule_label": "bug",
+    "labels": [
+      "bug",
+      "app-platform"
+    ]
+  },
+  {
+    "number": 1785,
+    "title": "Serverless cannot be installed: unknown command \"serverless\" for \"doctl\"",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1790,
+    "title": "registries repository delete-tag returns success for images that don't exist",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1795,
+    "title": "oauth2 support",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 1797,
+    "title": "registry repository list-v2 ignores --format and --no-header flags",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1799,
+    "title": "--version flag",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 1801,
+    "title": "Support of --since nad --until arguments in doctl",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 1813,
+    "title": "`doctl registry` commands fail with 412 for multi-registry accounts without clear error or guidance",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1854,
+    "title": "Unhide support for NAT Gateways",
+    "rule_label": "enhancement",
+    "labels": [
+      "suggestion"
+    ]
+  },
+  {
+    "number": 1855,
+    "title": "v1.160.0 build fails",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1868,
+    "title": "Functions --remote-build doesn't deploy trigger",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1869,
+    "title": "`doctl databases firewalls append` removes descriptions for existing rules",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  },
+  {
+    "number": 1875,
+    "title": "doctl kubernetes cluster delete should warn about running workloads before destroying a cluster",
+    "rule_label": "bug",
+    "labels": [
+      "bug"
+    ]
+  }
+]

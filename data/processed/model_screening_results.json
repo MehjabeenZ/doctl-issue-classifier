@@ -1,0 +1,669 @@
+{
+  "openai-gpt-oss-20b": {
+    "model_id": "openai-gpt-oss-20b",
+    "total_calls": 301,
+    "total_cost_usd": 0.02516625,
+    "cost_per_call_usd": 8.360880398671096e-05,
+    "cost_per_correct_classification_usd": 0.000100665,
+    "latency": {
+      "p50_ms": 1185.2297079749405,
+      "p95_ms": 3823.735292069614,
+      "concurrency_at_measurement": 10
+    },
+    "wall_clock_s": 48.538816166925244,
+    "throughput_rps": 6.201222521885565,
+    "errors": {
+      "rate_limit": 0,
+      "timeout": 0,
+      "parse_error": 0,
+      "other": 0
+    },
+    "accuracy": 0.8305647840531561,
+    "precision_by_class": {
+      "bug": 0.984,
+      "enhancement": 0.9215686274509803,
+      "question": 0.2413793103448276,
+      "documentation": 0.0,
+      "security": 0.9285714285714286,
+      "other": 0.0
+    },
+    "recall_by_class": {
+      "bug": 0.754601226993865,
+      "enhancement": 0.912621359223301,
+      "question": 0.7777777777777778,
+      "documentation": null,
+      "security": 1.0,
+      "other": null
+    },
+    "f1_by_class": {
+      "bug": 0.8541666666666665,
+      "enhancement": 0.9170731707317074,
+      "question": 0.368421052631579,
+      "documentation": null,
+      "security": 0.962962962962963,
+      "other": null
+    },
+    "support_by_class": {
+      "bug": 163,
+      "enhancement": 103,
+      "question": 9,
+      "documentation": 0,
+      "security": 26,
+      "other": 0
+    },
+    "confusion_matrix": {
+      "bug": {
+        "bug": 123,
+        "enhancement": 6,
+        "question": 17,
+        "documentation": 14,
+        "security": 2,
+        "other": 1
+      },
+      "enhancement": {
+        "bug": 2,
+        "enhancement": 94,
+        "question": 5,
+        "documentation": 2,
+        "security": 0,
+        "other": 0
+      },
+      "question": {
+        "bug": 0,
+        "enhancement": 2,
+        "question": 7,
+        "documentation": 0,
+        "security": 0,
+        "other": 0
+      },
+      "documentation": {
+        "bug": 0,
+        "enhancement": 0,
+        "question": 0,
+        "documentation": 0,
+        "security": 0,
+        "other": 0
+      },
+      "security": {
+        "bug": 0,
+        "enhancement": 0,
+        "question": 0,
+        "documentation": 0,
+        "security": 26,
+        "other": 0
+      },
+      "other": {
+        "bug": 0,
+        "enhancement": 0,
+        "question": 0,
+        "documentation": 0,
+        "security": 0,
+        "other": 0
+      }
+    },
+    "suggestion_distribution": {
+      "bug": 125,
+      "enhancement": 102,
+      "question": 29,
+      "security": 28,
+      "other": 1,
+      "documentation": 16
+    }
+  },
+  "openai-gpt-oss-120b": {
+    "model_id": "openai-gpt-oss-120b",
+    "total_calls": 301,
+    "total_cost_usd": 0.01988361,
+    "cost_per_call_usd": 6.60585049833887e-05,
+    "cost_per_correct_classification_usd": 8.115759183673469e-05,
+    "latency": {
+      "p50_ms": 2522.5292909890413,
+      "p95_ms": 5872.564666904509,
+      "concurrency_at_measurement": 10
+    },
+    "wall_clock_s": 90.36248120793607,
+    "throughput_rps": 3.331028497406562,
+    "errors": {
+      "rate_limit": 0,
+      "timeout": 0,
+      "parse_error": 0,
+      "other": 0
+    },
+    "accuracy": 0.813953488372093,
+    "precision_by_class": {
+      "bug": 0.9830508474576272,
+      "enhancement": 0.912621359223301,
+      "question": 0.23076923076923078,
+      "documentation": 0.0,
+      "security": 0.9285714285714286,
+      "other": 0.0
+    },
+    "recall_by_class": {
+      "bug": 0.7116564417177914,
+      "enhancement": 0.912621359223301,
+      "question": 1.0,
+      "documentation": null,
+      "security": 1.0,
+      "other": null
+    },
+    "f1_by_class": {
+      "bug": 0.8256227758007119,
+      "enhancement": 0.912621359223301,
+      "question": 0.375,
+      "documentation": null,
+      "security": 0.962962962962963,
+      "other": null
+    },
+    "support_by_class": {
+      "bug": 163,
+      "enhancement": 103,
+      "question": 9,
+      "documentation": 0,
+      "security": 26,
+      "other": 0
+    },
+    "confusion_matrix": {
+      "bug": {
+        "bug": 116,
+        "enhancement": 9,
+        "question": 25,
+        "documentation": 10,
+        "security": 2,
+        "other": 1
+      },
+      "enhancement": {
+        "bug": 2,
+        "enhancement": 94,
+        "question": 5,
+        "documentation": 2,
+        "security": 0,
+        "other": 0
+      },
+      "question": {
+        "bug": 0,
+        "enhancement": 0,
+        "question": 9,
+        "documentation": 0,
+        "security": 0,
+        "other": 0
+      },
+      "documentation": {
+        "bug": 0,
+        "enhancement": 0,
+        "question": 0,
+        "documentation": 0,
+        "security": 0,
+        "other": 0
+      },
+      "security": {
+        "bug": 0,
+        "enhancement": 0,
+        "question": 0,
+        "documentation": 0,
+        "security": 26,
+        "other": 0
+      },
+      "other": {
+        "bug": 0,
+        "enhancement": 0,
+        "question": 0,
+        "documentation": 0,
+        "security": 0,
+        "other": 0
+      }
+    },
+    "suggestion_distribution": {
+      "bug": 118,
+      "enhancement": 103,
+      "question": 39,
+      "security": 28,
+      "other": 1,
+      "documentation": 12
+    }
+  },
+  "mistral-3-14B": {
+    "model_id": "mistral-3-14B",
+    "total_calls": 301,
+    "total_cost_usd": 0.035068600000000005,
+    "cost_per_call_usd": 0.00011650697674418606,
+    "cost_per_correct_classification_usd": 0.00013592480620155042,
+    "latency": {
+      "p50_ms": 460.460584028624,
+      "p95_ms": 676.095874980092,
+      "concurrency_at_measurement": 10
+    },
+    "wall_clock_s": 15.83294116705656,
+    "throughput_rps": 19.010997187704305,
+    "errors": {
+      "rate_limit": 0,
+      "timeout": 0,
+      "parse_error": 0,
+      "other": 0
+    },
+    "accuracy": 0.8571428571428571,
+    "precision_by_class": {
+      "bug": 0.9637681159420289,
+      "enhancement": 0.9278350515463918,
+      "question": 0.375,
+      "documentation": 0.0,
+      "security": 0.9629629629629629,
+      "other": 0.0
+    },
+    "recall_by_class": {
+      "bug": 0.8159509202453987,
+      "enhancement": 0.8737864077669902,
+      "question": 1.0,
+      "documentation": null,
+      "security": 1.0,
+      "other": null
+    },
+    "f1_by_class": {
+      "bug": 0.8837209302325579,
+      "enhancement": 0.9,
+      "question": 0.5454545454545454,
+      "documentation": null,
+      "security": 0.9811320754716981,
+      "other": null
+    },
+    "support_by_class": {
+      "bug": 163,
+      "enhancement": 103,
+      "question": 9,
+      "documentation": 0,
+      "security": 26,
+      "other": 0
+    },
+    "confusion_matrix": {
+      "bug": {
+        "bug": 133,
+        "enhancement": 7,
+        "question": 10,
+        "documentation": 11,
+        "security": 1,
+        "other": 1
+      },
+      "enhancement": {
+        "bug": 5,
+        "enhancement": 90,
+        "question": 5,
+        "documentation": 2,
+        "security": 0,
+        "other": 1
+      },
+      "question": {
+        "bug": 0,
+        "enhancement": 0,
+        "question": 9,
+        "documentation": 0,
+        "security": 0,
+        "other": 0
+      },
+      "documentation": {
+        "bug": 0,
+        "enhancement": 0,
+        "question": 0,
+        "documentation": 0,
+        "security": 0,
+        "other": 0
+      },
+      "security": {
+        "bug": 0,
+        "enhancement": 0,
+        "question": 0,
+        "documentation": 0,
+        "security": 26,
+        "other": 0
+      },
+      "other": {
+        "bug": 0,
+        "enhancement": 0,
+        "question": 0,
+        "documentation": 0,
+        "security": 0,
+        "other": 0
+      }
+    },
+    "suggestion_distribution": {
+      "bug": 138,
+      "enhancement": 97,
+      "question": 24,
+      "security": 27,
+      "other": 2,
+      "documentation": 13
+    }
+  },
+  "llama-4-maverick": {
+    "model_id": "llama-4-maverick",
+    "total_calls": 301,
+    "total_cost_usd": 0.032680368,
+    "cost_per_call_usd": 0.0001085726511627907,
+    "cost_per_correct_classification_usd": 0.00013847613559322033,
+    "latency": {
+      "p50_ms": 1485.3504589991644,
+      "p95_ms": 2344.154249993153,
+      "concurrency_at_measurement": 10
+    },
+    "wall_clock_s": 47.90569962491281,
+    "throughput_rps": 6.283177207654606,
+    "errors": {
+      "rate_limit": 0,
+      "timeout": 0,
+      "parse_error": 0,
+      "other": 0
+    },
+    "accuracy": 0.7840531561461794,
+    "precision_by_class": {
+      "bug": 0.9732142857142857,
+      "enhancement": 0.9108910891089109,
+      "question": 0.20930232558139536,
+      "documentation": 0.0,
+      "security": 0.9629629629629629,
+      "other": 0.0
+    },
+    "recall_by_class": {
+      "bug": 0.6687116564417178,
+      "enhancement": 0.8932038834951457,
+      "question": 1.0,
+      "documentation": null,
+      "security": 1.0,
+      "other": null
+    },
+    "f1_by_class": {
+      "bug": 0.7927272727272727,
+      "enhancement": 0.9019607843137256,
+      "question": 0.3461538461538462,
+      "documentation": null,
+      "security": 0.9811320754716981,
+      "other": null
+    },
+    "support_by_class": {
+      "bug": 163,
+      "enhancement": 103,
+      "question": 9,
+      "documentation": 0,
+      "security": 26,
+      "other": 0
+    },
+    "confusion_matrix": {
+      "bug": {
+        "bug": 109,
+        "enhancement": 9,
+        "question": 29,
+        "documentation": 14,
+        "security": 1,
+        "other": 1
+      },
+      "enhancement": {
+        "bug": 3,
+        "enhancement": 92,
+        "question": 5,
+        "documentation": 3,
+        "security": 0,
+        "other": 0
+      },
+      "question": {
+        "bug": 0,
+        "enhancement": 0,
+        "question": 9,
+        "documentation": 0,
+        "security": 0,
+        "other": 0
+      },
+      "documentation": {
+        "bug": 0,
+        "enhancement": 0,
+        "question": 0,
+        "documentation": 0,
+        "security": 0,
+        "other": 0
+      },
+      "security": {
+        "bug": 0,
+        "enhancement": 0,
+        "question": 0,
+        "documentation": 0,
+        "security": 26,
+        "other": 0
+      },
+      "other": {
+        "bug": 0,
+        "enhancement": 0,
+        "question": 0,
+        "documentation": 0,
+        "security": 0,
+        "other": 0
+      }
+    },
+    "suggestion_distribution": {
+      "bug": 112,
+      "enhancement": 101,
+      "documentation": 17,
+      "question": 43,
+      "security": 27,
+      "other": 1
+    }
+  },
+  "glm-5.3-flash": {
+    "model_id": "glm-5.3-flash",
+    "total_calls": 301,
+    "total_cost_usd": 0.0547393,
+    "cost_per_call_usd": 0.00018185813953488372,
+    "cost_per_correct_classification_usd": 0.00022526460905349793,
+    "latency": {
+      "p50_ms": 1613.8477909844369,
+      "p95_ms": 8574.35445790179,
+      "concurrency_at_measurement": 10
+    },
+    "wall_clock_s": 94.50494274997618,
+    "throughput_rps": 3.185018595231897,
+    "errors": {
+      "rate_limit": 0,
+      "timeout": 0,
+      "parse_error": 4,
+      "other": 0
+    },
+    "accuracy": 0.8073089700996677,
+    "precision_by_class": {
+      "bug": 0.9912280701754386,
+      "enhancement": 0.8962264150943396,
+      "question": 0.2727272727272727,
+      "documentation": 0.0,
+      "security": 0.9285714285714286,
+      "other": 0.0
+    },
+    "recall_by_class": {
+      "bug": 0.6932515337423313,
+      "enhancement": 0.9223300970873787,
+      "question": 1.0,
+      "documentation": null,
+      "security": 1.0,
+      "other": null
+    },
+    "f1_by_class": {
+      "bug": 0.8158844765342961,
+      "enhancement": 0.9090909090909091,
+      "question": 0.42857142857142855,
+      "documentation": null,
+      "security": 0.962962962962963,
+      "other": null
+    },
+    "support_by_class": {
+      "bug": 163,
+      "enhancement": 103,
+      "question": 9,
+      "documentation": 0,
+      "security": 26,
+      "other": 0
+    },
+    "confusion_matrix": {
+      "bug": {
+        "bug": 113,
+        "enhancement": 11,
+        "question": 19,
+        "documentation": 13,
+        "security": 2,
+        "other": 5
+      },
+      "enhancement": {
+        "bug": 1,
+        "enhancement": 95,
+        "question": 5,
+        "documentation": 2,
+        "security": 0,
+        "other": 0
+      },
+      "question": {
+        "bug": 0,
+        "enhancement": 0,
+        "question": 9,
+        "documentation": 0,
+        "security": 0,
+        "other": 0
+      },
+      "documentation": {
+        "bug": 0,
+        "enhancement": 0,
+        "question": 0,
+        "documentation": 0,
+        "security": 0,
+        "other": 0
+      },
+      "security": {
+        "bug": 0,
+        "enhancement": 0,
+        "question": 0,
+        "documentation": 0,
+        "security": 26,
+        "other": 0
+      },
+      "other": {
+        "bug": 0,
+        "enhancement": 0,
+        "question": 0,
+        "documentation": 0,
+        "security": 0,
+        "other": 0
+      }
+    },
+    "suggestion_distribution": {
+      "bug": 114,
+      "enhancement": 106,
+      "question": 33,
+      "unparseable": 4,
+      "security": 28,
+      "other": 1,
+      "documentation": 15
+    }
+  },
+  "deepseek-4-flash": {
+    "model_id": "deepseek-4-flash",
+    "total_calls": 301,
+    "total_cost_usd": 0.011640312000000002,
+    "cost_per_call_usd": 3.867213289036545e-05,
+    "cost_per_correct_classification_usd": 4.5469968750000006e-05,
+    "latency": {
+      "p50_ms": 3890.700833988376,
+      "p95_ms": 7808.812625007704,
+      "concurrency_at_measurement": 10
+    },
+    "wall_clock_s": 153.86397399997804,
+    "throughput_rps": 1.9562734028957485,
+    "errors": {
+      "rate_limit": 0,
+      "timeout": 0,
+      "parse_error": 0,
+      "other": 0
+    },
+    "accuracy": 0.8504983388704319,
+    "precision_by_class": {
+      "bug": 0.9923076923076923,
+      "enhancement": 0.9108910891089109,
+      "question": 0.3103448275862069,
+      "documentation": 0.0,
+      "security": 0.9629629629629629,
+      "other": 0.0
+    },
+    "recall_by_class": {
+      "bug": 0.7914110429447853,
+      "enhancement": 0.8932038834951457,
+      "question": 1.0,
+      "documentation": null,
+      "security": 1.0,
+      "other": null
+    },
+    "f1_by_class": {
+      "bug": 0.8805460750853243,
+      "enhancement": 0.9019607843137256,
+      "question": 0.4736842105263158,
+      "documentation": null,
+      "security": 0.9811320754716981,
+      "other": null
+    },
+    "support_by_class": {
+      "bug": 163,
+      "enhancement": 103,
+      "question": 9,
+      "documentation": 0,
+      "security": 26,
+      "other": 0
+    },
+    "confusion_matrix": {
+      "bug": {
+        "bug": 129,
+        "enhancement": 9,
+        "question": 14,
+        "documentation": 7,
+        "security": 1,
+        "other": 3
+      },
+      "enhancement": {
+        "bug": 1,
+        "enhancement": 92,
+        "question": 6,
+        "documentation": 3,
+        "security": 0,
+        "other": 1
+      },
+      "question": {
+        "bug": 0,
+        "enhancement": 0,
+        "question": 9,
+        "documentation": 0,
+        "security": 0,
+        "other": 0
+      },
+      "documentation": {
+        "bug": 0,
+        "enhancement": 0,
+        "question": 0,
+        "documentation": 0,
+        "security": 0,
+        "other": 0
+      },
+      "security": {
+        "bug": 0,
+        "enhancement": 0,
+        "question": 0,
+        "documentation": 0,
+        "security": 26,
+        "other": 0
+      },
+      "other": {
+        "bug": 0,
+        "enhancement": 0,
+        "question": 0,
+        "documentation": 0,
+        "security": 0,
+        "other": 0
+      }
+    },
+    "suggestion_distribution": {
+      "bug": 130,
+      "enhancement": 101,
+      "documentation": 10,
+      "question": 29,
+      "security": 27,
+      "other": 4
+    }
+  }
+}

@@ -1,0 +1,316 @@
+{
+  "mistral-3-14B": {
+    "unanimous_rate": 0.9666666666666667,
+    "majority_rate": 1.0,
+    "per_issue_labels": {
+      "972": [
+        "enhancement",
+        "enhancement",
+        "enhancement"
+      ],
+      "340": [
+        "enhancement",
+        "enhancement",
+        "enhancement"
+      ],
+      "1264": [
+        "enhancement",
+        "enhancement",
+        "enhancement"
+      ],
+      "112": [
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "167": [
+        "enhancement",
+        "enhancement",
+        "enhancement"
+      ],
+      "230": [
+        "enhancement",
+        "enhancement",
+        "enhancement"
+      ],
+      "1092": [
+        "security",
+        "security",
+        "security"
+      ],
+      "130": [
+        "documentation",
+        "documentation",
+        "documentation"
+      ],
+      "1795": [
+        "enhancement",
+        "enhancement",
+        "enhancement"
+      ],
+      "561": [
+        "other",
+        "bug",
+        "bug"
+      ],
+      "89": [
+        "enhancement",
+        "enhancement",
+        "enhancement"
+      ],
+      "211": [
+        "question",
+        "question",
+        "question"
+      ],
+      "1415": [
+        "enhancement",
+        "enhancement",
+        "enhancement"
+      ],
+      "1354": [
+        "enhancement",
+        "enhancement",
+        "enhancement"
+      ],
+      "162": [
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "711": [
+        "enhancement",
+        "enhancement",
+        "enhancement"
+      ],
+      "218": [
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "1365": [
+        "enhancement",
+        "enhancement",
+        "enhancement"
+      ],
+      "131": [
+        "documentation",
+        "documentation",
+        "documentation"
+      ],
+      "289": [
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "630": [
+        "question",
+        "question",
+        "question"
+      ],
+      "137": [
+        "enhancement",
+        "enhancement",
+        "enhancement"
+      ],
+      "1268": [
+        "enhancement",
+        "enhancement",
+        "enhancement"
+      ],
+      "114": [
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "595": [
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "108": [
+        "enhancement",
+        "enhancement",
+        "enhancement"
+      ],
+      "309": [
+        "question",
+        "question",
+        "question"
+      ],
+      "867": [
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "1358": [
+        "enhancement",
+        "enhancement",
+        "enhancement"
+      ],
+      "329": [
+        "bug",
+        "bug",
+        "bug"
+      ]
+    },
+    "total_cost_usd": 0.009008400000000001
+  },
+  "deepseek-4-flash": {
+    "unanimous_rate": 0.9666666666666667,
+    "majority_rate": 1.0,
+    "per_issue_labels": {
+      "972": [
+        "enhancement",
+        "enhancement",
+        "enhancement"
+      ],
+      "340": [
+        "enhancement",
+        "enhancement",
+        "enhancement"
+      ],
+      "1264": [
+        "enhancement",
+        "enhancement",
+        "enhancement"
+      ],
+      "112": [
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "167": [
+        "enhancement",
+        "enhancement",
+        "enhancement"
+      ],
+      "230": [
+        "enhancement",
+        "enhancement",
+        "enhancement"
+      ],
+      "1092": [
+        "security",
+        "security",
+        "security"
+      ],
+      "130": [
+        "documentation",
+        "bug",
+        "bug"
+      ],
+      "1795": [
+        "enhancement",
+        "enhancement",
+        "enhancement"
+      ],
+      "561": [
+        "enhancement",
+        "enhancement",
+        "enhancement"
+      ],
+      "89": [
+        "enhancement",
+        "enhancement",
+        "enhancement"
+      ],
+      "211": [
+        "question",
+        "question",
+        "question"
+      ],
+      "1415": [
+        "enhancement",
+        "enhancement",
+        "enhancement"
+      ],
+      "1354": [
+        "enhancement",
+        "enhancement",
+        "enhancement"
+      ],
+      "162": [
+        "question",
+        "question",
+        "question"
+      ],
+      "711": [
+        "enhancement",
+        "enhancement",
+        "enhancement"
+      ],
+      "218": [
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "1365": [
+        "enhancement",
+        "enhancement",
+        "enhancement"
+      ],
+      "131": [
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "289": [
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "630": [
+        "question",
+        "question",
+        "question"
+      ],
+      "137": [
+        "enhancement",
+        "enhancement",
+        "enhancement"
+      ],
+      "1268": [
+        "enhancement",
+        "enhancement",
+        "enhancement"
+      ],
+      "114": [
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "595": [
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "108": [
+        "enhancement",
+        "enhancement",
+        "enhancement"
+      ],
+      "309": [
+        "question",
+        "question",
+        "question"
+      ],
+      "867": [
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "1358": [
+        "enhancement",
+        "enhancement",
+        "enhancement"
+      ],
+      "329": [
+        "bug",
+        "bug",
+        "bug"
+      ]
+    },
+    "total_cost_usd": 0.003031152
+  }
+}
