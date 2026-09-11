@@ -7,8 +7,10 @@ turns that into a production recommendation — not a one-off benchmark of this
 one repo, but a proving ground for a customer's broader "high volume, many
 repos, suspect we're overpaying a frontier model" workload.
 
-**Running application:** _pending deployment — see "Run it yourself" below for
-local run instructions in the meantime._
+**Running application:** https://doctl-issue-classifier.onrender.com/
+(deployed on Render's free tier — the first request after a period of
+inactivity may take 30–60s to wake the instance up; see "Run it yourself"
+below for local run instructions instead if preferred).
 
 ## The scenario
 

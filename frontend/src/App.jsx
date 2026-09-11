@@ -65,7 +65,7 @@ export default function App() {
 
       {result ? (
         <>
-          <div style={{ display: "flex", gap: 8, borderBottom: "1px solid var(--gridline)" }}>
+          <div style={{ display: "flex", gap: 8, alignItems: "center", borderBottom: "1px solid var(--gridline)" }}>
             {TABS.map((t) => (
               <button
                 key={t}
@@ -79,6 +79,16 @@ export default function App() {
                 {t}
               </button>
             ))}
+            <button
+              onClick={() => { setResult(null); setError(null); setTab("Scored"); }}
+              className="muted"
+              style={{
+                marginLeft: "auto", background: "none", border: "none", cursor: "pointer",
+                fontSize: 13, textDecoration: "underline", padding: "8px 4px",
+              }}
+            >
+              Clear results
+            </button>
           </div>
           {tab === "Scored" && <ScoredView result={result} />}
           {tab === "Unscored" && <UnscoredView result={result} />}

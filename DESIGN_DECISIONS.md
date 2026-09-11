@@ -725,4 +725,16 @@ in the app that are not yet backed by real evidence:
   in README.md's "Cost, latency, throughput" section — this doc doesn't
   duplicate it. This run is also what validated the real (non-dry-run) API
   path through the app actually works end-to-end, not just in `DRY_RUN=true`.
-- A deployed URL for the running application — still the only thing left.
+- ~~A deployed URL for the running application~~ **DONE, 2026-09-10**:
+  https://doctl-issue-classifier.onrender.com/ — deployed on Render's free
+  tier, from a private GitHub repo (`MehjabeenZ/doctl-issue-classifier`,
+  personal account, kept separate from the work `gh`/git identity also on
+  this machine — see the identity-separation notes this session for why that
+  mattered). Smoke-tested live: triggered a real 1-issue comparison directly
+  on the deployed instance (not just locally) — both models reached the real
+  SI API successfully and returned correct classifications, confirming the
+  live deploy's env vars/network egress actually work end-to-end, not just in
+  local dev. Two real bugs caught before the push: `.gitignore` and
+  `.dockerignore` both excluded `data/runs/`, which would have silently
+  dropped the real persisted eval result from the repo and the deployed
+  image — fixed both before pushing.
