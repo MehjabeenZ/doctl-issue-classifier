@@ -3,7 +3,7 @@ import DistributionBars from "./DistributionBars";
 import IssueTable from "./IssueTable";
 
 export default function UnscoredView({ result }) {
-  const { model_a_summary: a, model_b_summary: b, per_issue, agreement_rate } = result;
+  const { model_a_summary: a, model_b_summary: b, per_issue, agreement_rate, agreement_excluded_count } = result;
   const unscoredRows = per_issue.filter((r) => !r.ground_truth_label);
 
   return (
@@ -13,7 +13,15 @@ export default function UnscoredView({ result }) {
         cleanly triaged. Agreement rate between the two models is the best available signal without a labeled answer.
       </div>
       <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-        <StatTile label="Agreement rate (headline)" value={`${(agreement_rate * 100).toFixed(1)}%`} sub="both models, full corpus" />
+        <StatTile
+          label="Agreement rate (headline)"
+          value={`${(agreement_rate * 100).toFixed(1)}%`}
+          sub={
+            agreement_excluded_count > 0
+              ? `both models, full corpus — excludes ${agreement_excluded_count} issue${agreement_excluded_count === 1 ? "" : "s"} where a model failed to produce a prediction`
+              : "both models, full corpus"
+          }
+        />
       </div>
       <DistributionBars
         modelALabel={`${a.model_id} suggestions`}

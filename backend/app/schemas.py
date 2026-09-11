@@ -94,4 +94,9 @@ class RunResult(APIModel):
     model_a_summary: ModelRunSummary
     model_b_summary: ModelRunSummary
     agreement_rate: float
+    # Issues excluded from agreement_rate's numerator/denominator because at least
+    # one model failed to produce a prediction — see metrics.agreement_rate.
+    # Defaults to 0 so older persisted run files (from before this field existed)
+    # still load fine.
+    agreement_excluded_count: int = 0
     per_issue: list[dict]  # merged per-issue rows for the UI (see storage.py for shape)

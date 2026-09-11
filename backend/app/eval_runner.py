@@ -44,7 +44,11 @@ def _merge_per_issue_rows(
                 "model_b_label": rb.predicted_label if rb else None,
                 "model_b_raw_output": rb.raw_output if rb else None,
                 "model_b_error_type": rb.error_type if rb else None,
-                "models_agree": bool(ra and rb and ra.predicted_label == rb.predicted_label),
+                # Both predicted_label values must be present and equal — two
+                # failed calls (both None) must never read as "agreement".
+                "models_agree": bool(
+                    ra and rb and ra.predicted_label is not None and ra.predicted_label == rb.predicted_label
+                ),
             }
         )
     return rows
@@ -66,13 +70,15 @@ async def run_comparison(request: RunRequest) -> RunResult:
 
     summary_a = summarize_model_run(request.model_a, results_a, lookup, request.concurrency, wall_a)
     summary_b = summarize_model_run(request.model_b, results_b, lookup, request.concurrency, wall_b)
+    agree_rate, agree_excluded = agreement_rate(results_a, results_b)
 
     result = RunResult(
         run_id=new_run_id(),
         request=request,
         model_a_summary=summary_a,
         model_b_summary=summary_b,
-        agreement_rate=agreement_rate(results_a, results_b),
+        agreement_rate=agree_rate,
+        agreement_excluded_count=agree_excluded,
         per_issue=_merge_per_issue_rows(issues, results_a, results_b),
     )
     save_run(result)

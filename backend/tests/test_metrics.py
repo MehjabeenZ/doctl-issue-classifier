@@ -1,12 +1,12 @@
 from app.metrics import _percentile, agreement_rate, summarize_model_run
-from app.schemas import ClassificationResult, Issue
+from app.schemas import ClassificationResult, ErrorType, Issue
 
 
 def make_issue(number, gt_label=None):
     return Issue(number=number, title=f"issue {number}", body="", state="open", html_url="", ground_truth_label=gt_label)
 
 
-def make_result(number, model_id, label, error_type="none"):
+def make_result(number, model_id, label, error_type: ErrorType = "none"):
     return ClassificationResult(
         issue_number=number, model_id=model_id, predicted_label=label, raw_output="",
         input_tokens=100, output_tokens=5, cost_usd=0.001, latency_ms=100.0, attempts=1,
@@ -53,14 +53,54 @@ def test_unparseable_prediction_counts_against_accuracy():
     issues = {1: make_issue(1, "bug")}
     results = [make_result(1, "m", None, error_type="parse_error")]
     summary = summarize_model_run("m", results, issues, concurrency=4, wall_clock_s=1.0)
-    assert summary.accuracy == 0.0  # None predicted_label falls back to "other", not "bug"
+    assert summary.accuracy == 0.0  # a failed call never counts as correct
+    # ...but it must not be recorded as a genuine prediction of "other" either —
+    # the confusion matrix should show nothing at all for this row, not a
+    # fabricated bug->other entry.
+    assert summary.confusion_matrix["bug"]["other"] == 0
+    assert sum(summary.confusion_matrix["bug"].values()) == 0
+    assert summary.support_by_class["bug"] == 1  # still counted in support/recall
+
+
+def test_failed_call_on_other_ground_truth_is_not_falsely_correct():
+    # Regression test: a rate-limited/timeout/parse-error call must not become
+    # coincidentally "correct" just because predicted_label used to be coerced
+    # to the "other" class and the true label happens to be "other" too.
+    issues = {1: make_issue(1, "other")}
+    results = [make_result(1, "m", None, error_type="rate_limit")]
+    summary = summarize_model_run("m", results, issues, concurrency=4, wall_clock_s=1.0)
+    assert summary.accuracy == 0.0
+    assert summary.confusion_matrix["other"]["other"] == 0
+    assert summary.recall_by_class["other"] == 0.0  # support=1, tp=0
 
 
 def test_agreement_rate():
     results_a = [make_result(1, "a", "bug"), make_result(2, "a", "question")]
     results_b = [make_result(1, "b", "bug"), make_result(2, "b", "enhancement")]
-    assert agreement_rate(results_a, results_b) == 0.5
+    rate, excluded = agreement_rate(results_a, results_b)
+    assert rate == 0.5
+    assert excluded == 0
 
 
 def test_agreement_rate_no_overlap():
-    assert agreement_rate([], []) == 0.0
+    rate, excluded = agreement_rate([], [])
+    assert rate == 0.0
+    assert excluded == 0
+
+
+def test_agreement_rate_excludes_dual_failures_not_counts_as_agreement():
+    # Regression test: two failed calls (both predicted_label=None) must be
+    # excluded entirely, not counted as the models "agreeing".
+    results_a = [make_result(1, "a", "bug"), make_result(2, "a", None, error_type="timeout")]
+    results_b = [make_result(1, "b", "bug"), make_result(2, "b", None, error_type="rate_limit")]
+    rate, excluded = agreement_rate(results_a, results_b)
+    assert rate == 1.0  # only issue 1 is comparable, and it agrees
+    assert excluded == 1
+
+
+def test_agreement_rate_excludes_single_sided_failure():
+    results_a = [make_result(1, "a", "bug")]
+    results_b = [make_result(1, "b", None, error_type="parse_error")]
+    rate, excluded = agreement_rate(results_a, results_b)
+    assert rate == 0.0  # nothing comparable
+    assert excluded == 1

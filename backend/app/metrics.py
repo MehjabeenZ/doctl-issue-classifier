@@ -47,19 +47,34 @@ def summarize_model_run(
     correct = 0
 
     if scored:
+        # True per-class ground-truth counts, independent of whether a prediction
+        # ever came back — a failed call still "used up" one of that class's
+        # instances and must still count toward its support/recall.
+        support_counts: dict[str, int] = {label: 0 for label in LABELS}
         for r in scored:
             true_label = issues_by_number[r.issue_number].ground_truth_label
-            pred_label = r.predicted_label or "other"  # unparseable output counts against accuracy, not silently dropped
-            confusion[true_label][pred_label] += 1
-            if pred_label == true_label:
-                correct += 1
+            assert true_label is not None  # guaranteed by the `scored` filter above
+            support_counts[true_label] += 1
+            # A failed call (rate limit / timeout / parse error / any "other" error
+            # type) produced no prediction at all — it must count against accuracy
+            # (never marked correct, see below) but must NOT be written into the
+            # confusion matrix as a prediction of the "other" *class*. Doing that
+            # would misattribute an infrastructure failure to a real classification
+            # choice, and would make a failed call on a genuinely `other`-labeled
+            # issue look coincidentally "correct" the moment a future ground-truth
+            # set ever includes that class. Failures simply don't appear in the
+            # matrix at all; `support_counts` (not the matrix) is what accounts for
+            # them in recall.
+            if r.predicted_label is not None:
+                confusion[true_label][r.predicted_label] += 1
+                if r.predicted_label == true_label:
+                    correct += 1
         accuracy = correct / len(scored)
 
         for label in LABELS:
             tp = confusion[label][label]
             fp = sum(confusion[t][label] for t in LABELS if t != label)
-            fn = sum(confusion[label][p] for p in LABELS if p != label)
-            support = tp + fn  # how many ground-truth instances of this class exist in the scored set
+            support = support_counts[label]
 
             # None (not 0.0) distinguishes "no data to score" from "model got it wrong every time"
             precision = tp / (tp + fp) if (tp + fp) else None  # model never predicted this class at all
@@ -104,10 +119,29 @@ def summarize_model_run(
     )
 
 
-def agreement_rate(results_a: list[ClassificationResult], results_b: list[ClassificationResult]) -> float:
+def agreement_rate(results_a: list[ClassificationResult], results_b: list[ClassificationResult]) -> tuple[float, int]:
+    """Returns (rate, excluded_count).
+
+    An issue where either model failed to produce a prediction (rate limit,
+    timeout, parse error, ...) is excluded from both the numerator and the
+    denominator entirely — two `None`s must never count as the models
+    "agreeing," which is what a naive `a.predicted_label == b.predicted_label`
+    comparison would do. `excluded_count` is surfaced so the UI can show how
+    many issues the headline rate is actually silent on, rather than hiding it.
+    """
     by_number_b = {r.issue_number: r.predicted_label for r in results_b}
-    comparable = [r for r in results_a if r.issue_number in by_number_b]
+    comparable = []
+    excluded = 0
+    for r in results_a:
+        if r.issue_number not in by_number_b:
+            continue
+        b_label = by_number_b[r.issue_number]
+        if r.predicted_label is None or b_label is None:
+            excluded += 1
+            continue
+        comparable.append((r.predicted_label, b_label))
+
     if not comparable:
-        return 0.0
-    agree = sum(1 for r in comparable if r.predicted_label == by_number_b[r.issue_number])
-    return agree / len(comparable)
+        return 0.0, excluded
+    agree = sum(1 for a_label, b_label in comparable if a_label == b_label)
+    return agree / len(comparable), excluded
