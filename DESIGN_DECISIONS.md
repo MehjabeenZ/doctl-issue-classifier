@@ -570,6 +570,37 @@ problem) — a customer deciding what to do next needs that distinction visible.
   a `(value, concurrency)` pair everywhere latency appears rather than a bare
   number that could get quoted out of context later.
 
+**Two more correctness bugs, caught in review 2026-09-11 (same family as the
+`None`-vs-`0.0` bug above — silently-wrong-looking-right numbers)**:
+- `summarize_model_run` was mapping every failed call (rate limit, timeout,
+  parse error — anything with no `predicted_label`) into the confusion
+  matrix as a prediction of the **`other`** *class*. The failure correctly
+  counted against accuracy, but recording it as a genuine "other" prediction
+  meant: (a) if a future ground-truth set ever includes real `other` examples,
+  a model that merely got rate-limited on one of them would show up as
+  coincidentally *correct*, and (b) every failure on an unrelated class
+  quietly inflated `other`'s false-positive count, understating its precision
+  for no real reason. Fixed by excluding failures from the confusion matrix
+  entirely — support/recall still account for them via an independent
+  per-class ground-truth count, so a failure still correctly costs the model
+  recall on its true class, it just never gets attributed to a specific wrong
+  (or coincidentally right) predicted class.
+- `agreement_rate` and the per-issue `models_agree` flag both used a bare
+  `predicted_label_a == predicted_label_b` comparison — since a failed call's
+  `predicted_label` is `None`, two failures on the same issue compared equal
+  and counted as the models *agreeing*, which is backwards (neither model
+  said anything). Fixed to require both predictions to be non-`None`, and
+  `agreement_rate` now also returns how many issues got excluded this way, so
+  the UI states plainly what the headline percentage is silent on rather than
+  hiding it.
+- Verified against the already-persisted finalist run
+  (`run_1789106490.json`, 7 total failures across both models): neither bug
+  actually distorted its displayed numbers — no failure landed on a
+  true-`other` issue, and no issue failed on both models at once — so nothing
+  needed to be re-run, only the code needed fixing for future runs (including
+  whatever the reviewer runs live). Regression tests added for both exact
+  failure modes in `test_metrics.py`.
+
 ---
 
 ## 5. Cost, latency, throughput — reporting design
