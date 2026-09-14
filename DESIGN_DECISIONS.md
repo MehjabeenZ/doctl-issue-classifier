@@ -622,6 +622,25 @@ problem) — a customer deciding what to do next needs that distinction visible.
   spend needed) and `agreement_excluded_count: 7` added. README's headline
   number updated to match. Regression tests added for both exact failure
   modes in `test_metrics.py`.
+- **Second correction, 2026-09-14**: the note directly above was itself
+  wrong on one point — "the confusion-matrix bug really was a no-op for this
+  run" conflated two different claims. "No failure landed on a true-`other`
+  issue" (true) is not the same as "the confusion matrix wasn't affected"
+  (false): a failure on, say, a true-`enhancement` issue still got
+  misattributed as a *predicted* `other` under the pre-fix code, regardless
+  of its true label. Recomputing both models' confusion matrices directly
+  from the run's own `per_issue` rows (same no-re-run approach as the
+  agreement-rate fix) found exactly that: `mistral-3-14B`'s `bug`→`other` and
+  `enhancement`→`other` cells were inflated by 1 and 2 respectively, and
+  `deepseek-4-flash`'s `enhancement`→`other` and `security`→`other` cells by
+  2 and 1 — each model's total inflation matching its count of *scored*
+  failures exactly (3 each). `accuracy` and the derived precision/recall/F1
+  values were unaffected numerically (a false "other" prediction still adds
+  0 true positives either way), so only the raw confusion-matrix cell counts
+  needed correcting — fixed directly in the JSON. The lesson: "was this
+  number affected" needs checking against the actual recomputed data, not
+  reasoned about from the bug's description after the fact — that's exactly
+  how the first correction above still missed this.
 
 ---
 

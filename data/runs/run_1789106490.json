@@ -65,7 +65,7 @@
         "question": 10,
         "documentation": 11,
         "security": 1,
-        "other": 2
+        "other": 1
       },
       "enhancement": {
         "bug": 5,
@@ -73,7 +73,7 @@
         "question": 5,
         "documentation": 2,
         "security": 0,
-        "other": 3
+        "other": 1
       },
       "question": {
         "bug": 0,
@@ -185,7 +185,7 @@
         "question": 5,
         "documentation": 2,
         "security": 0,
-        "other": 3
+        "other": 1
       },
       "question": {
         "bug": 0,
@@ -209,7 +209,7 @@
         "question": 0,
         "documentation": 0,
         "security": 25,
-        "other": 1
+        "other": 0
       },
       "other": {
         "bug": 0,
