@@ -7,12 +7,26 @@ import OperationalMetrics from "./components/OperationalMetrics";
 
 const TABS = ["Scored", "Unscored", "Operational"];
 
+// run_id is "run_<unix-timestamp>" (see backend/app/storage.py new_run_id) —
+// parse it back out rather than relying on a separate timestamp field.
+function formatRunTimestamp(runId) {
+  const match = /^run_(\d+)$/.exec(runId || "");
+  if (!match) return "unknown time";
+  return new Date(Number(match[1]) * 1000).toLocaleString();
+}
+
 export default function App() {
   const [models, setModels] = useState([]);
   const [corpus, setCorpus] = useState(null);
   const [running, setRunning] = useState(false);
   const [error, setError] = useState(null);
   const [result, setResult] = useState(null);
+  // Distinguishes the run auto-loaded on page load from one triggered in this
+  // session — without this, there's no way to tell from the UI alone whether
+  // what's showing is the original persisted result or a fresh live run
+  // (they can differ, e.g. real temperature=0 non-determinism, different
+  // errors) — see the run caption below.
+  const [justRan, setJustRan] = useState(false);
   const [tab, setTab] = useState("Scored");
   const pollRef = useRef(null);
 
@@ -43,6 +57,7 @@ export default function App() {
           clearInterval(pollRef.current);
           const runResult = await api.run(job.run_id);
           setResult(runResult);
+          setJustRan(true);
           setRunning(false);
         } else if (job.status === "error") {
           clearInterval(pollRef.current);
@@ -81,6 +96,14 @@ export default function App() {
 
       {result ? (
         <>
+          <div className="muted" style={{ fontSize: 12 }}>
+            Showing run <code>{result.run_id}</code> ({result.request.model_a} vs{" "}
+            {result.request.model_b}, {formatRunTimestamp(result.run_id)}) —{" "}
+            {justRan
+              ? "just run in this session"
+              : "the persisted result loaded on page load, not freshly run"}
+            .
+          </div>
           <div style={{ display: "flex", gap: 8, alignItems: "center", borderBottom: "1px solid var(--gridline)" }}>
             {TABS.map((t) => (
               <button
@@ -96,7 +119,7 @@ export default function App() {
               </button>
             ))}
             <button
-              onClick={() => { setResult(null); setError(null); setTab("Scored"); }}
+              onClick={() => { setResult(null); setError(null); setTab("Scored"); setJustRan(false); }}
               className="muted"
               style={{
                 marginLeft: "auto", background: "none", border: "none", cursor: "pointer",
