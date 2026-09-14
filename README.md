@@ -11,18 +11,21 @@ repos, suspect we're overpaying a frontier model" workload.
 (deployed on Render's free tier — the first request after a period of
 inactivity may take 30–60s to wake the instance up).
 
-**This hosted instance is protected by HTTP Basic Auth** (credentials
-provided separately, not committed to this repo): a public URL with an
-unauthenticated endpoint sitting in front of a real, billed SI API key
-shouldn't be reachable by anyone who happens to find the link. Once
-authenticated, the app is the real, fully live thing — no restricted mode,
-no read-only view: pick any two models, set concurrency/limit, and run a
-genuine comparison against the live corpus, same as running it locally. It
-also loads the real, already-persisted `mistral-3-14B` vs `deepseek-4-flash`
+**This hosted instance is protected by HTTP Basic Auth**, deliberately *not*
+documented here — a public URL with an unauthenticated endpoint sitting in
+front of a real, billed SI API key shouldn't be reachable by anyone who
+happens to find the link, and a shared credential doesn't belong in a
+committed file either. Once authenticated, the app is the real, fully live
+thing: pick any two models, set concurrency/limit, and run a genuine
+comparison against the live corpus, same as running it locally. It also
+loads the real, already-persisted `mistral-3-14B` vs `deepseek-4-flash`
 full-corpus result on startup, so there's something to inspect immediately
-without waiting on a fresh run. If you'd rather run it yourself with your own
-`SI_API_KEY` instead of using the shared demo credentials, see "Run it
-yourself" below — no auth wall applies locally/in Docker.
+without waiting on a fresh run. Ask for access if you'd like to use it live.
+
+**The Docker path below is the primary way to reproduce a genuinely live
+run**, not a fallback — bring your own `SI_API_KEY` (see "Run it yourself")
+and there's no credential exchange needed at all: no auth wall applies
+locally/in Docker by default, it's your own key and your own container.
 
 ## The scenario
 
