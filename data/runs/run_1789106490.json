@@ -230,7 +230,8 @@
       "security": 25
     }
   },
-  "agreement_rate": 0.8861940298507462,
+  "agreement_rate": 0.8979206049149339,
+  "agreement_excluded_count": 7,
   "per_issue": [
     {
       "number": 2,

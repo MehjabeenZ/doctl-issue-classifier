@@ -13,15 +13,28 @@ from app.storage import list_runs, load_run
 
 app = FastAPI(title="doctl issue-classification eval harness")
 
+# The frontend is served from this same FastAPI process (see the StaticFiles
+# mount below) so it never needs cross-origin access — CORS here only matters
+# for a local Vite dev server hitting a locally-run backend. Deliberately NOT
+# a wildcard: this app is deployed publicly with a real, billed SI API key
+# behind POST /api/jobs (unauthenticated by design, per the exercise's "runnable
+# app" requirement), and a wildcard origin would let any web page's JS drive
+# billed jobs using a visitor's browser as the vector.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_methods=["*"],
+    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )
 
 # job_id -> {"status": "running"|"done"|"error", "run_id": str | None, "error": str | None}
 _jobs: dict[str, dict] = {}
+
+# POST /api/jobs has no auth (see CORS comment above) and every job spends real
+# SI credits. This in-process lock caps worst-case exposure to one concurrent
+# job at a time — combined with schemas.py's concurrency/limit/model bounds,
+# that's a small, fixed ceiling on unattended spend rather than an unbounded one.
+_job_in_flight = False
 
 
 @app.get("/api/health")
@@ -53,15 +66,22 @@ def get_run(run_id: str):
 
 
 async def _execute(job_id: str, request: RunRequest):
+    global _job_in_flight
     try:
         result = await run_comparison(request)
         _jobs[job_id] = {"status": "done", "run_id": result.run_id, "error": None}
     except Exception as exc:  # noqa: BLE001 — surfaced to the polling client, not swallowed
         _jobs[job_id] = {"status": "error", "run_id": None, "error": str(exc)}
+    finally:
+        _job_in_flight = False
 
 
 @app.post("/api/jobs")
 def start_job(request: RunRequest, background_tasks: BackgroundTasks):
+    global _job_in_flight
+    if _job_in_flight:
+        raise HTTPException(429, "A comparison run is already in progress — wait for it to finish before starting another (each run spends real API credits).")
+    _job_in_flight = True
     job_id = str(uuid.uuid4())
     _jobs[job_id] = {"status": "running", "run_id": None, "error": None}
     background_tasks.add_task(_execute, job_id, request)

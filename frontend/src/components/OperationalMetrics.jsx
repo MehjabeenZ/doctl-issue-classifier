@@ -12,7 +12,15 @@ function ModelMetrics({ summary }) {
       <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 12 }}>
         <StatTile label="Cost / call" value={usd(summary.cost_per_call_usd)} />
         <StatTile label="Total cost" value={usd(summary.total_cost_usd, 2)} />
-        <StatTile label="Cost / correct" value={usd(summary.cost_per_correct_classification_usd)} sub={summary.cost_per_correct_classification_usd == null ? "no ground truth" : undefined} />
+        <StatTile
+          label="Full-run cost / correct"
+          value={usd(summary.cost_per_correct_classification_usd)}
+          sub={
+            summary.cost_per_correct_classification_usd == null
+              ? "no ground truth"
+              : "total cost across all calls ÷ correct on the scored subset"
+          }
+        />
       </div>
       <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 12 }}>
         <StatTile label="p50 latency" value={ms(summary.latency.p50_ms)} sub={`at concurrency ${summary.latency.concurrency_at_measurement}`} />

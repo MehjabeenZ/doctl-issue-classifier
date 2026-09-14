@@ -1,9 +1,20 @@
 from typing import Literal, Optional
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, field_validator
+
+from app.model_catalog import CATALOG
 
 LabelClass = Literal["bug", "enhancement", "question", "documentation", "security", "other"]
 ErrorType = Literal["rate_limit", "timeout", "parse_error", "other", "none"]
+
+# Both requests hit a real, billed, per-token API. This app is deployed
+# publicly with a live key and unauthenticated POST /api/jobs (see main.py's
+# docstring note) — these bounds are the only thing standing between a random
+# caller and an unbounded number of full-corpus runs. Pick numbers generous
+# enough for legitimate use (RunControls.jsx's own UI caps concurrency at 64)
+# but small enough that even a worst-case abusive call is cheap.
+MAX_CONCURRENCY = 64
+MAX_LIMIT = 536  # current corpus size; a generous fixed ceiling rather than importing corpus.py here
 
 
 class APIModel(BaseModel):
@@ -44,6 +55,27 @@ class RunRequest(APIModel):
     model_b: str
     concurrency: int = 8
     limit: Optional[int] = None  # cap corpus size for quick smoke runs
+
+    @field_validator("model_a", "model_b")
+    @classmethod
+    def _model_must_be_in_catalog(cls, v: str) -> str:
+        if v not in CATALOG:
+            raise ValueError(f"unknown model id {v!r} — must be one of the catalog models from GET /api/models")
+        return v
+
+    @field_validator("concurrency")
+    @classmethod
+    def _bound_concurrency(cls, v: int) -> int:
+        if not (1 <= v <= MAX_CONCURRENCY):
+            raise ValueError(f"concurrency must be between 1 and {MAX_CONCURRENCY}")
+        return v
+
+    @field_validator("limit")
+    @classmethod
+    def _bound_limit(cls, v: Optional[int]) -> Optional[int]:
+        if v is not None and not (1 <= v <= MAX_LIMIT):
+            raise ValueError(f"limit must be between 1 and {MAX_LIMIT}")
+        return v
 
 
 class LatencyStats(APIModel):

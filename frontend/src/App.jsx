@@ -19,6 +19,16 @@ export default function App() {
   useEffect(() => {
     api.models().then((d) => setModels(d.models)).catch((e) => setError(String(e)));
     api.corpus().then(setCorpus).catch((e) => setError(String(e)));
+    // Load the most recent persisted run on startup so a visitor to the
+    // deployed URL sees the actual recommended-pair result immediately,
+    // rather than an empty state that requires triggering a new (real,
+    // credential-backed) run just to see the app do anything.
+    api.runs()
+      .then((d) => {
+        const mostRecent = d.runs?.[0];
+        if (mostRecent) return api.run(mostRecent.run_id).then(setResult);
+      })
+      .catch((e) => setError(String(e)));
     return () => clearInterval(pollRef.current);
   }, []);
 

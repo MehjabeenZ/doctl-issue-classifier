@@ -145,19 +145,29 @@ further checks:
 
 - **Self-consistency** (same issue, 3 repeats, temperature=0): both models are
   highly stable — 97% unanimous, 100% majority. No differentiator.
-- **Throughput ceiling** (ramped concurrency, real rate-limit behavior):
-  `mistral-3-14B` scales cleanly past 30 req/s with zero errors; `deepseek-4-flash`
-  tops out around **3.6 req/s** and is already rate-limiting by concurrency 8.
+- **Observed throughput at tested concurrency** (ramped concurrency up to 32,
+  real rate-limit behavior, 40 calls/level): `mistral-3-14B` handled every
+  level with zero errors — its actual ceiling wasn't found, only that it's
+  above 30 req/s; `deepseek-4-flash` topped out around **3.6 req/s** and was
+  already rate-limiting by concurrency 8. This is a small per-level sample and
+  an isolated single-model probe (the app runs both models concurrently), so
+  treat these as directional, not exact production limits — but the ~8-10x
+  gap between them is large enough that it isn't sample noise.
 
 This is the finding that actually decides the recommendation. Judged purely
 on cost-per-token, `deepseek-4-flash` looks like the better deal — it's about
 3x cheaper per correct classification. But that number only matters if you
 can push volume through the model, and for "high volume across many repos,"
-deepseek's throughput ceiling is roughly an order of magnitude below
-mistral's. **`mistral-3-14B` is the production recommendation** — it wins on
-accuracy, latency, and throughput, and its cost-per-call, while higher than
-deepseek's, is still a small fraction of a frontier model's. `deepseek-4-flash`
-remains worth reconsidering specifically for a lower-volume workload (a
+deepseek's observed throughput ceiling is roughly an order of magnitude below
+mistral's. **`mistral-3-14B` is the production recommendation** — accuracy
+between the two is close enough on this sample (301 scored issues; a paired
+comparison on the full-corpus run finds `mistral-3-14B` correct-only on 16
+issues vs. `deepseek-4-flash` correct-only on 12 — McNemar's test on those 28
+discordant pairs gives χ²=0.32, p=0.57, nowhere near significant) that it isn't
+what decides this. Latency and, especially, throughput are what do: `mistral-3-14B`
+is faster per call and sustains far higher load, and its cost-per-call, while
+higher than deepseek's, is still a small fraction of a frontier model's.
+`deepseek-4-flash` remains worth reconsidering specifically for a lower-volume workload (a
 smaller repo, or genuinely infrequent classification) where the throughput
 ceiling never binds and its lower per-token price would matter more than it
 does here. `deepseek-4-flash` pricing ($0.07/M input, $0.17/M output) was
@@ -220,7 +230,9 @@ yourself" reproduces:
 | Throughput | 8.6 req/s | 2.5 req/s |
 | Errors (out of 536) | 3 rate-limited | 4 rate-limited |
 
-Agreement rate between the two models across the full corpus: **88.6%**.
+Agreement rate between the two models across the full corpus: **89.8%**
+(475/529 comparable issues; 7 of 536 excluded because at least one model
+failed to produce a prediction on that issue — see `metrics.agreement_rate`).
 
 **Honest note on the accuracy numbers**: both are ~1 point lower here than in
 the 301-issue screening pass used for model selection (85.7%/85.0%). Two real,

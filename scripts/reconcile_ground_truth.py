@@ -1,9 +1,30 @@
-"""Reconcile the rule-mapped tier + two independent blind labelers into final ground truth.
+"""Reconcile the rule-mapped tier + two independent blind labelers.
 
-Produces:
-  - data/processed/ground_truth.json         final {number, label, source} for every
-                                              issue that has a confident label
-  - data/processed/needs_adjudication.json   remaining disagreements for a human read
+Produces two DELIBERATELY SEPARATE files — see the "Important split" note in
+project memory / DESIGN_DECISIONS.md: ground_truth.json's provenance must trace
+only to real doctl maintainer labels (rule-mapped, independently validated), so
+it's defensible as ground truth in the review session. The needs-labeling tier
+was labeled by AI subagents, not maintainers — mixing it into ground_truth.json
+would contradict the stated principle that ground truth must be independent of
+AI labeling, so it's written to silver_labels_unscored.json instead and never
+used for scoring.
+
+  - data/processed/ground_truth.json          rule-mapped tier only (301 issues):
+                                               {number, label, source}, source in
+                                               {rule_mapped, validated_unanimous,
+                                               validated_majority}
+  - data/processed/silver_labels_unscored.json needs-labeling tier that the two
+                                               blind labelers agreed on: {number,
+                                               label, source="double_labeled_agree"}.
+                                               Dev-only provenance artifact — the
+                                               app never scores against this.
+  - data/processed/needs_adjudication.json    remaining disagreements (from
+                                               either tier) for a human read; once
+                                               adjudicated, merge those rows into
+                                               silver_labels_unscored.json by hand
+                                               with source="human_adjudicated" —
+                                               this script does not do that
+                                               automatically.
   - prints an agreement-rate report (this IS the "how much do I trust maintainer
     labels / a single labeler" evidence for the README)
 """
@@ -30,7 +51,8 @@ def main():
     validation_numbers = {issue["number"] for issue in validation_sample}
     tier1_by_number = {issue["number"]: issue for issue in tier1}
 
-    final = {}  # number -> {label, source}
+    final = {}  # number -> {label, source} — the trusted, maintainer-traceable tier only
+    silver = {}  # number -> {label, source} — AI-double-labeled tier, kept separate on purpose
     needs_adjudication = []
 
     # --- Validation tier: rule label vs 2 blind labelers -------------------------
@@ -68,7 +90,7 @@ def main():
         a, b = labeler_a[n], labeler_b[n]
         if a == b:
             needs_agree += 1
-            final[n] = {"label": a, "source": "double_labeled_agree"}
+            silver[n] = {"label": a, "source": "double_labeled_agree"}
         else:
             needs_disagree += 1
             needs_adjudication.append(
@@ -78,6 +100,9 @@ def main():
 
     (PROC / "ground_truth.json").write_text(
         json.dumps([{"number": n, **v} for n, v in sorted(final.items())], indent=2)
+    )
+    (PROC / "silver_labels_unscored.json").write_text(
+        json.dumps([{"number": n, **v} for n, v in sorted(silver.items())], indent=2)
     )
     (PROC / "needs_adjudication.json").write_text(json.dumps(needs_adjudication, indent=2))
 
@@ -92,11 +117,14 @@ def main():
     print(f"  agree:    {needs_agree}/{len(needs_labeling)} ({needs_agree/len(needs_labeling):.0%})")
     print(f"  disagree: {needs_disagree}/{len(needs_labeling)} ({needs_disagree/len(needs_labeling):.0%})")
     print()
-    print(f"Final ground truth size: {len(final)}")
-    print(f"Needs manual adjudication: {len(needs_adjudication)} (written to needs_adjudication.json)")
+    print(f"Final ground truth size (scored, maintainer-traceable): {len(final)}")
+    print(f"Silver labels size (unscored, AI double-labeled): {len(silver)}")
+    print(f"Needs manual adjudication: {len(needs_adjudication)} (written to needs_adjudication.json — "
+          f"merge resolved rows into silver_labels_unscored.json by hand, source='human_adjudicated')")
 
     from collections import Counter
     print(f"Final label distribution: {dict(Counter(v['label'] for v in final.values()))}")
+    print(f"Silver label distribution: {dict(Counter(v['label'] for v in silver.values()))}")
 
 
 if __name__ == "__main__":

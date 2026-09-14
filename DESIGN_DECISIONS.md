@@ -492,7 +492,9 @@ implement correctly.
 
 **Prompt design**: system prompt gives the model the exact same 6 class
 definitions the exercise itself uses, requests strict JSON
-(`{"label": "..."}`), `temperature=0`, `max_tokens=20`.
+(`{"label": "..."}`), `temperature=0`, `max_tokens=20` *(superseded — see the
+2026-09-10 correction below; the app's real, current default is
+`max_output_tokens=1024`, env-configurable)*.
 - No few-shot examples. Considered adding a few examples per class to boost
   accuracy, especially for smaller/weaker models — deliberately left out
   because the more useful number for a customer is "what does this model do
@@ -593,13 +595,20 @@ problem) — a customer deciding what to do next needs that distinction visible.
   `agreement_rate` now also returns how many issues got excluded this way, so
   the UI states plainly what the headline percentage is silent on rather than
   hiding it.
-- Verified against the already-persisted finalist run
-  (`run_1789106490.json`, 7 total failures across both models): neither bug
-  actually distorted its displayed numbers — no failure landed on a
-  true-`other` issue, and no issue failed on both models at once — so nothing
-  needed to be re-run, only the code needed fixing for future runs (including
-  whatever the reviewer runs live). Regression tests added for both exact
-  failure modes in `test_metrics.py`.
+- **Correction, 2026-09-11**: the note originally here claimed the
+  already-persisted finalist run (`run_1789106490.json`) needed no changes —
+  that was wrong for the agreement-rate bug. The confusion-matrix bug really
+  was a no-op for this run (no failure landed on a true-`other` issue), but
+  `agreement_rate`'s fix excludes an issue whenever *either* model failed, not
+  only when both did — and this run has 7 single-sided failures (3 for
+  `mistral-3-14B`, 4 for `deepseek-4-flash`), zero double-sided. Checking only
+  for double-sided failures missed that the denominator itself needed to
+  shrink. The persisted run's `agreement_rate` was stale at the old-semantics
+  value (88.6% = 475/536) versus the corrected one (89.8% = 475/529) — fixed
+  directly in the JSON (recomputed from its own `per_issue` rows, no re-run/no
+  spend needed) and `agreement_excluded_count: 7` added. README's headline
+  number updated to match. Regression tests added for both exact failure
+  modes in `test_metrics.py`.
 
 ---
 
@@ -750,7 +759,9 @@ in the app that are not yet backed by real evidence:
   been misleading sitting next to the real result). Results: mistral 84.7%
   accuracy / $0.0567 total / 416ms p50 / 8.6 req/s / 3 rate-limited-out-of-536;
   deepseek 83.4% / $0.0193 / 2641ms p50 / 2.5 req/s / 4 rate-limited-out-of-536;
-  agreement rate 88.6%. Full table and the honest note on why accuracy is
+  agreement rate 89.8% (see the 2026-09-11 correction below — originally
+  recorded as 88.6% under pre-fix agreement semantics). Full table and the
+  honest note on why accuracy is
   ~1pt lower here than the screening pass (real non-determinism + a few
   retry-exhausted rate-limit misses, both predicted by the earlier probes) are
   in README.md's "Cost, latency, throughput" section — this doc doesn't
@@ -769,3 +780,80 @@ in the app that are not yet backed by real evidence:
   `.dockerignore` both excluded `data/runs/`, which would have silently
   dropped the real persisted eval result from the repo and the deployed
   image — fixed both before pushing.
+
+## 6. Second-pass independent review, 2026-09-11 — fixes applied
+
+A second review (post-deployment, treating the live app as a reviewer would)
+found several real issues. All fixed locally, no re-run/no spend required:
+
+- **Critical — unauthenticated `POST /api/jobs` had no spend bounds.** The
+  live deployment has `DRY_RUN=false` and a real billed SI key behind an
+  endpoint anyone can call, with no bound on `concurrency`, `limit`, or which
+  model ids were accepted, and a wildcard CORS origin. Fixed in
+  `schemas.py` (`RunRequest` now validates `model_a`/`model_b` against
+  `CATALOG`, bounds `concurrency` to 1-64 and `limit` to 1-536) and `main.py`
+  (CORS restricted to the local dev origin only — the deployed frontend is
+  same-origin and needs none; a single-flight in-process lock rejects a
+  second job while one is running). This caps worst-case unattended spend to
+  one bounded run at a time rather than leaving it unbounded. Not adding auth
+  — the exercise wants a publicly runnable app, and these bounds address the
+  actual risk (unbounded spend) without blocking that. Regression tests in
+  `test_schemas.py`.
+- **High — `reconcile_ground_truth.py` didn't reproduce the checked-in
+  `ground_truth.json`.** Rerunning it from the intermediate files would have
+  folded the AI-double-labeled needs-labeling tier (217 rows) into
+  `ground_truth.json` alongside the 301 maintainer-traceable rows — silently
+  producing a ~518-row "ground truth" that contradicts the project's own
+  stated principle (ground truth must trace to real doctl labels, not AI
+  labeling) and the README's 301-row methodology. Also: nothing in the repo
+  actually produced the checked-in `silver_labels_unscored.json` — it was an
+  orphaned artifact. Fixed: the needs-labeling agreement tier now writes to
+  `silver_labels_unscored.json` instead, `ground_truth.json` stays scoped to
+  the maintainer-traceable tier only. Verified by actually running the fixed
+  script against the checked-in intermediates: `ground_truth.json` came back
+  **byte-identical** to what's checked in; `silver_labels_unscored.json` came
+  back as the 217 auto-agreed rows (the checked-in 235-row file also has the
+  18 human-adjudicated rows, which are a manual merge step by design — see
+  the script's docstring — so the original 235-row file was restored rather
+  than overwritten with the 217-row reproduction).
+- **High — the persisted finalist run's `agreement_rate` used pre-fix
+  semantics.** See the correction inline in §"Two more correctness bugs"
+  above: `run_1789106490.json` was saved before the `agreement_rate` fix
+  landed, and the fix excludes an issue whenever *either* model failed (this
+  run has 7 single-sided failures, not caught by the earlier "no double
+  failure" check). Recomputed directly from the run's own `per_issue` data
+  (no API calls) — 88.6% → 89.8%, `agreement_excluded_count: 7` added.
+  README updated to match.
+- **Medium — confusion-matrix shading normalized by returned predictions,
+  not by ground-truth support.** Since failed calls are excluded from the
+  matrix entirely, a row with failures could shade as if every prediction
+  landed correctly. Fixed `ConfusionMatrix.jsx` to normalize by `support`
+  instead, and added an explicit "failed" column so a gap reads as missing
+  data, not as an untouched cell.
+- **Medium — "cost per correct" divides full-run cost by scored-subset
+  correct count.** True of the metric as computed (`total_cost_usd` is over
+  all 536 calls; `correct` is over the 301 scored issues) — a real
+  full-workload economic number, but not literally "cost per correct
+  classification" for one matched population. Left the computation as-is
+  (the persisted run doesn't store per-issue cost, so there's no way to
+  retroactively compute a scored-only figure without introducing the same
+  artifact/code mismatch as the agreement-rate bug above) and relabeled it
+  honestly instead: "Full-run cost / correct" with a caption stating the
+  denominator population, in `OperationalMetrics.jsx`.
+- **Medium — overclaimed accuracy/throughput language in the README.**
+  "Mistral wins on accuracy" overstated a 16-vs-12-correct-issue gap (out of
+  301, paired) that isn't established as significant without a test; "throughput
+  ceiling" implied a measured hard limit when only `deepseek-4-flash` was
+  actually driven into rate-limiting (`mistral-3-14B`'s ceiling was never
+  found, only that it's above 30 req/s). Reworded to state what was actually
+  measured and let latency/throughput (the real, large, unambiguous gaps)
+  carry the recommendation instead of accuracy.
+- **Medium — the deployed app showed an empty state, not the real result.**
+  A reviewer opening the live URL had to trigger a new (real, billed) run
+  just to see the app do anything, even though the finalist result was
+  already persisted and served by `GET /api/runs`. Fixed: `App.jsx` now loads
+  the most recent persisted run on mount; "Run comparison" is still available
+  to run a fresh one.
+- **Low — stale text in this doc.** The `max_tokens=20` mention in §4 is
+  annotated as superseded (it already was corrected further down, just not
+  where a top-to-bottom read would hit it first).
