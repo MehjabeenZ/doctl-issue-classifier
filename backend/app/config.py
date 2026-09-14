@@ -30,13 +30,16 @@ class Settings(BaseSettings):
     # demoed before real API credits exist.
     dry_run: bool = False
 
-    # When true, POST /api/jobs is refused — the hosted deployment serves the
-    # real persisted finalist result read-only instead of letting an anonymous
-    # visitor trigger a fresh, credential-backed run. The app itself is still
-    # fully live-runnable: this only gates the *hosted* instance. Run the
-    # container locally (or flip this off) with a real SI_API_KEY to execute a
-    # live comparison — see README "Run it yourself".
-    hosted_demo_read_only: bool = False
+    # HTTP Basic Auth credentials gating the whole app — only ever set on the
+    # hosted Render deployment (never locally/in plain Docker runs, where both
+    # default to "" and the auth middleware becomes a no-op). A public URL
+    # with an unauthenticated endpoint sitting in front of a real, billed SI
+    # key shouldn't be reachable by anyone who finds the link; once
+    # authenticated, the app is fully live and unrestricted — same capability
+    # as running it locally, just gated to whoever has the shared credential
+    # (e.g. reviewers, given it out-of-band, not committed to the repo).
+    demo_username: str = ""
+    demo_password: str = ""
 
     data_dir: str = "data"
 

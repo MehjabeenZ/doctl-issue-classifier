@@ -11,17 +11,18 @@ repos, suspect we're overpaying a frontier model" workload.
 (deployed on Render's free tier — the first request after a period of
 inactivity may take 30–60s to wake the instance up).
 
-**This hosted instance is a read-only demo.** It loads and serves the real,
-already-persisted `mistral-3-14B` vs `deepseek-4-flash` full-corpus comparison
-on startup — every scored/unscored/operational view, drill-down, and raw
-model output is the actual data from that real run, fully inspectable.
-"Run comparison" is disabled there (`HOSTED_DEMO_READ_ONLY=true`): a public
-URL with an unauthenticated endpoint sitting in front of a real, billed SI
-API key shouldn't let anonymous visitors trigger fresh paid runs on demand.
-The application itself has no such restriction — run it locally with your
-own `SI_API_KEY` (see "Run it yourself" below) for a fully live, interactive
-comparison, including picking any two models and concurrency/limit from the
-UI.
+**This hosted instance is protected by HTTP Basic Auth** (credentials
+provided separately, not committed to this repo): a public URL with an
+unauthenticated endpoint sitting in front of a real, billed SI API key
+shouldn't be reachable by anyone who happens to find the link. Once
+authenticated, the app is the real, fully live thing — no restricted mode,
+no read-only view: pick any two models, set concurrency/limit, and run a
+genuine comparison against the live corpus, same as running it locally. It
+also loads the real, already-persisted `mistral-3-14B` vs `deepseek-4-flash`
+full-corpus result on startup, so there's something to inspect immediately
+without waiting on a fresh run. If you'd rather run it yourself with your own
+`SI_API_KEY` instead of using the shared demo credentials, see "Run it
+yourself" below — no auth wall applies locally/in Docker.
 
 ## The scenario
 
@@ -376,7 +377,7 @@ recommended pair — but any two models from the live catalog can be selected.
 | `DEFAULT_CONCURRENCY` | `8` | Default parallel in-flight requests; overridable per-run in the UI. |
 | `MAX_OUTPUT_TOKENS` | `1024` | Per-call output token budget — sized generously so reasoning models' chain-of-thought isn't truncated before the final label. |
 | `DRY_RUN` | `false` | If `true`, skips real API calls and returns synthetic (noisy, not perfect) responses. |
-| `HOSTED_DEMO_READ_ONLY` | `false` | If `true`, `POST /api/jobs` refuses new runs — used on the hosted Render deployment only, not set locally/in Docker by default. |
+| `DEMO_USERNAME` / `DEMO_PASSWORD` | _(none)_ | If both are set, the whole app requires HTTP Basic Auth with these credentials. Used on the hosted Render deployment only — leave unset for local/Docker use. |
 | `MAX_RETRIES` | `3` | Per-request retry attempts on rate limit/timeout/5xx. |
 | `DATA_DIR` | `data` | Where the corpus, ground truth, and run results live. |
 

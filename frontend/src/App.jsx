@@ -10,7 +10,6 @@ const TABS = ["Scored", "Unscored", "Operational"];
 export default function App() {
   const [models, setModels] = useState([]);
   const [corpus, setCorpus] = useState(null);
-  const [readOnly, setReadOnly] = useState(false);
   const [running, setRunning] = useState(false);
   const [error, setError] = useState(null);
   const [result, setResult] = useState(null);
@@ -20,7 +19,6 @@ export default function App() {
   useEffect(() => {
     api.models().then((d) => setModels(d.models)).catch((e) => setError(String(e)));
     api.corpus().then(setCorpus).catch((e) => setError(String(e)));
-    api.health().then((d) => setReadOnly(!!d.read_only)).catch(() => {});
     // Load the most recent persisted run on startup so a visitor to the
     // deployed URL sees the actual recommended-pair result immediately,
     // rather than an empty state that requires triggering a new (real,
@@ -73,7 +71,6 @@ export default function App() {
         onRun={handleRun}
         running={running}
         defaultConcurrency={8}
-        readOnly={readOnly}
       />
 
       {error && (

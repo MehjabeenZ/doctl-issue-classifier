@@ -15,6 +15,13 @@
 # PLACEHOLDER: the real SI_API_KEY value is intentionally NOT in this file —
 # `sync: false` means Render will prompt you to paste it into the dashboard's
 # environment tab after the Blueprint is created. Never commit the real key.
+#
+# DEMO_USERNAME/DEMO_PASSWORD gate the whole app behind HTTP Basic Auth (see
+# backend/app/auth.py) — a public URL in front of a real, billed SI key
+# shouldn't be reachable by anyone who finds the link. Also `sync: false`;
+# set real values only in the dashboard, and share them with reviewers
+# out-of-band (e.g. alongside the submission), never committed here. Once
+# authenticated, the app is fully live/unrestricted — same as a local run.
 
 services:
   - type: web
@@ -36,10 +43,7 @@ services:
         value: "8"
       - key: MAX_OUTPUT_TOKENS
         value: "1024"
-      - key: HOSTED_DEMO_READ_ONLY
-        value: "true"   # serves the persisted result read-only; POST /api/jobs
-                         # refuses new runs so an anonymous visitor can't spend
-                         # against this deployment's real SI key. Flip to
-                         # "false" in the Render dashboard for a live demo
-                         # during the review session, or run the container
-                         # locally with your own key — see README.
+      - key: DEMO_USERNAME
+        sync: false   # prompted for in the dashboard, shared with reviewers separately
+      - key: DEMO_PASSWORD
+        sync: false   # prompted for in the dashboard, shared with reviewers separately

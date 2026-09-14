@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 const RECOMMENDED_MODEL_A = "mistral-3-14B";
 const RECOMMENDED_MODEL_B = "deepseek-4-flash";
 
-export default function RunControls({ models, corpus, onRun, running, defaultConcurrency, readOnly }) {
+export default function RunControls({ models, corpus, onRun, running, defaultConcurrency }) {
   const [modelA, setModelA] = useState("");
   const [modelB, setModelB] = useState("");
   const [concurrency, setConcurrency] = useState(defaultConcurrency || 8);
@@ -27,16 +27,7 @@ export default function RunControls({ models, corpus, onRun, running, defaultCon
           Corpus: {corpus.total_issues} issues ({corpus.scored_count} scored, {corpus.unscored_count} unscored)
         </div>
       )}
-      {readOnly && (
-        <div className="muted" style={{ fontSize: 13 }}>
-          This hosted demo is read-only and shows the real persisted
-          `mistral-3-14B` vs `deepseek-4-flash` result above. To run a live
-          comparison against your own SI API key, run the container locally
-          (see README "Run it yourself") — the full evaluator is unrestricted
-          there, this restriction only applies to this hosted instance.
-        </div>
-      )}
-      <div style={{ display: "flex", gap: 16, flexWrap: "wrap", alignItems: "flex-end", opacity: readOnly ? 0.5 : 1 }}>
+      <div style={{ display: "flex", gap: 16, flexWrap: "wrap", alignItems: "flex-end" }}>
         <label style={{ display: "flex", flexDirection: "column", gap: 4, fontSize: 13 }}>
           Model A
           <select value={modelA} onChange={(e) => setModelA(e.target.value)}>
@@ -66,7 +57,7 @@ export default function RunControls({ models, corpus, onRun, running, defaultCon
           />
         </label>
         <button
-          disabled={readOnly || running || !modelA || !modelB}
+          disabled={running || !modelA || !modelB}
           onClick={() => onRun({ model_a: modelA, model_b: modelB, concurrency, limit: limit ? Number(limit) : undefined })}
         >
           {running ? "Running…" : "Run comparison"}

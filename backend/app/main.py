@@ -5,7 +5,7 @@ from fastapi import BackgroundTasks, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
-from app.config import settings
+from app.auth import DemoBasicAuthMiddleware
 from app.corpus import corpus_stats
 from app.eval_runner import run_comparison
 from app.model_catalog import CATALOG
@@ -14,33 +14,34 @@ from app.storage import list_runs, load_run
 
 app = FastAPI(title="doctl issue-classification eval harness")
 
-# The frontend is served from this same FastAPI process (see the StaticFiles
-# mount below) so it never needs cross-origin access — CORS here only matters
-# for a local Vite dev server hitting a locally-run backend. Deliberately NOT
-# a wildcard: this app is deployed publicly with a real, billed SI API key
-# behind POST /api/jobs (unauthenticated by design, per the exercise's "runnable
-# app" requirement), and a wildcard origin would let any web page's JS drive
-# billed jobs using a visitor's browser as the vector.
+# Middleware order: Starlette runs the LAST-added middleware outermost (first
+# on the request), so auth is added after CORS to gate every request —
+# including loading the frontend itself — before anything else runs. Both are
+# no-ops locally/in plain Docker runs (no demo_username/password set) and the
+# origin list only matters for a local Vite dev server anyway, since the
+# production frontend is served same-origin by this same process.
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )
+app.add_middleware(DemoBasicAuthMiddleware)
 
 # job_id -> {"status": "running"|"done"|"error", "run_id": str | None, "error": str | None}
 _jobs: dict[str, dict] = {}
 
-# POST /api/jobs has no auth (see CORS comment above) and every job spends real
-# SI credits. This in-process lock caps worst-case exposure to one concurrent
-# job at a time — combined with schemas.py's concurrency/limit/model bounds,
-# that's a small, fixed ceiling on unattended spend rather than an unbounded one.
+# Every job spends real SI credits, and while the app-level Basic Auth above
+# is the primary gate against random-internet abuse, this in-process lock is
+# defense-in-depth: caps worst-case exposure to one concurrent job at a time,
+# combined with schemas.py's concurrency/limit/model bounds — useful even for
+# an authenticated caller who fat-fingers a double-click or a leaked credential.
 _job_in_flight = False
 
 
 @app.get("/api/health")
 def health():
-    return {"status": "ok", "read_only": settings.hosted_demo_read_only}
+    return {"status": "ok"}
 
 
 @app.get("/api/models")
@@ -80,14 +81,6 @@ async def _execute(job_id: str, request: RunRequest):
 @app.post("/api/jobs")
 def start_job(request: RunRequest, background_tasks: BackgroundTasks):
     global _job_in_flight
-    if settings.hosted_demo_read_only:
-        raise HTTPException(
-            403,
-            "This hosted demo is read-only and serves the real persisted "
-            "mistral-3-14B vs deepseek-4-flash result. To run a live "
-            "comparison against your own DigitalOcean SI API key, run the "
-            "container locally — see the README's \"Run it yourself\" section.",
-        )
     if _job_in_flight:
         raise HTTPException(429, "A comparison run is already in progress — wait for it to finish before starting another (each run spends real API credits).")
     _job_in_flight = True

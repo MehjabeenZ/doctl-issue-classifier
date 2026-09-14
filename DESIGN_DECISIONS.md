@@ -799,25 +799,34 @@ found several real issues. All fixed locally, no re-run/no spend required:
   — the exercise wants a publicly runnable app, and these bounds address the
   actual risk (unbounded spend) without blocking that. Regression tests in
   `test_schemas.py`.
-  - **Superseded, 2026-09-14**: bounding the endpoint still left it live for
-    anyone to trigger *some* real spend. Went further: `HOSTED_DEMO_READ_ONLY`
-    (`config.py`) gates `POST /api/jobs` entirely on the Render deployment
-    (`render.yaml` sets it `true`) — the hosted URL serves the real persisted
-    `run_1789106490.json` result read-only (App.jsx already loads it on
-    mount, from the earlier fix), and "Run comparison" is disabled in the UI
-    with an explanatory note (`RunControls.jsx`, driven by a new `read_only`
-    field on `GET /api/health`). The application itself is unrestricted —
-    `HOSTED_DEMO_READ_ONLY` defaults to `false`, so Docker/local runs with a
-    real `SI_API_KEY` work exactly as before. This is a better fit for the
-    exercise's own wording than the bounded-but-open approach: the README
-    deliverable requirement is to "include enough... environment variables
-    it expects (including the SI API key) that we could reproduce your run
-    if we wanted to" — reproduction via the container with the reviewer's
-    own key, not an obligation for the hosted link to give anonymous
-    visitors free paid runs. The concurrency/limit/model-id bounds from the
-    original fix stay in place as defense-in-depth (e.g. if a reviewer flips
-    `HOSTED_DEMO_READ_ONLY` off in the Render dashboard to watch a live run
-    during the review session).
+  - **Superseded, 2026-09-14 (first pass)**: bounding the endpoint still left
+    it live for anyone to trigger *some* real spend. First fix: a
+    `HOSTED_DEMO_READ_ONLY` flag that refused `POST /api/jobs` entirely on
+    the hosted instance, serving the real persisted result read-only.
+  - **Superseded again, 2026-09-14 (same day)**: the read-only gate traded
+    away too much — re-reading the exercise, "the same code that produces
+    the numbers you walk us through is the code we will run" reads as an
+    expectation that reviewers can actually *run* the app, not just view a
+    static result. A read-only hosted demo satisfies "not open to random
+    spend" but not "reviewers can run it." Replaced with HTTP Basic Auth
+    gating the whole app (`backend/app/auth.py`, `DemoBasicAuthMiddleware`,
+    wired into `main.py`; `DEMO_USERNAME`/`DEMO_PASSWORD` in `config.py`,
+    both empty by default so local/Docker runs are never gated). This gets
+    both properties at once instead of trading one for the other: nobody
+    without the credential can see or run anything (`render.yaml` sets both
+    as `sync: false` secrets, shared with reviewers separately, never
+    committed), and anyone *with* it gets the fully live, unrestricted app —
+    same capability as running it locally, no separate "demo mode." Removed
+    the read-only flag and its UI treatment (`App.jsx`/`RunControls.jsx`)
+    entirely rather than keep both mechanisms — one gate is enough, and
+    stacking a read-only mode behind an auth wall would just be confusing.
+    The concurrency/limit/model-id bounds and single-flight lock from the
+    first fix stay in place as defense-in-depth (an authenticated caller can
+    still fat-finger a double-click, and it costs nothing to keep them).
+    Considered a shared token/header scheme instead of Basic Auth — rejected
+    because Basic Auth needs zero frontend code (every browser handles the
+    credential prompt natively) where a token scheme would need a login form
+    and header plumbing for no real security benefit at this scale.
 - **High — `reconcile_ground_truth.py` didn't reproduce the checked-in
   `ground_truth.json`.** Rerunning it from the intermediate files would have
   folded the AI-double-labeled needs-labeling tier (217 rows) into
