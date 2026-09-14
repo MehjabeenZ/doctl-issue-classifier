@@ -457,6 +457,19 @@ throughput ceiling — not dismissed outright, scoped to where it actually wins.
   the 14B dense model — "bigger doesn't help this task"), worth a side mention
   in the README, but it's a narrower insight than the reasoning-vs-throughput
   story above and doesn't hit the reasoning-vs-non-reasoning axis.
+- `openai-gpt-oss-120b` (81.4% acc, ~117B MoE, reasoning-capable) — worse
+  accuracy than its own smaller sibling `openai-gpt-oss-20b` (81.4% vs 83.1%)
+  despite ~6x the parameters, a second "bigger doesn't help" data point,
+  redundant with the `llama-4-maverick` finding. Worse than `deepseek-4-flash`
+  on accuracy and latency both, with no probe evidence and no offsetting
+  story — dominated, not a close call.
+- `glm-5.3-flash` (80.7% acc, only after doubling `MAX_OUTPUT_TOKENS` to
+  recover from 12/301 parse errors down to 4/301) — lowest accuracy of all 6
+  screened, the only model with real errors remaining in the full screening
+  run, and the model where a rerun at identical `temperature=0` settings
+  produced a mostly *different* set of failures (§3 point 6) — real evidence
+  of non-deterministic reasoning length, a reliability flag on top of already
+  being the weakest on accuracy. No case for it as a finalist.
 - A pair picked to look more evenly matched — rejected on principle, per the
   asymmetry note above.
 
