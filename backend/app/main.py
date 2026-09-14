@@ -5,6 +5,7 @@ from fastapi import BackgroundTasks, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
+from app.config import settings
 from app.corpus import corpus_stats
 from app.eval_runner import run_comparison
 from app.model_catalog import CATALOG
@@ -39,7 +40,7 @@ _job_in_flight = False
 
 @app.get("/api/health")
 def health():
-    return {"status": "ok"}
+    return {"status": "ok", "read_only": settings.hosted_demo_read_only}
 
 
 @app.get("/api/models")
@@ -79,6 +80,14 @@ async def _execute(job_id: str, request: RunRequest):
 @app.post("/api/jobs")
 def start_job(request: RunRequest, background_tasks: BackgroundTasks):
     global _job_in_flight
+    if settings.hosted_demo_read_only:
+        raise HTTPException(
+            403,
+            "This hosted demo is read-only and serves the real persisted "
+            "mistral-3-14B vs deepseek-4-flash result. To run a live "
+            "comparison against your own DigitalOcean SI API key, run the "
+            "container locally — see the README's \"Run it yourself\" section.",
+        )
     if _job_in_flight:
         raise HTTPException(429, "A comparison run is already in progress — wait for it to finish before starting another (each run spends real API credits).")
     _job_in_flight = True

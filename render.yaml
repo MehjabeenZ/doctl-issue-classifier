@@ -36,3 +36,10 @@ services:
         value: "8"
       - key: MAX_OUTPUT_TOKENS
         value: "1024"
+      - key: HOSTED_DEMO_READ_ONLY
+        value: "true"   # serves the persisted result read-only; POST /api/jobs
+                         # refuses new runs so an anonymous visitor can't spend
+                         # against this deployment's real SI key. Flip to
+                         # "false" in the Render dashboard for a live demo
+                         # during the review session, or run the container
+                         # locally with your own key — see README.

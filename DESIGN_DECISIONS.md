@@ -799,6 +799,25 @@ found several real issues. All fixed locally, no re-run/no spend required:
   — the exercise wants a publicly runnable app, and these bounds address the
   actual risk (unbounded spend) without blocking that. Regression tests in
   `test_schemas.py`.
+  - **Superseded, 2026-09-14**: bounding the endpoint still left it live for
+    anyone to trigger *some* real spend. Went further: `HOSTED_DEMO_READ_ONLY`
+    (`config.py`) gates `POST /api/jobs` entirely on the Render deployment
+    (`render.yaml` sets it `true`) — the hosted URL serves the real persisted
+    `run_1789106490.json` result read-only (App.jsx already loads it on
+    mount, from the earlier fix), and "Run comparison" is disabled in the UI
+    with an explanatory note (`RunControls.jsx`, driven by a new `read_only`
+    field on `GET /api/health`). The application itself is unrestricted —
+    `HOSTED_DEMO_READ_ONLY` defaults to `false`, so Docker/local runs with a
+    real `SI_API_KEY` work exactly as before. This is a better fit for the
+    exercise's own wording than the bounded-but-open approach: the README
+    deliverable requirement is to "include enough... environment variables
+    it expects (including the SI API key) that we could reproduce your run
+    if we wanted to" — reproduction via the container with the reviewer's
+    own key, not an obligation for the hosted link to give anonymous
+    visitors free paid runs. The concurrency/limit/model-id bounds from the
+    original fix stay in place as defense-in-depth (e.g. if a reviewer flips
+    `HOSTED_DEMO_READ_ONLY` off in the Render dashboard to watch a live run
+    during the review session).
 - **High — `reconcile_ground_truth.py` didn't reproduce the checked-in
   `ground_truth.json`.** Rerunning it from the intermediate files would have
   folded the AI-double-labeled needs-labeling tier (217 rows) into

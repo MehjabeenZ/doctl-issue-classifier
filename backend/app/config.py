@@ -30,6 +30,14 @@ class Settings(BaseSettings):
     # demoed before real API credits exist.
     dry_run: bool = False
 
+    # When true, POST /api/jobs is refused — the hosted deployment serves the
+    # real persisted finalist result read-only instead of letting an anonymous
+    # visitor trigger a fresh, credential-backed run. The app itself is still
+    # fully live-runnable: this only gates the *hosted* instance. Run the
+    # container locally (or flip this off) with a real SI_API_KEY to execute a
+    # live comparison — see README "Run it yourself".
+    hosted_demo_read_only: bool = False
+
     data_dir: str = "data"
 
     # Absolute path so this resolves the same whether the app is run from the
