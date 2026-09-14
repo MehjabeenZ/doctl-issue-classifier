@@ -219,12 +219,16 @@ customer inclined to assume scale is the answer.
   engineering can squeeze out of it), `temperature=0`.
 - **Metrics**: accuracy, per-class precision/recall/F1 with explicit `None`
   for zero-support classes (never a misleading 0%), confusion matrices
-  (row-normalized — "of all real bugs, what fraction did the model call
-  bugs"), p50/p95 latency paired with the concurrency they were measured at,
-  wall-clock, throughput (req/s), and **cost per correct classification** as
-  the headline economic number — raw cost-per-call ignores accuracy, raw
-  accuracy ignores cost, this composite answers the customer's actual
-  question in one number.
+  (shaded by ground-truth support, so a class with failed calls can't render
+  as if every prediction landed), p50/p95 latency paired with the concurrency
+  they were measured at, wall-clock, throughput (req/s), and **full-run cost
+  per correct classification** as the headline economic number — raw
+  cost-per-call ignores accuracy, raw accuracy ignores cost, this composite
+  gets closer to the customer's actual question than either alone. One
+  caveat stated plainly: as computed, the numerator is cost across the full
+  corpus while the denominator is correct count on the scored subset — a
+  defensible workload-level proxy, not literally cost-per-call for one
+  matched population. See the table below and `OperationalMetrics.jsx`.
 
 ## Cost, latency, throughput
 
@@ -239,11 +243,14 @@ yourself" reproduces:
 |---|---|---|
 | Accuracy (301 scored) | 84.7% | 83.4% |
 | Total cost (536 calls) | $0.0567 | $0.0193 |
-| Cost per correct classification | $0.000222 | $0.0000767 |
+| Full-run cost / correct* | $0.000222 | $0.0000767 |
 | p50 / p95 latency | 416ms / 903ms | 2641ms / 6588ms |
 | Wall-clock (both models run concurrently) | 62.5s | 213.3s |
 | Throughput | 8.6 req/s | 2.5 req/s |
 | Errors (out of 536) | 3 rate-limited | 4 rate-limited |
+
+*total cost across all 536 calls ÷ correct count on the 301 scored issues —
+see the caveat above.
 
 Agreement rate between the two models across the full corpus: **89.8%**
 (475/529 comparable issues; 7 of 536 excluded because at least one model
@@ -315,8 +322,11 @@ is trustworthy there.
 
 Stated together since the exercise explicitly grades this list:
 
-- No authentication/authorization on the API (fine for a local demo; would
-  be a hard requirement before real exposure).
+- No per-user authentication/authorization model. The hosted deployment sits
+  behind a single shared HTTP Basic Auth credential (env-var gated, off by
+  default) specifically to stop anonymous public spend against a real SI key
+  — that's access control, not a real accounts/roles system. Before real
+  multi-user exposure, actual accounts and permissions would be required.
 - No real datastore — flat JSON files, single-writer, no concurrent-run
   support. The first thing to fix before scaling past one engineer / one
   repo at a time.
@@ -340,9 +350,8 @@ backend/app/        FastAPI eval harness (async, per-issue inference, retries, m
 frontend/            React UI: Scored / Unscored / Operational views
 data/raw/            frozen GitHub issue snapshot (stable across runs)
 data/processed/      ground_truth.json (scored, 301), silver_labels_unscored.json (dev-only, 235)
-data/runs/           persisted eval run results (per run_id), gitignored (transient)
-data/sample_results/ one committed demo result (dry_run_demo.json) so a persisted-result
-                     file ships in this deliverable independent of any specific run
+data/runs/           persisted eval run results (per run_id) — run_1789106490.json is the
+                     real, committed full-corpus result this README's numbers come from
 scripts/             ingestion, ground-truth construction, model screening/consistency/rate-limit probes
 Dockerfile           multi-stage: builds frontend, serves it + the API from one container
 ```
@@ -397,6 +406,10 @@ cd frontend && npm install && npm run dev
 
 ---
 
-For the full rationale behind every decision above — alternatives considered,
-why they were rejected, and a running log of what was found and fixed during
-real-API testing — see `DESIGN_DECISIONS.md`.
+Every decision above has more depth behind it than fits here on purpose —
+alternatives considered and rejected, exact numbers behind every claim, and a
+running log of bugs found and fixed during real-API testing — kept as a
+personal working document rather than included in this deliverable, since
+the exercise asks this README to carry the reasoning and conclusions, not a
+full decision log. Happy to go deeper on any specific tradeoff in the review
+session.
